@@ -216,3 +216,4 @@ class SsPortalShareCredWithDiffOrg(BasePage):
             message = self.read_value_from_element(self.hr_portal_reject_shared_creds_xpath)
             assert self.hr_portal_reject_shared_creds_text in message
             self.close_safari()
+
