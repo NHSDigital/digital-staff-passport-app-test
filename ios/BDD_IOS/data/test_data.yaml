@@ -182,3 +182,5 @@ RegisterInvalidUser:
 LoginCredentials:
   username: "07539033709"
   password: "Password@123"
+  password: "Password@123"
+
