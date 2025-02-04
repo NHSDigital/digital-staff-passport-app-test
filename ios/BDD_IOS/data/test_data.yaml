@@ -1,0 +1,186 @@
+RegisterUser:
+  title: "Mr"
+  name: "AutomationTwo"
+  surname: "User"
+  preferred_name: "pp"
+  dob_dd: "14"
+  dob_mm: "10"
+  dob_yyyy: "1993"
+  dob: "14 October 1993"
+  email: "parth.prajapati1@nhs.net"
+  phone_number: "+919712268468"
+  staff_group: 'Additional Clinical Services'
+  job_role: "Custom Job Role"
+  job_role_edit: "Custom Job Role update"
+  emp_status: 'Current employee or leaver'
+
+IdentityReview:
+  username: "AutomationTwo User"
+  employment_type1: "Permanent or fixed term"
+  employment_type2: "Temporary mover"
+  gender_1: "Male"
+  gender_2: "Female"
+  nationality: "British"
+  address_1: "Apartment 900, Trinity Square"
+  address_2: "Marsh Lane"
+  town: "London"
+  postcode: "LS98AY"
+  country: "United Kingdom"
+  decline_reason: "Unable to confirm identity of the individual"
+
+CredentialReview:
+  esr_cov: "70000034"
+  esr_sheff: "70000034"
+  esr_don: "70000034"
+  esr_invalid: "70000000"
+
+Share_Journey:
+  Doncaster_link: "https://ss-dbthuat.staffpassports.nhs.uk/enrol"
+  Sheffield_link: "https://ss-sthuat.staffpassports.nhs.uk/enrol"
+  Coventry_link: "https://ss-uhcwuat.staffpassports.nhs.uk/enrol"
+  Doncaster_hr_url: "https://hr-dbthuat.staffpassports.nhs.uk"
+  Sheffield_hr_url: "https://hr-sthuat.staffpassports.nhs.uk"
+  Coventry_hr_url: "https://hr-uhcwuat.staffpassports.nhs.uk"
+
+Share_journey_email:
+  Different_email: "minakshivb@gmail.com"
+
+TemporaryCredential:
+  position_title: "Surgeon"
+  position_number: "420"
+  Brief_description_of_work_pattern: "Working 1 day a week"
+  start_date: "01"
+  start_month: "10"
+  start_year: "2024"
+  end_date: "08"
+  end_month: "12"
+  end_year: "2024"
+  Permanent_employer_coventry: "University Hospitals Coventry and Warwickshire NHS Trust"
+  Permanent_employer_Sheffield: "Sheffield Teaching Hospitals NHS Foundation Trust"
+  Permanent_employer_doncaster: "Doncaster and Bassetlaw Teaching Hospitals NHS Foundation Trust"
+  Permanent_employer_other: "Other"
+  Enter_your_employer_in_the_text_box_field: "New trust"
+  Department: "Urology"
+  Department_contact_name: "Minakshi"
+  Department_contact_email_address: "Minakshi.bharne1@nhs.net"
+  Department_contact_telephone_number: "+91-9405938700"
+  HR_contact: "Minakshi Vinod"
+  Approved_by: "Devashish"
+  Additional_information_optional: "Temporary credentials"
+
+EmploymentStatus:
+  EmploymentStatus_type1: "CurrentEmployeeOrLeaver"
+  EmploymentStatus_type2: "NewStarter"
+
+User_Management:
+  First_name: "AutomationTwo"
+  Last_name: "User"
+  New_Email: "automationtest@nhs.net"
+  Email: "parthprajapati29@gmail.com"
+
+PendingStaffPassportUsers:
+  auto_username: "Minakshi Bharne"
+
+RevokeCredentialReason:
+  Reason_1: "TrainingExpiry"
+  Reason_2: "LeavingOrganisation"
+  Reason_3: "CredentialProvidedInError"
+  Reason_4: "LostPhone"
+  Reason_5: "NoLongerValid"
+  Reason_6: "SuspectNoLongerValid"
+  Reason_7: "StaffMemberDeceased"
+
+WithdrawCredentialName:
+  Reason_1: "Disclosure and Barring Service (DBS)"
+  Reason_2: "Occupational health"
+  Reason_3: "Professional registration"
+  Reason_4: "Employment assignment"
+  Reason_5: "Temporary placement"
+  Reason_6: "Conflict resolution"
+  Reason_7: "Equality diversity and human rights"
+  Reason_8: "Fire safety"
+  Reason_9: "Health safety and welfare"
+  Reason_10: "Infection prevention and control (Level 1)"
+  Reason_11: "Infection prevention and control (Level 2)"
+  Reason_12: "Information governance and data security"
+  Reason_13: "Moving and handling (Level 1)"
+  Reason_14: "Moving and handling (Level 2)"
+  Reason_15: "Preventing radicalisation basic prevent awareness"
+  Reason_16: "Preventing radicalisation prevent awareness"
+  Reason_17: "Resuscitation"
+  Reason_18: "Resuscitation adult basic life support"
+  Reason_19: "Resuscitation adult immediate life support"
+  Reason_20: "Resuscitation newborn basic life support"
+  Reason_21: "Resuscitation newborn immediate life support"
+  Reason_22: "Resuscitation paediatric basic life support"
+  Reason_23: "Resuscitation paediatric immediate life support"
+  Reason_24: "Safeguarding adults (Level 1)"
+  Reason_25: "Safeguarding adults (Level 2)"
+  Reason_26: "Safeguarding adults (Level 3)"
+  Reason_27: "Safeguarding children (Level 1)"
+  Reason_28: "Safeguarding children (Level 2)"
+  Reason_29: "Safeguarding children (Level 3)"
+  Reason_30: "Tuberculosis"
+  Reason_31: "Varicella"
+
+WithdrawCredentialReason:
+  Reason_1: "IssuedInError"
+  Reason_2: "UpdatedInformation"
+  Reason_3: "NoLongerValid"
+
+ESRNumber:
+  Doncaster_01: "70000032"
+  Doncaster_02: "70000033"
+  Coventry_01: "70000034"
+  Coventry_02: "70000035"
+  Sheffield_01: "70000036"
+  Sheffield_02: "70000037"
+
+ManageJobRole:
+  role: "Medical and Dental"
+  Job_role_name: "Custom Job Role"
+  Job_role_name_1: "Custom Job Role two"
+  Template_name: "Custom Credentials Template"
+  Staff_group: "MedicalAndDental"
+  Staff_group_role: "AdditionalClinicalServices"
+  Select_job_role:  "SRtest"
+  New_job_role: "Custom Job Role update"
+  Invalid_JobRole: "Jobrole$%3in"
+
+GlobalUserSearch:
+  username_1: "Automation"
+  username_2: "Unknown"
+  username_3: "@$&%"
+
+PreferredNameUpdate:
+  new_name: "AIalgorithm"
+
+Rbac:
+  User_setup: "image test"
+  HR_user: "parthprajapati29@gmail.com"
+
+BulkUser:
+  username: "Testuserautomation"
+
+SupportEmail:
+  Hr_support_email_address: "hr.support1@test.co.uk"
+  Medical_Hr_support_email_address: "hr.med1@test.co.uk"
+  info_governance_email_address: "ig1@test.co.uk"
+  dpo_name: "test"
+
+NotificationSettings:
+  Hr_team_notification: "hrteam1@test.co.uk"
+  Oh_team_notification: "ohteam1@test.co.uk"
+  Education_team_notification: "educationteam1@test.co.uk"
+
+RegisterInvalidUser:
+  Invalid_name: "Minak$"
+  Invalid_surname: "Test$%3in"
+  Invalid_email: "minakshi.bharne@@@nhs.net"
+  Invalid_phone_number: "00000000#@S00"
+
+LoginCredentials:
+  username: "07539033709"
+  password: "Password@123"
+  password: "Password@123"
+
