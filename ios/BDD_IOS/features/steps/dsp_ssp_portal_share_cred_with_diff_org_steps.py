@@ -1,8 +1,8 @@
 import logging
 
 from behave import given, when, then
-from pages.base_page import BasePage
-from pages.ssp_share_credential_with_diff_org import SsPortalShareCredWithDiffOrg
+from ios.BDD_IOS.pages.base_page import BasePage
+from ios.BDD_IOS.pages.ssp_share_credential_with_diff_org import SsPortalShareCredWithDiffOrg
 
 @then('Review shared credential and click accept all checkbox')
 def ss_portal_share_cred_with_different_org(context):

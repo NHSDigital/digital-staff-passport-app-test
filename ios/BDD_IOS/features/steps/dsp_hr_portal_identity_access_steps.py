@@ -3,8 +3,8 @@ Steps definition w.r.t (Identity & Access) features
 """
 from behave import given, when, then
 
-from pages.hr_identity_and_access import HRIdentityAndAccessPage
-from pages.base_page import BasePage
+from ios.BDD_IOS.pages.hr_identity_and_access import HRIdentityAndAccessPage
+from ios.BDD_IOS.pages.base_page import BasePage
 
 @then('Click on the Identity & Access Tab with HR Portal')
 def hr_portal_identity_access(context):

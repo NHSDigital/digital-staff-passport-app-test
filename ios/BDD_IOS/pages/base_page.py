@@ -18,8 +18,8 @@ from selenium.common.exceptions import TimeoutException, InvalidSelectorExceptio
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
-from utilities import custom_logger
-from utilities.read_config import ReadProperty
+from ios.BDD_IOS.utilities import custom_logger
+from ios.BDD_IOS.utilities.read_config import ReadProperty
 
 # Set up logging configuration
 logger = custom_logger.get_logger()
@@ -168,6 +168,23 @@ class BasePage:
             logger.info("Browser is open")
             return self.driver
 
+    def open_browser_mobile_simulator(self):
+        """Open browser based on the browser and run the appium server"""
+        if ReadProperty.read_config("configuration", "browser_mobile") == 'Safari':
+            options = AppiumOptions()
+            options.load_capabilities({
+                "platformName": "iOS",
+                "appium:platformVersion": "18.1",
+                "appium:deviceName": "iPhone 16 Pro",
+                "appium:automationName": "XCUITest",
+                "appium:udid": "8CC046FE-40B5-4658-A286-1E80D76133EB",
+                "appium:app": "com.apple.mobilesafari"
+            })
+            appium_server_url = 'http://127.0.0.1:4723'
+            self.driver = appium_webdriver.Remote(appium_server_url, options=options)
+            logger.info("Browser is open")
+            return self.driver
+
     def open_ios_app(self):
         """Open the ios app with below capabilities"""
         if ReadProperty.read_config("configuration", "browser_mobile") == 'Safari':
@@ -230,7 +247,7 @@ class BasePage:
     def get_test_data(page, field, filename):
         """to read test data"""
         try:
-            file_path = os.path.join("data", filename)
+            file_path = os.path.join("ios/BDD_IOS/data", filename)
             path = os.path.abspath(file_path)
             with open(path, 'r', encoding="utf-8") as f_f:
                 doc = yaml.safe_load(f_f)
@@ -343,7 +360,6 @@ class BasePage:
         })
         logger.info("Scroll up feature")
 
-
     def verify_element_visible(self, by_obj_type, by_locator, objname=None):
         """verify the element"""
         time.sleep(3)
@@ -355,7 +371,6 @@ class BasePage:
             logger.info("Object is not visible: %s", objname)
             return False
 
-
     def click_element_wait(self, by_bojtype, by_locator, objname=None):
         """clicks the element passed as by_locator"""
         try:
@@ -364,7 +379,6 @@ class BasePage:
             logger.info("%s is clicked", objname)
         except InvalidSelectorException:
             logger.error("Exception! Can't click on the element %s", objname)
-
 
     def get_element_count(self, by_obj_type, by_locator):
         """to get the number of elements """
@@ -380,7 +394,7 @@ class BasePage:
     def scroll_to_element(self, by_bojtype, by_locator):
         """scroll till the element is visible"""
         el = self.driver.find_element(by_bojtype, by_locator)
-        self.driver.execute_script('mobile: scroll', {"direction": "up","element": el, "toVisible": True})
+        self.driver.execute_script('mobile: scroll', {"direction": "up", "element": el, "toVisible": True})
 
     def read_text_from_element(self, by_obj_type, by_locator):
         """returns the value of .text property of a web element"""
@@ -412,6 +426,6 @@ class BasePage:
     def close_safari(self):
         """Closes the Safari browser on iOS."""
         try:
-          self.driver.quit()
+            self.driver.quit()
         except Exception as e:
-          print(f"Error closing Safari: {e}")
+            print(f"Error closing Safari: {e}")

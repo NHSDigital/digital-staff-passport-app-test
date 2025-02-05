@@ -2,8 +2,8 @@
 Steps definition w.r.t Temporary credentials provided
 """
 from behave import given, when, then
-from pages.hr_temporary_placement_credential import HRTemporaryPlacementCredentialPage
-from pages.base_page import BasePage
+from ios.BDD_IOS.pages.hr_temporary_placement_credential import HRTemporaryPlacementCredentialPage
+from ios.BDD_IOS.pages.base_page import BasePage
 
 
 @then('HR User clicked on Create temporary placement credential link')

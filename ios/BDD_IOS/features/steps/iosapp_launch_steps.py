@@ -2,9 +2,9 @@
 import logging
 
 from behave import given, when, then
-from pages.app_safari_launch import SafariAppAutomation
-from pages.base_page import BasePage
-from pages.ios_app import IosAppAutomation
+from ios.BDD_IOS.pages.app_safari_launch import SafariAppAutomation
+from ios.BDD_IOS.pages.base_page import BasePage
+from ios.BDD_IOS.pages.ios_app import IosAppAutomation
 
 
 @given("the ios app is launched with the specified activity")

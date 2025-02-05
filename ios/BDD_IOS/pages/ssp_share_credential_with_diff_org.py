@@ -4,8 +4,8 @@ of Share credential with different organisation page ,and is called in the step 
 
 from selenium.webdriver.common.by import By
 from appium.webdriver.common.appiumby import AppiumBy
-from pages.base_page import BasePage
-from utilities import custom_logger
+from ios.BDD_IOS.pages.base_page import BasePage
+from ios.BDD_IOS.utilities import custom_logger
 logger = custom_logger.get_logger()
 
 

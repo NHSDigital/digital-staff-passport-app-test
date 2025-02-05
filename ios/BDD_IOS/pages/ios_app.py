@@ -1,8 +1,8 @@
 """page object file for app logon"""
 from selenium.common import TimeoutException
-from pages.base_page import BasePage
+from ios.BDD_IOS.pages.base_page import BasePage
 from appium.webdriver.common.appiumby import AppiumBy
-from utilities import custom_logger
+from ios.BDD_IOS.utilities import custom_logger
 
 # Set up logging configuration
 logger = custom_logger.get_logger()
