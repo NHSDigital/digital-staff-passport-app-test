@@ -2,8 +2,8 @@
 Steps definition for Reviewed staff passport features
 """
 from behave import given, when, then
-from pages.base_page import BasePage
-from pages.hr_reviewed_staff_passport import HRReviewedStaffPassportPage
+from ios.BDD_IOS.pages.base_page import BasePage
+from ios.BDD_IOS.pages.hr_reviewed_staff_passport import HRReviewedStaffPassportPage
 
 
 @then('Click on the Reviewed Staff Passport Tab under HR Portal')

@@ -2,9 +2,9 @@ from appium.webdriver.common.appiumby import AppiumBy
 from appium.webdriver.common.touch_action import TouchAction
 from selenium.webdriver.common.by import By
 
-from pages.base_page import BasePage
-from utilities.read_config import ReadProperty
-from utilities import custom_logger
+from ios.BDD_IOS.pages.base_page import BasePage
+from ios.BDD_IOS.utilities.read_config import ReadProperty
+from ios.BDD_IOS.utilities import custom_logger
 
 logger = custom_logger.get_logger()
 
