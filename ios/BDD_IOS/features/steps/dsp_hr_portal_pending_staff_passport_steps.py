@@ -2,8 +2,8 @@
 Steps definition for Pending staff passport features
 """
 from behave import given, when, then
-from ios.BDD_IOS.pages.hr_pending_staff_passport import HRPendingStaffPassportPage
-from ios.BDD_IOS.pages.base_page import BasePage
+from pages.hr_pages.hr_pending_staff_passport import HRPendingStaffPassportPage
+from pages.base_page import BasePage
 
 
 @then('Click on the Pending Staff Passport Tab under HR Portal')

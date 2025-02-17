@@ -30,7 +30,7 @@ def get_logger():
     logger.setLevel(logging.INFO)
     formatter = logging.Formatter('%(asctime)s:%(levelname)s:%(message)s')
     allure_handler = LogGenerator()
-    file_handler = logging.FileHandler(os.path.join("logs", 'aos_app.log'))
+    file_handler = logging.FileHandler(os.path.join("logs", 'dsp.log'))
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
     logger.addHandler(allure_handler)
