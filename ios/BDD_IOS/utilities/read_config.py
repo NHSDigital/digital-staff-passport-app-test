@@ -9,7 +9,7 @@ class ReadProperty:
     def read_config(self, key):
         """method to return the config file"""
         config = ConfigParser()
-        config_path = os.path.join('IOS/BDD_IOS/configuration', 'config.ini')
+        config_path = os.path.join('configuration', 'config.ini')
         config.read(config_path)
         return config.get(self, key)
 

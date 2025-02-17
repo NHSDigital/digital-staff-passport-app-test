@@ -2,15 +2,15 @@ import logging
 
 from behave import given, when, then
 
-from ios.BDD_IOS.pages.base_page import BasePage
-from ios.BDD_IOS.pages. hr_login_mob import HRPortalLoginMob  # Import the NHSAppAutomation class
-from ios.BDD_IOS.utilities import custom_logger
+from pages.base_page import BasePage
+from pages.hr_pages.hr_login_mob import HRPortalLoginMob  # Import the NHSAppAutomation class
+
 
 
 @given('Browser is open and user clicks on HR login link')
 def get_browser_register_link(context):
-    # context.driver = logging.FileHandler.selenium_driver = HRPortalLoginMob.open_browser_mobile(context)
-    context.driver = logging.FileHandler.selenium_driver = HRPortalLoginMob.open_browser_mobile_simulator(context)
+    context.driver = logging.FileHandler.selenium_driver = HRPortalLoginMob.open_browser_mobile(context)
+    # context.driver = logging.FileHandler.selenium_driver = HRPortalLoginMob.open_browser_mobile_simulator(context)
     context.hr_portal_login = HRPortalLoginMob(context.driver)
     context.hr_portal_login.hr_portal_login_homepage()
 

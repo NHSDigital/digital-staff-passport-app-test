@@ -1,6 +1,8 @@
 from behave import *
-from ios.BDD_IOS.pages.hr_passport_user_profile_validation import HrPortalPassportUserProfileValidation
-from ios.BDD_IOS.pages.base_page import BasePage
+from pages.hr_pages.hr_passport_user_profile_validation import HrPortalPassportUserProfileValidation
+from pages.base_page import BasePage
+
+
 
 @then('Validate the passport status w.r.t pending credential')
 def hr_portal_passport_status_pending_creds(context):
