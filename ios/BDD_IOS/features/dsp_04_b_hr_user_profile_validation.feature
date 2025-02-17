@@ -1,8 +1,5 @@
 Feature: HR Portal user profile data expected validation
 
-  #incomplete
-  # This automation in incomplete as discussed with devashish because we are unable to find fname, lname ...etc text
-
   Scenario: HR user - Check if the user profile data is expected
     Given Browser is open and user clicks on HR login link
     When Enter the credentials & click on login button

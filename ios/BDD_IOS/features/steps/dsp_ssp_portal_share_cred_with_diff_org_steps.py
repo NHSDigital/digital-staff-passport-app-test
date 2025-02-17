@@ -1,8 +1,11 @@
-import logging
-
+"""
+Steps definition w.r.t share cred with different org
+"""
 from behave import given, when, then
-from ios.BDD_IOS.pages.base_page import BasePage
-from ios.BDD_IOS.pages.ssp_share_credential_with_diff_org import SsPortalShareCredWithDiffOrg
+from pages.base_page import BasePage
+from pages.hr_pages.ssp_share_credential_with_diff_org import SsPortalShareCredWithDiffOrg
+
+
 
 @then('Review shared credential and click accept all checkbox')
 def ss_portal_share_cred_with_different_org(context):

@@ -2,7 +2,8 @@
 Steps definition w.r.t create a new identity credential features
 """
 from behave import given, when, then
-from ios.BDD_IOS.pages.hr_create_new_identity_credential import HRPortalCreateNewIdentityCredentialPage
+from pages.hr_pages.hr_create_new_identity_credential import HRPortalCreateNewIdentityCredentialPage
+
 
 
 @then('Click on create a new identity credential link on staff passport for user page')
