@@ -3,3 +3,5 @@ screenshots/
 logs/
 data/
 pages/__pycache__/
+.idea
+venv
