@@ -201,3 +201,101 @@ def user_verifies_dbs_supporting_documents_removed(context):
 def user_verifies_dbs_supporting_documents_listed(context):
     """step to verify DBS supporting documents is listed under confirmed credentials"""
     assert context.review_creds.verify_dbs_supporting_documents_listed(), "DBS supporting documents is not listed under confirmed credentials"
+
+
+@then("user click account icon")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    raise NotImplementedError(u'STEP: Then user click account icon')
+
+
+@then("user is accounts and settings page")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    raise NotImplementedError(u'STEP: Then user is accounts and settings page')
+
+
+@then("user see delete your NHS digital staff passport section and verifies the message inside")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    raise NotImplementedError(
+        u'STEP: Then user see delete your NHS digital staff passport section and verifies the message inside')
+
+
+@then('user see security and privacy section and a link "terms of use and other policies" inside')
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    raise NotImplementedError(
+        u'STEP: Then user see security and privacy section and a link "terms of use and other policies" inside')
+
+
+@then("user see question icon")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    raise NotImplementedError(u'STEP: Then user see question icon')
+
+
+@when("user clicks on back link")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    raise NotImplementedError(u'STEP: When user clicks on back link')
+
+
+@then("user is on home page")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    raise NotImplementedError(u'STEP: Then user is on home page')
+
+
+@when("user clicks on identity credential")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    raise NotImplementedError(u'STEP: When user clicks on identity credential')
+
+
+@then("user is on credentials page with dates")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    raise NotImplementedError(u'STEP: Then user is on credentials page with dates')
+
+
+@when("user clicks on right to work credential")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    raise NotImplementedError(u'STEP: When user clicks on right to work credential')
+
+
+@when("user clicks on DBS supporting documents")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    raise NotImplementedError(u'STEP: When user clicks on DBS supporting documents')
+
+
+@then("user verifies back link is present")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    raise NotImplementedError(u'STEP: Then user verifies back link is present')
