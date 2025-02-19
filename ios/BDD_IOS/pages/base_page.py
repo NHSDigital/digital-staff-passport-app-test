@@ -182,11 +182,11 @@ class BasePage:
         else:
             logger.error("Exception! Can't click on the element %s", objname)
 
-    def read_value_from_element(self, by_locator):
+    def read_value_from_element(self, by_locator, element_name=None):
         """Returns the text of a web element."""
         element = self.find_element(by_locator)
         if element:
-            logger.info("Element value is : %s", element.text)
+            logger.info(element_name, "Element value is : %s", element.text)
             return element.text
         else:
             logger.info("Exception! Can't read value from element")
@@ -209,14 +209,14 @@ class BasePage:
             logger.error("Element not found: %s", by_locator)
             return None
 
-    def verify_element_displayed(self, by_locator):
+    def verify_element_displayed(self, by_locator, element_name=None):
         """checks if the element is displayed"""
         try:
             element = WebDriverWait(self.driver,
                                     60).until(EC.presence_of_element_located(by_locator))
             return element
         except InvalidSelectorException:
-            logger.error("Element not found")
+            logger.error(element_name,"Element not found")
             return "Element not found"
 
     def type_element(self, by_locator, text):
