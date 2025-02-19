@@ -8,6 +8,7 @@ from pages.base_page import BasePage
 class DspOrgAcceptID(BasePage):
     """ Methods for the DSP APP """
 
+    finger_recog_continue_button_xpath = AppiumBy.XPATH, ''
     pin_input_xpath = AppiumBy.XPATH, ''
     continue_button_xpath = AppiumBy.XPATH, ''
     homepage_welcome_xpath = AppiumBy.XPATH, ''
@@ -19,7 +20,15 @@ class DspOrgAcceptID(BasePage):
     credential_ready_to_review_text = AppiumBy.XPATH, ''
     homepage_action_tag_xpath = AppiumBy.XPATH, ''
     homepage_action_tag_text = "ready to review"
+    waiting_org_review_xpath = AppiumBy.XPATH, ''
+    trust_name_xpath = AppiumBy.XPATH, ''
+    receive_message_xpath = AppiumBy.XPATH, ''
 
+
+    def app_finger_recog_continue_click(self):
+        """Function to click on continue button on fingerprint recognition page"""
+        if self.verify_element_displayed(self.finger_recog_continue_button_xpath):
+            self.click_element(self.finger_recog_continue_button_xpath, "Click")
 
     def app_enter_pin(self):
         """Function to enter pin on app startup"""
@@ -71,3 +80,18 @@ class DspOrgAcceptID(BasePage):
             message = self.read_value_from_element(self.homepage_action_tag_xpath)
             assert self.homepage_action_tag_text in message
             self.take_screenshot("PASS")
+
+    def app_trust_name_validate(self):
+        """Function to validate the trusted name on waiting page"""
+        if self.verify_element_displayed(self.trust_name_xpath):
+            self.click_element(self.trust_name_xpath, "Click")
+
+    def app_waiting_message_validate(self):
+        """Function to validate the waiting for organisation to review"""
+        if self.verify_element_displayed(self.waiting_org_review_xpath):
+            self.click_element(self.waiting_org_review_xpath, "Click")
+
+    def validate_receive_email_message_validate(self):
+        """Function to validate the receive_email message on waiting page"""
+        if self.verify_element_displayed(self.receive_message_xpath):
+            self.click_element(self.receive_message_xpath, "Click")
