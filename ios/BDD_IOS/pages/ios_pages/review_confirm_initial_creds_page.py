@@ -91,7 +91,6 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
         """method to verify the credentials icon"""
         return self.verify_element_displayed(self.credentials_icon, "credentials icon")
 
-
     def verify_identity_credential(self):
         """method to verify the identity credential"""
         return self.verify_element_displayed(self.identity_credentials, "identity credentials")
@@ -112,7 +111,6 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
         """method to click on identity credential"""
         self.click_element(self.identity_credentials, "identity credentials")
 
-
     def verify_provided_by_trust(self):
         """method to verify provided by trust"""
         return self.verify_element_displayed(self.provided_by_trust, "provided by trust")
@@ -120,7 +118,6 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
     def verify_identity_credential_details(self):
         """method to verify the identity credential details"""
         return self.verify_element_displayed(self.photo_of_your_face)
-
 
     def verify_something_not_right_link(self):
         """method to verify the something not right link"""
@@ -130,11 +127,9 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
         """method to click on confirm credential button"""
         self.click_element(self.confirm_credential_button, "confirm credential button")
 
-
     def verify_confirming_credential_spinner(self):
         """method to verify the confirming credential spinner"""
         return self.verify_element_displayed(self.confirming_credentials_spinner, "confirming credentials spinner")
-
 
     def verify_credentials_confirmed_page(self):
         """method to verify the credentials confirmed page"""
@@ -143,7 +138,6 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
     def verify_text_on_page(self):
         """method to verify the text on the page"""
         return self.verify_element_displayed(self.credentials_confirmed_message, "credentials confirmed message")
-
 
     def click_back_to_my_credentials_button(self):
         """method to click back to my credentials button"""
@@ -161,7 +155,6 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
         """method to verify the identity listed"""
         return self.verify_element_displayed(self.identity_credentials, "identity credentials")
 
-
     def click_right_to_work_credentials(self):
         """method to click on right to work credentials"""
         self.click_element(self.right_to_work_credentials, "right to work credentials")
@@ -169,7 +162,6 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
     def verify_right_to_work_credential_details(self):
         """method to verify the right to work credential details"""
         return self.verify_element_displayed(self.rtw_name_title, "right to work name title")
-
 
     def verify_something_went_wrong_link(self):
         """method to verify the something went wrong link"""
@@ -195,9 +187,8 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
         """method to verify the dbs supporting documents details"""
         return self.verify_element_displayed(self.dbs_name_title, "dbs name title")
 
-
     def verify_dbs_supporting_documents_removed(self):
-        """method to verify the dbs supporting documents removed"""
+        """method for dbs supporting documents removed"""
         return self.verify_element_displayed(self.dbs_supporting_information, "dbs supporting information")
 
     def verify_dbs_supporting_documents_listed(self):
