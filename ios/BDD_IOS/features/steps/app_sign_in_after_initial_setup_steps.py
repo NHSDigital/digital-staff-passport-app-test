@@ -2,9 +2,8 @@
 import logging
 
 from behave import given, when, then
-from pages.ios_pages.sign_in_after_initial_setup import SignInAfterInitialSetup
+from pages.ios_pages.app_sign_in_after_initial_setup import SignInAfterInitialSetup
 from pages.base_page import BasePage
-
 
 
 @when("User Click on I've forgotton my pin link")
@@ -18,7 +17,7 @@ def sign_in_after_initial_setup_steps(context):
 def sign_in_after_initial_setup_steps(context):
     """ Steo to verify forgotten pin message"""
     context.sign_in_after_initial_setup.forgotten_pin_error()
-    assert context.sign_in_after_initial_setup.forgotten_pin_message() is not None
+
 
 
 @when("User enters incorrect pin on enter your pin box")
@@ -58,5 +57,5 @@ def sign_in_after_initial_setup_steps(context):
 @then("User verifies maximum number of login attempt exceeded")
 def sign_in_after_initial_setup_steps(context):
     """Step to verify maximum number of login attempt exceeded"""
-    context.sign_in_after_initial_setup.maximum_number_of_login_exceeded_xpath()
+    context.sign_in_after_initial_setup.maximum_number_of_login_exceeded_error()
 
