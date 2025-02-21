@@ -74,9 +74,11 @@ class SignInAfterInitialSetup(BasePage):
         assert self.incorrect_pin_1attempt_remaining_text in message
         self.take_screenshot("PASS")
 
+
     def maximum_number_of_login_exceeded_error(self):
         """function to verify incorrect pin attempts exceeded error message"""
         self.verify_element_displayed(self.maximum_number_of_login_exceeded_xpath)
         message = self.read_value_from_element(self.maximum_number_of_login_exceeded_xpath)
         assert self.maximum_number_of_login_exceeded_text in message
         self.take_screenshot("PASS")
+

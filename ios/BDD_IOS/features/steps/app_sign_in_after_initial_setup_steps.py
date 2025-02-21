@@ -19,14 +19,12 @@ def sign_in_after_initial_setup_steps(context):
     context.sign_in_after_initial_setup.forgotten_pin_error()
 
 
-
 @when("User enters incorrect pin on enter your pin box")
 def sign_in_after_initial_setup_steps(context):
     """ Step to enter incorrect pin on enter your pin box"""
     context.sign_in_after_initial_setup.enter_incorrect_pin_value_in_input_box()
     BasePage.get_test_data("IdentityReview", "Incorrect_pin",
                            "test_data.yaml")
-
 
 
 @then("User clicks on Continue button on log in page")
@@ -39,7 +37,6 @@ def sign_in_after_initial_setup_steps(context):
 def sign_in_after_initial_setup_steps(context):
     """ Step to verify Incorrect pin. you have (2) tries remaining"""
     context.sign_in_after_initial_setup.incorrect_pin_2attempts_remaining_error()
-
 
 
 @then("User re-enters incorrect pin on enter your pin box")

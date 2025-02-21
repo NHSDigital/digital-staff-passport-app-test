@@ -37,10 +37,8 @@ def sign_in_after_initial_setup_steps(context):
     context.AppAccountsandSettings.verify_delete_your_staff_passport_page()
 
 
-
 @then("User clicks on terms of use and other policies link")
 def sign_in_after_initial_setup_steps(context):
     """step to clicks on terms of use and other policies link """
     context.AppAccountsandSettings.click_on_terms_of_use_and_other_policies()
-
 
