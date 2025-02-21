@@ -58,6 +58,7 @@ def user_verifies_version_number(context):
     """step to verify version number"""
     context.review_and_confirm_initial_creds_page.verify_version_number()
 
+
 @then("user is landed on home page")
 def user_landed_on_home_page(context):
     """step to verify home page"""

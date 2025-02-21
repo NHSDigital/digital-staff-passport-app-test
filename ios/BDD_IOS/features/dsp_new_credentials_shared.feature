@@ -19,3 +19,4 @@ Feature: New credentials shared page
     Given user is on splash screen
     When user provide wrong face
     Then user gets an error message
+
