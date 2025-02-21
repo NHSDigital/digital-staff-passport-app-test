@@ -184,7 +184,3 @@ LoginCredentials:
   password: "Password@123"
   password: "Password@123"
 
-#DSP App test data
-CreatePin:
-  set_pin: "159753"
-  confirm_pin: "159753"
