@@ -212,19 +212,19 @@ class BasePage:
     def verify_element_displayed(self, by_locator):
         """checks if the element is displayed"""
         try:
-            element = WebDriverWait(self.driver,
-                                    60).until(EC.presence_of_element_located(by_locator))
-            return element
+            WebDriverWait(self.driver,60).until(EC.presence_of_element_located(by_locator))
+            return True
         except InvalidSelectorException:
             logger.error("Element not found")
-            return "Element not found"
+            return False
 
-    def type_element(self, by_locator, text):
+    def type_element(self, by_locator, text, objname=None):
         """types the passed text into the web element"""
         try:
             WebDriverWait(self.driver,
                           30).until(EC.presence_of_element_located(by_locator)).send_keys(text)
             logger.info("Value entered is: %s for field.", text)
+            logger.info("Value entered is: %s for field.", objname)
         except InvalidSelectorException:
             logger.error("Exception! Can't type on the element")
 

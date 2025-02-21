@@ -11,9 +11,9 @@ logger = custom_logger.get_logger()
 class IosAppAutomation(BasePage):
     """Methods to launch ios app"""
 
-    continue_button_xpath = AppiumBy.XPATH, "(//XCUIElementTypeOther[@name=\"Continue\"])[2]"
+    continue_button_xpath = AppiumBy.XPATH, "//XCUIElementTypeButton[@name=\"continue-button\"]"
+
 
     def ios_app_homepage_click_on_continue_button(self):
         """Function to click on the continue button on the app homepage"""
-        if self.verify_element_displayed(self.continue_button_xpath):
-            self.click_element(self.continue_button_xpath, "Click")
+        self.click_element(self.continue_button_xpath, "Click"), "first page continue"
