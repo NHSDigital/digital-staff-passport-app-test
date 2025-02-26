@@ -74,7 +74,7 @@ Feature: Review and confirm initial three credentials
       | Name                 |
       | DOB                  |
       | Passport expiry date |
-#Name, Date of birth, Verified current address, Resident from, Passport number, Passport nationality,Passport issue date, Confirm credential button
+    
   Scenario Outline: Verify DBS supporting information
     When user click DBS supporting documents
     Then user verifies the page heading
