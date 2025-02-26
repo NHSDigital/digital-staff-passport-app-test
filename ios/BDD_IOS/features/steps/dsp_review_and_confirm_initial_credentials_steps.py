@@ -70,10 +70,16 @@ def user_verifies_provided_by_trust(context):
     assert context.review_creds.verify_provided_by_trust(), "Provided by Trust is not displayed"
 
 
-@then("user verifies the identity credential details - Name,DOB, Legal gender, Nationality, issued on")
-def user_verifies_identity_credential_details(context):
+@then('user verifies the identity credential details - "{field}"')
+def user_verifies_identity_credential_details(context, field):
     """step to verify identity credential details"""
-    assert context.review_creds.verify_identity_credential_details()
+    actual_details_mapping = {"Name": context.review_creds.read_name_on_identity_credentials_page,
+                      "DOB": context.review_creds.read_dob_on_identity_credentials_page,
+                      "Legal gender": context.review_creds.read_legal_gender_on_identity_credentials_page,
+                      "Nationality": context.review_creds.read_nationality_on_identity_credentials_page,
+                      "issued on": context.review_creds.read_issued_on_on_identity_credentials_page}
+
+    assert actual_details_mapping[field]() == BasePage.get_test_data("IdentityCredentials", field), f"{field} mismatch"
 
 
 @then("user verifies link something is not right")
@@ -136,16 +142,13 @@ def user_click_right_to_work_credential(context):
     context.review_creds.click_right_to_work_credential()
 
 
-@then(
-    "user verifies the right to work credential details - Photo of your face, name, DOB, Biometric page, passport expiry date"
-)
-def user_verifies_right_to_work_credential_details(context):
+@then('user verifies the right to work credential details - "{fields}"')
+def user_verifies_right_to_work_credential_details(context, fields):
     """step to verify right to work credential details"""
-    assert (
-        context.review_creds.verify_right_to_work_credential_details()
-    ), "Right to work credential details are not displayed"
-
-
+    actual_values_mapping = {"Name": context.review_creds.read_name_on_right_to_work_page,
+                             "DOB": context.review_creds.read_dob_on_right_to_work_page,
+                             "Passport expiry date": context.review_creds.read_passport_expiry_date_on_right_to_work_page}
+    assert actual_values_mapping[fields]() == BasePage.get_test_data("RightToWork", fields), f"{fields} mismatch"
 @then("user verifies link something went wrong")
 def user_verifies_something_went_wrong_link(context):
     """step to verify something went wrong link"""
@@ -183,12 +186,17 @@ def user_click_dbs_supporting_documents(context):
 
 
 @then(
-    "user verifies the DBS supporting documents details - Name, Date of birth, Verified current address, Resident from, Passport number, Passport nationality,Passport issue date, Confirm credential button")
-def user_verifies_dbs_supporting_documents_details(context):
+    'user verifies the DBS supporting documents details - "{fields}"')
+def user_verifies_dbs_supporting_documents_details(context, fields):
     """step to verify DBS supporting documents details"""
-    assert context.review_creds.verify_dbs_supporting_documents_details(), "DBS supporting documents details are not displayed"
-
-
+    actual_values_mapping = {"Name": context.review_creds.read_name_on_dbs_supporting_documents_page,
+                                "DOB": context.review_creds.read_dob_on_dbs_supporting_documents_page,
+                                "Verified current address": context.review_creds.read_verified_current_address_on_dbs_supporting_documents_page,
+                                "Resident from": context.review_creds.read_resident_from_on_dbs_supporting_documents_page,
+                                "Passport number": context.review_creds.read_passport_number_on_dbs_supporting_documents_page,
+                                "Passport nationality": context.review_creds.read_passport_nationality_on_dbs_supporting_documents_page,
+                                "Passport issue date": context.review_creds.read_passport_issue_date_on_dbs_supporting_documents_page}
+    assert actual_values_mapping[fields]() == BasePage.get_test_data("DBSSupportingDocuments", fields), f"{fields} mismatch"
 @then("user click confirm credential button")
 def user_click_confirm_credential_button(context):
     """step to click confirm credential button"""

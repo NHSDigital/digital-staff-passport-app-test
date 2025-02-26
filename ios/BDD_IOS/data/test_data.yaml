@@ -188,3 +188,25 @@ LoginCredentials:
 CreatePin:
   set_pin: "159753"
   confirm_pin: "159753"
+
+IdentityCredentials:
+  Name: John Doe
+  DOB: 01/01/1990
+  Legal gender: Male
+  Nationality: UK
+  Issued on: 2022-05-10
+
+RightToWorkCredentials:
+  name: ""
+  dob: ""
+  passport_expiry_date: ""
+
+DbsSupportingInformation:
+  name: ""
+  dob: ""
+  verified_current_address: ""
+  resident_from: ""
+  passport_number: ""
+  passport_nationality: ""
+  passport_issue_date: ""
+
