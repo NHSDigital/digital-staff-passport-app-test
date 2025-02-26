@@ -70,7 +70,13 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
     dbs_passport_issue_date_value = ''
     dbs_some_thing_is_not_right_link = ''
     dbs_confirm_credential_button = ''
-
+    email_content = ''
+    user_name_in_email_content = ''
+    splash_screen_text_content = ''
+    email_subject = ''
+    version_number = ''
+    nhs_logo = ''
+    home_icon = ''
     def read_identity_page_heading(self):
         """method to read the page heading"""
         return self.read_value_from_element(self.identity_page_heading, "identity page heading")
@@ -194,3 +200,99 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
     def verify_dbs_supporting_documents_listed(self):
         """method to verify the dbs supporting documents listed"""
         return self.verify_element_displayed(self.dbs_supporting_information, "dbs supporting information")
+
+    def verify_email_content(self):
+        """method to verify email content"""
+        return self.read_value_from_element(self.email_content)
+
+    def verify_user_name_in_email(self):
+        """method to verify user name in email"""
+        return self.read_value_from_element(self.user_name_in_email_content)
+
+    def verify_splash_screen_content(self):
+        """method to verify splash screen content"""
+        return self.read_value_from_element(self.splash_screen_text_content)
+
+    def provide_wrong_face(self):
+        """method to provide wrong face"""
+        pass
+
+    def wrong_face_error_message(self):
+        """method to get error message"""
+        pass
+
+    def verify_email_subject(self):
+        """method to verify email subject"""
+        return self.read_value_from_element(self.email_subject)
+
+    def verify_nhs_logo(self):
+        """method to verify nhs logo"""
+        return self.verify_element_displayed(self.nhs_logo, "nhs logo")
+
+    def verify_version_number(self):
+        """method to verify version number"""
+        return self.read_value_from_element(self.version_number)
+
+    def verify_home_page(self):
+        """method to verify home page"""
+        return self.verify_element_displayed(self.home_icon, "home icon")
+
+    def read_name_on_identity_credentials_page(self):
+        """method to read the name on identity credentials page"""
+        return self.read_value_from_element(self.name_value, "name value")
+
+    def read_dob_on_identity_credentials_page(self):
+        """method to read the dob on identity credentials page"""
+        return self.read_value_from_element(self.dob_value, "dob value")
+
+    def read_legal_gender_on_identity_credentials_page(self):
+        """method to read the gender value on identity credentials page"""
+        return self.read_value_from_element(self.legal_gender_value)
+
+    def read_nationality_on_identity_credentials_page(self):
+        """method to read the nationality value on identity credentials page"""
+        return self.read_value_from_element(self.nationality_value)
+
+    def read_issued_on_value_on_identity_credentials_page(self):
+        """method to read the issued on value on identity credentials page"""
+        return self.read_value_from_element(self.issued_on_value)
+
+    def read_name_on_right_to_work_page(self):
+        """method to read the name on right to work page"""
+        return self.read_value_from_element(self.rtw_name_value, "right to work name value")
+
+    def read_dob_on_right_to_work_page(self):
+        """method to read the dob on right to work page"""
+        return self.read_value_from_element(self.rtw_dob_value, "right to work dob value")
+
+    def read_passport_expiry_date_on_right_to_work_page(self):
+        """method to read the passport expiry date on right to work page"""
+        return self.read_value_from_element(self.rtw_passport_expiry_date_title)
+
+    def read_name_on_dbs_supporting_documents_page(self):
+        """method to read the name on dbs supporting documents page"""
+        return self.read_value_from_element(self.dbs_name_value, "dbs name value")
+
+    def read_dob_on_dbs_supporting_documents_page(self):
+        """method to read the dob on dbs supporting documents page"""
+        return self.read_value_from_element(self.dbs_dob_value, "dbs dob value")
+
+    def read_verified_current_address_on_dbs_supporting_documents_page(self):
+        """method to read the verified current address on dbs supporting documents page"""
+        return self.read_value_from_element(self.dbs_verified_current_address_value)
+
+    def read_resident_from_on_dbs_supporting_documents_page(self):
+        """method to read the resident from on dbs supporting documents page"""
+        return self.read_value_from_element(self.dbs_resident_from_value)
+
+    def read_passport_number_on_dbs_supporting_documents_page(self):
+        """method to read the passport number on dbs supporting documents page"""
+        return self.read_value_from_element(self.dbs_passport_number_value)
+
+    def read_passport_nationality_on_dbs_supporting_documents_page(self):
+        """method to read the passport nationality on dbs supporting information page"""
+        return self.read_value_from_element(self.dbs_passport_nationality_value)
+
+    def read_passport_issue_date_on_dbs_supporting_documents_page(self):
+        """method to read the passport issue date on dbs supporting documents page"""
+        return self.read_value_from_element(self.dbs_passport_issue_date_value)
