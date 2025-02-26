@@ -190,11 +190,11 @@ CreatePin:
   confirm_pin: "159753"
 
 IdentityCredentials:
-  name: John Doe
-  dob: 01/01/1990
-  legal_gender: Male
-  nationality: UK
-  issued_on: 2022-05-10
+  Name: John Doe
+  DOB: 01/01/1990
+  Legal gender: Male
+  Nationality: UK
+  Issued on: 2022-05-10
 
 RightToWorkCredentials:
   name: ""
