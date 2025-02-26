@@ -19,17 +19,17 @@ def dsp_app_create_pin_continue_button(context):
 
 @then('user validates the error "{message}"')
 def dsp_pin_error_validation(context, message):
-    error1 = 'PINs do not match'
-    error2 = 'PIN must be 6 digits, with no number repeated 3 times, and not sequential'
+    error_pin_do_not_match = 'PINs do not match'
+    error_pin_not_six_digit = 'PIN must be 6 digits, with no number repeated 3 times, and not sequential'
     messages_provide = {
-        "PIN doesn’t match": (context.pin_error.app_pin_does_not_match_validation, error1),
-        "Empty input fields": (context.pin_error.app_pin_empty_validation, error2),
-        "Enter alpha numeric": (context.pin_error.app_pin_alpha_numeric_validation, error2),
-        "Enter special character": (context.pin_error.app_pin_special_character_validation, error2),
-        "Cannot use sequential PIN": (context.pin_error.app_pin_sequential_validation, error2),
-        "Cannot use reverse sequential as well": (context.pin_error.app_pin_reverse_sequential_validation, error2),
-        "PIN not repeated": (context.pin_error.app_pin_not_repeated_validation, error1),
-        "PIN not repeated vice versa": (context.pin_error.app_pin_not_repeated_viceversa_validation, error2),
-        "PIN not 6 digits": (context.pin_error.app_pin_not_six_digit_validation, error2)
+        "PIN doesn’t match": (context.pin_error.app_pin_does_not_match_validation, error_pin_do_not_match),
+        "Empty input fields": (context.pin_error.app_pin_empty_validation, error_pin_not_six_digit),
+        "Enter alpha numeric": (context.pin_error.app_pin_alpha_numeric_validation, error_pin_not_six_digit),
+        "Enter special character": (context.pin_error.app_pin_special_character_validation, error_pin_not_six_digit),
+        "Cannot use sequential PIN": (context.pin_error.app_pin_sequential_validation, error_pin_not_six_digit),
+        "Cannot use reverse sequential as well": (context.pin_error.app_pin_reverse_sequential_validation, error_pin_not_six_digit),
+        "PIN not repeated": (context.pin_error.app_pin_not_repeated_validation, error_pin_do_not_match),
+        "PIN not repeated vice versa": (context.pin_error.app_pin_not_repeated_viceversa_validation, error_pin_not_six_digit),
+        "PIN not 6 digits": (context.pin_error.app_pin_not_six_digit_validation, error_pin_not_six_digit)
     }
     assert messages_provide[message][0] == messages_provide[message][1]
