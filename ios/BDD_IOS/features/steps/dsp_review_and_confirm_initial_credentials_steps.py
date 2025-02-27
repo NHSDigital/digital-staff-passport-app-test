@@ -139,7 +139,7 @@ def user_verifies_identity_listed(context):
 @when("user click right to work credential")
 def user_click_right_to_work_credential(context):
     """step to click right to work credential"""
-    context.review_creds.click_right_to_work_credential()
+    context.review_creds.click_right_to_work_credentials()
 
 
 @then('user verifies the right to work credential details - "{fields}"')
@@ -224,7 +224,8 @@ def user_click_account_icon(context):
 @then("user is accounts and settings page")
 def verify_user_account_and_settings_page(context):
     """step to verify user is on account and settings page"""
-    assert context.review_creds.verify_account_and_settings_page(), "User is not on account and settings page"
+    assert context.review_creds.verify_account_and_settings_page(), "account and setting page not displayed"
+
 
 
 @then("user see delete your NHS digital staff passport section and verifies the message inside")
@@ -265,13 +266,13 @@ def click_on_identity_credential(context):
 @then("user is on credentials page with dates")
 def verify_user_credentials_page_with_dates(context):
     """step to verify user is on credentials page with dates"""
-    assert context.review_creds.verify_credentials_page_with_dates(), "User is not on credentials page with dates"
+    assert context.review_creds.verify_credentials_page(), "User is not on credentials page with dates"
 
 
 @when("user clicks on right to work credential")
 def click_on_right_to_work_credential(context):
     """step to click on right to work credential"""
-    context.review_creds.click_right_to_work_credential()
+    context.review_creds.click_right_to_work_credentials()
 
 
 @when("user clicks on DBS supporting documents")
@@ -284,3 +285,10 @@ def click_on_dbs_supporting_documents(context):
 def verify_back_link(context):
     """step to verify back link is present"""
     assert context.review_creds.verify_back_link(), "Back link is not displayed"
+
+
+@then("User validates no credentials present")
+def verify_no_credentials_is_present(context):
+    """step to call method from page class that checks and returns the element no credentials"""
+    assert context.review_creds.verify_no_credentials(), "No credentials message is not displayed"
+

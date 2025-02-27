@@ -76,7 +76,11 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
     email_subject = ''
     version_number = ''
     nhs_logo = ''
-    home_icon = ''
+    """account and setting page"""
+    account_and_settings_page_heading = ""
+    account_and_settings_delete_your_nhs_digital_staff_pp = ''
+    security_and_privacy_section_heading = ''
+    back_link = ""
     def read_identity_page_heading(self):
         """method to read the page heading"""
         return self.read_value_from_element(self.identity_page_heading, "identity page heading")
@@ -296,3 +300,33 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
     def read_passport_issue_date_on_dbs_supporting_documents_page(self):
         """method to read the passport issue date on dbs supporting documents page"""
         return self.read_value_from_element(self.dbs_passport_issue_date_value)
+
+    def click_account_icon(self):
+        """click account icon with click element"""
+        self.click_element(self.account_icon)
+
+    def verify_back_link(self):
+        """verify back link is displayed"""
+        return self.verify_element_displayed(self.back_link)
+
+
+    def verify_account_and_settings_page(self):
+        """verify is there is account and setting page displayed"""
+        return self.verify_element_displayed(self.account_and_settings_page_heading)
+
+    def verify_delete_nhs_digital_staff_passport_section(self):
+        """verify is element is present"""
+        return self.verify_element_displayed(self.account_and_settings_delete_your_nhs_digital_staff_pp)
+
+    def verify_security_and_privacy_section(self):
+        """verify is element is present"""
+        return self.verify_element_displayed(self.security_and_privacy_section_heading)
+
+    def click_back_link(self):
+        """call click element from base page & click back link"""
+        self.click_element(self.back_link, "back link")
+
+
+    def verify_no_credentials(self):
+        """verify no credentials message"""
+        return self.verify_element_displayed(self.no_credentials_yet)
