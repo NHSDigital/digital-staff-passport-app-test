@@ -1,5 +1,10 @@
 Feature: Review and confirm initial three credentials
   Background: user is on credentials page
+    Given the ios app is launched with the specified activity
+    When click on continue button on finger recognition page
+    Then user enters the pin and click on continue
+    Then user verify the welcome message on the homepage
+    Then user is on credentials page with dates
 
   Scenario: Verify back link is working on credentials page with dates
     When user clicks on back link
@@ -74,7 +79,7 @@ Feature: Review and confirm initial three credentials
       | Name                 |
       | DOB                  |
       | Passport expiry date |
-    
+
   Scenario Outline: Verify DBS supporting information
     When user click DBS supporting documents
     Then user verifies the page heading
@@ -105,5 +110,11 @@ Feature: Review and confirm initial three credentials
     Then user see delete your NHS digital staff passport section and verifies the message inside
     Then user see security and privacy section and a link "terms of use and other policies" inside
     Then user see question icon
+
+
+  Scenario: User validate that no credentials displayed in action on homepage
+    When user clicks on back link
+    Then user is on credentials page with dates
+    Then User validates no credentials present
 
 
