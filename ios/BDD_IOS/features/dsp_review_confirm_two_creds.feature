@@ -1,6 +1,11 @@
 # Created by BabuKoya at 24/02/2025
 Feature: Review and confirm two credentials
   Background: user is on credentials page
+    Given the ios app is launched with the specified activity
+    When click on continue button on finger recognition page
+    Then user enters the pin and click on continue
+    Then user verify the welcome message on the homepage
+    Then user is on credentials page with dates
 
   Scenario: Verify back link on credentials page
     When user clicks on back link
@@ -60,5 +65,3 @@ Feature: Review and confirm two credentials
     Then user lands on credentials page
     Then user verifies employment assignment cred is removed from credentials to confirm
     Then user verifies employment assignment cred is listed under confirmed credentials
-
-
