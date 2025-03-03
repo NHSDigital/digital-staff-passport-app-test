@@ -209,7 +209,7 @@ class BasePage:
             logger.error("Element not found: %s", by_locator)
             return None
 
-    def verify_element_displayed(self, by_locator):
+    def verify_element_displayed(self, by_locator, objname=None):
         """checks if the element is displayed"""
         try:
             WebDriverWait(self.driver,
