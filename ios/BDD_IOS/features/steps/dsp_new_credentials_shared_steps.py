@@ -35,7 +35,7 @@ def user_provide_wrong_face(context):
 @then("user gets an error message")
 def user_gets_error_message(context):
     """step to get error message"""
-    context.review_and_confirm_initial_creds_page.get_error_message()
+    context.review_and_confirm_initial_creds_page.wrong_face_error_message()
 
 @then("user verifies the subject of an email")
 def user_verifies_email_subject(context):
