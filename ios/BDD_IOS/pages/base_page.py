@@ -37,15 +37,17 @@ class BasePage:
     def open_ios_app(self):
         """Open the ios app with below capabilities"""
         options = AppiumOptions()
-        options.load_capabilities({
-            "platformName": "iOS",
-            "appium:platformVersion": "18.1.1",
-            "appium:deviceName": "iPhone SE",
-            "appium:automationName": "XCUITest",
-            "appium:udid": "00008110-00065C913402601E",
-            "appium:bundleId": "uk.nhs.dsp"
-        })
-        appium_server_url = 'http://127.0.0.1:4723'
+        options.load_capabilities(
+            {
+                "platformName": "iOS",
+                "appium:platformVersion": "18.1.1",
+                "appium:deviceName": "iPhone SE",
+                "appium:automationName": "XCUITest",
+                "appium:udid": "00008110-00065C913402601E",
+                "appium:bundleId": "uk.nhs.dsp",
+            }
+        )
+        appium_server_url = "http://127.0.0.1:4723"
         self.driver = appium_webdriver.Remote(appium_server_url, options=options)
         logger.info("App is open")
         return self.driver
@@ -55,56 +57,63 @@ class BasePage:
 
         # Define Load capabilities
         options = AppiumOptions()
-        options.load_capabilities({
-            "platformName": "Android",
-            "appium:deviceName": "Galaxy A14 5G",
-            "appium:appPackage": self.package_name,
-            "appium:automationName": "UIAutomator2",
-            "appium:appActivity": self.activity,
-            "appium:noReset": True
-        })
+        options.load_capabilities(
+            {
+                "platformName": "Android",
+                "appium:deviceName": "Galaxy A14 5G",
+                "appium:appPackage": self.package_name,
+                "appium:automationName": "UIAutomator2",
+                "appium:appActivity": self.activity,
+                "appium:noReset": True,
+            }
+        )
 
         try:
             # Attempt to initialize the Appium session with the specified activity
-            appium_server_url = 'http://127.0.0.1:4723'
+            appium_server_url = "http://127.0.0.1:4723"
             self.driver = appium_webdriver.Remote(appium_server_url, options=options)
-            logger.info(f"App launched successfully with activity: {self.activity}")
+            logger.info("App launched successfully with activity %s:", self.activity)
         except Exception as e:
-            logger.warning(f"Failed to launch with activity {self.activity}: {e}")
+            logger.warning("Failed to launch with activity %s %s:", self.activity, e)
             if self.driver:
                 self.driver.quit()  # Only quit if session initialization failed
             self.driver = None  # Ensure driver is reset if session creation failed
 
     def open_browser_mobile(self):
         """Open browser based on the browser and run the appium server"""
-        if ReadProperty.read_config("configuration", "browser_mobile") == 'Safari':
+        if ReadProperty.read_config("configuration", "browser_mobile") == "Safari":
             options = AppiumOptions()
-            options.load_capabilities({
-                "platformName": "iOS",
-                "appium:platformVersion": "18.1.1",
-                "appium:deviceName": "iPhone SE",
-                "appium:automationName": "XCUITest",
-                "appium:udid": "00008110-00065C913402601E",
-                "appium:app": "com.apple.mobilesafari"
-            })
-            appium_server_url = 'http://127.0.0.1:4723'
+            options.load_capabilities(
+                {
+                    "platformName": "iOS",
+                    "appium:platformVersion": "18.1.1",
+                    "appium:deviceName": "iPhone SE",
+                    "appium:automationName": "XCUITest",
+                    "appium:udid": "00008110-00065C913402601E",
+                    "appium:app": "com.apple.mobilesafari",
+                }
+            )
+            appium_server_url = "http://127.0.0.1:4723"
             self.driver = appium_webdriver.Remote(appium_server_url, options=options)
             logger.info("Browser is open")
             return self.driver
+        return None
 
     def open_browser_mobile_simulator(self):
         """Open browser based on the browser and run the appium server"""
-        if ReadProperty.read_config("configuration", "browser_mobile") == 'Safari':
+        if ReadProperty.read_config("configuration", "browser_mobile") == "Safari":
             options = AppiumOptions()
-            options.load_capabilities({
-                "platformName": "iOS",
-                "appium:platformVersion": "18.1",
-                "appium:deviceName": "iPhone 16 Pro",
-                "appium:automationName": "XCUITest",
-                "appium:udid": "8CC046FE-40B5-4658-A286-1E80D76133EB",
-                "appium:app": "com.apple.mobilesafari"
-            })
-            appium_server_url = 'http://127.0.0.1:4723'
+            options.load_capabilities(
+                {
+                    "platformName": "iOS",
+                    "appium:platformVersion": "18.1",
+                    "appium:deviceName": "iPhone 16 Pro",
+                    "appium:automationName": "XCUITest",
+                    "appium:udid": "8CC046FE-40B5-4658-A286-1E80D76133EB",
+                    "appium:app": "com.apple.mobilesafari",
+                }
+            )
+            appium_server_url = "http://127.0.0.1:4723"
             self.driver = appium_webdriver.Remote(appium_server_url, options=options)
             logger.info("Browser is open")
             return self.driver
@@ -124,8 +133,11 @@ class BasePage:
         """Check if the app is installed on the device."""
 
         try:
-            result = subprocess.run(["adb", "shell", "pm", "list", "packages", self.package_name],
-                                    capture_output=True, text=True)
+            result = subprocess.run(
+                ["adb", "shell", "pm", "list", "packages", self.package_name],
+                capture_output=True,
+                text=True,
+            )
             return self.package_name in result.stdout
         except Exception as e:
             logger.error(f"Failed to check if app is installed: {e}")
@@ -134,7 +146,9 @@ class BasePage:
     def reset_app(self):
         """Force-stop the app to reset its state."""
         try:
-            subprocess.run(["adb", "shell", "am", "force-stop", self.package_name], check=True)
+            subprocess.run(
+                ["adb", "shell", "am", "force-stop", self.package_name], check=True
+            )
             logger.info("App has been force-stopped.")
         except Exception as e:
             logger.warning(f"Failed to force-stop app: {e}")
@@ -152,7 +166,7 @@ class BasePage:
         # Initialize the AppiumService
         appium_service = AppiumService()
         # Start the Appium server on port 4723
-        appium_service.start(args=['--port', '4723'])
+        appium_service.start(args=["--port", "4723"])
         # Check if the server is running
         if appium_service.is_running:
             logger.info("Appium server started successfully!")
@@ -207,8 +221,9 @@ class BasePage:
     def verify_element_displayed(self, by_locator, objname=None):
         """checks if the element is displayed"""
         try:
-            WebDriverWait(self.driver,
-                          60).until(EC.presence_of_element_located(by_locator))
+            WebDriverWait(self.driver, 60).until(
+                EC.presence_of_element_located(by_locator)
+            )
             logger.info("Element found: %s", objname)
             return True
         except InvalidSelectorException:
@@ -218,8 +233,9 @@ class BasePage:
     def type_element(self, by_locator, text, objname=None):
         """types the passed text into the web element"""
         try:
-            WebDriverWait(self.driver,
-                          30).until(EC.presence_of_element_located(by_locator)).send_keys(text)
+            WebDriverWait(self.driver, 30).until(
+                EC.presence_of_element_located(by_locator)
+            ).send_keys(text)
             logger.info("Value entered is: %s for field.", text)
             logger.info("Value entered is: %s for field.", objname)
         except InvalidSelectorException:
@@ -231,7 +247,7 @@ class BasePage:
         try:
             file_path = os.path.join("data", filename)
             path = os.path.abspath(file_path)
-            with open(path, 'r', encoding="utf-8") as f_f:
+            with open(path, "r", encoding="utf-8") as f_f:
                 doc = yaml.safe_load(f_f)
         except yaml.YAMLError as exception:
             logger.warning(exception)
@@ -271,15 +287,22 @@ class BasePage:
 
     @staticmethod
     def kill_browser():
-        """ Function to kill browser process"""
+        """Function to kill browser process"""
         command = 'taskkill /F /IM "chrome.exe"'
-        process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                                   shell=True)
+        process = subprocess.Popen(
+            command,
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            shell=True,
+        )
         process.communicate()
 
     def change_element_bg_color(self, by_bojtype, by_locator):
         element = self.driver.find_element(by_bojtype, by_locator)
-        return self.driver.execute_script("arguments[0].style.backgroundColor = 'lightgreen';", element)
+        return self.driver.execute_script(
+            "arguments[0].style.backgroundColor = 'lightgreen';", element
+        )
 
     def verify_element_visible(self, by_obj_type, by_locator, objname=None):
         """verify the element"""
@@ -293,7 +316,7 @@ class BasePage:
             return False
 
     def get_element_count(self, by_obj_type, by_locator):
-        """to get the number of elements """
+        """to get the number of elements"""
         element_count = len(self.driver.find_elements(by_obj_type, by_locator))
         return element_count
 
@@ -308,7 +331,7 @@ class BasePage:
             return "Can't read value from element"
 
     def navigate_url(self, value):
-        """ Navigate to the standalone URL as required"""
+        """Navigate to the standalone URL as required"""
         self.driver.get(value)
         logger.info("URL is opened.")
 

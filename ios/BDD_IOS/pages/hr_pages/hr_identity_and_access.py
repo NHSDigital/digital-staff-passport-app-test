@@ -196,7 +196,7 @@ class HRIdentityAndAccessPage(BasePage):
         if self.verify_element_displayed(self.create_passport_result_xpath):
             message = self.read_value_from_element(self.create_passport_result_xpath)
             assert  self.create_passport_result_txt in message
-            self.user_defined_wait(2) # have added because while taking screenshot it takes time to load the new data
+            self.user_defined_wait(2) # Added because while taking screenshot it takes time to load the new data
             self.take_screenshot("PASS")
             self.close_safari()
 
