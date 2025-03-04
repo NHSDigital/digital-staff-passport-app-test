@@ -47,10 +47,10 @@ def user_verifies_splash_screen_content(context):
     """step to verify splash screen content"""
     context.review_and_confirm_initial_creds_page.verify_splash_screen_content()
 
-@then("user verifies the nhs logo")
+@then("user verifies the NHS logo")
 def user_verifies_nhs_logo(context):
     """step to verify nhs logo"""
-    context.review_and_confirm_initial_creds_page.verify_nhs_logo()
+    assert context.review_and_confirm_initial_creds_page.verify_nhs_logo()
 
 
 @then("user verifies the version number")

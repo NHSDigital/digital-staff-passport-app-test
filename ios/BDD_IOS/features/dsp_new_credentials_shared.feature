@@ -9,7 +9,7 @@ Feature: New credentials shared page
   Scenario: Verify splash screen
     Given user is on splash screen
     Then user verifies the splash screen content nhs logo
-    Then user verifies the nhs logo
+    Then user verifies the NHS logo
     Then user verifies the version number
     Then user is landed on home page
     When user provide wrong face
