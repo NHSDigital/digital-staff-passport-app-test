@@ -13,10 +13,6 @@ def dsp_app_verify_question_icon(context):
     assert context.dsp_app_initial_setup.verify_question_icon(), "first page question icon is not present"
 
 
-@then("user verifies the NHS logo")
-def dsp_app_verify_nhs_logo(context):
-    assert context.dsp_app_initial_setup.verify_prove_who_you_are_sub_header(), "first page nhs logo is not present"
-
 
 @then("user verifies the text on the “First page”")
 def dsp_app_verify_first_page_text(context):

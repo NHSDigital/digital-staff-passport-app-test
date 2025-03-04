@@ -14,7 +14,7 @@ Feature: NHS IOS App - Sign in After Initial Setup Flows
     Then User clicks on Continue button on log in page
     And User verifies maximum number of login attempt exceeded
 
-    """In Below scenario we are validating forgotton pin error message on UI screen"""
+  """In Below scenario we are validating forgotton pin error message on UI screen"""
   Scenario: Launch the ios app and perform action
     Given the ios app is launched with the specified activity
     When User Click on I've forgotton my pin link

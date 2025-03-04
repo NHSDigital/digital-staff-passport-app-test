@@ -23,6 +23,7 @@ from utilities.read_config import ReadProperty
 # Set up logging configuration
 logger = custom_logger.get_logger()
 
+
 class BasePage:
     """This Class contains all functions related to pages that are reusable"""
 
@@ -48,7 +49,6 @@ class BasePage:
         self.driver = appium_webdriver.Remote(appium_server_url, options=options)
         logger.info("App is open")
         return self.driver
-
 
     def open_app_with_activity(self):
         """Attempt to open the app using a single activity entry point."""
@@ -92,7 +92,6 @@ class BasePage:
             logger.info("Browser is open")
             return self.driver
 
-
     def open_browser_mobile_simulator(self):
         """Open browser based on the browser and run the appium server"""
         if ReadProperty.read_config("configuration", "browser_mobile") == 'Safari':
@@ -110,7 +109,6 @@ class BasePage:
             logger.info("Browser is open")
             return self.driver
 
-
     def open_dsp_hr_portal_application_url(self):
         """invoke the browser and open HR Portal URL."""
         try:
@@ -121,7 +119,6 @@ class BasePage:
             logger.error("DSP HR application URL is not open.")
             self.driver.close()
             assert False, "Test is failed in open login page section"
-
 
     def is_app_installed(self):
         """Check if the app is installed on the device."""
@@ -172,7 +169,6 @@ class BasePage:
         else:
             logger.info("No Appium server is running.")
 
-
     def click_element(self, by_locator, objname=None):
         """Click the element if displayed."""
         element = self.find_element(by_locator)
@@ -197,7 +193,6 @@ class BasePage:
         """Wait for the specified number of seconds."""
         time.sleep(sleep_seconds)
 
-
     def find_element(self, by_locator, timeout=60):
         """Finds an element with the given locator and timeout."""
         try:
@@ -213,7 +208,8 @@ class BasePage:
         """checks if the element is displayed"""
         try:
             WebDriverWait(self.driver,
-                                    60).until(EC.presence_of_element_located(by_locator))
+                          60).until(EC.presence_of_element_located(by_locator))
+            logger.info("Element found: %s", objname)
             return True
         except InvalidSelectorException:
             logger.error("Element not found")
@@ -273,7 +269,6 @@ class BasePage:
         self.driver.quit()
         logger.info("Event is closed.")
 
-
     @staticmethod
     def kill_browser():
         """ Function to kill browser process"""
@@ -282,11 +277,9 @@ class BasePage:
                                    shell=True)
         process.communicate()
 
-
     def change_element_bg_color(self, by_bojtype, by_locator):
         element = self.driver.find_element(by_bojtype, by_locator)
         return self.driver.execute_script("arguments[0].style.backgroundColor = 'lightgreen';", element)
-
 
     def verify_element_visible(self, by_obj_type, by_locator, objname=None):
         """verify the element"""
@@ -299,39 +292,25 @@ class BasePage:
             logger.info("Object is not visible: %s", objname)
             return False
 
-
-    def click_element_wait(self, by_bojtype, by_locator, objname=None):
-        """clicks the element passed as by_locator"""
-        try:
-            element = self.driver.find_element(by_bojtype, by_locator)
-            element.click()
-            logger.info("%s is clicked", objname)
-        except InvalidSelectorException:
-            logger.error("Exception! Can't click on the element %s", objname)
-
-
     def get_element_count(self, by_obj_type, by_locator):
         """to get the number of elements """
         element_count = len(self.driver.find_elements(by_obj_type, by_locator))
         return element_count
 
-
-    def read_text_from_element(self, by_obj_type, by_locator):
+    def read_text_from_element(self, by_obj_type, by_locator, objname=None):
         """returns the value of .text property of a web element"""
         try:
             text = self.driver.find_element(by_obj_type, by_locator).text
-            logger.info("Element value is : %s", text)
+            logger.info("Element value is: %s, Name is: %s", text, objname)
             return text
         except InvalidSelectorException:
             logger.info("Exception! Can't read value from element")
             return "Can't read value from element"
 
-
     def navigate_url(self, value):
         """ Navigate to the standalone URL as required"""
         self.driver.get(value)
         logger.info("URL is opened.")
-
 
     def close_safari(self):
         """Closes the Safari browser on iOS."""
