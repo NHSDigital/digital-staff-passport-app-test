@@ -1,6 +1,5 @@
 """this class contains methods for the page actions
 of dsp initial setup for pin errors"""
-from appium.options.common import AppiumOptions
 from appium.webdriver.common.appiumby import AppiumBy
 from pages.base_page import BasePage
 
@@ -31,13 +30,14 @@ class DspBiometricPinError(BasePage):
 
     def app_create_pin_continue_button(self):
         """Function to click on continue button"""
-        self.click_element(self.create_pin_continue_xpath), "Create a pin continue button"
+        self.click_element(self.create_pin_continue_xpath, "Create a pin continue button")
 
     def app_pin_does_not_match_validation(self, error_pin_do_not_match):
         """Function to validate error message when pin does not match"""
         if self.verify_element_displayed(self.pin_error_pin_does_not_change_xpath):
             message = self.read_value_from_element(self.pin_does_not_change_text_xpath)
             return error_pin_do_not_match in message
+        return None
 
     def app_pin_empty_validation(self, error_pin_not_six_digit):
         """Function to validate error message when pin is empty"""
@@ -86,7 +86,6 @@ class DspBiometricPinError(BasePage):
         if self.verify_element_displayed(self.pin_error_empty_xpath):
             message = self.read_value_from_element(self.pin_error_empty_xpath)
             assert error_pin_not_six_digit in message
-
 
     def app_pin_not_six_digit_validation(self, error_pin_not_six_digit):
         """Function to validate error message when pin is not six digit"""
