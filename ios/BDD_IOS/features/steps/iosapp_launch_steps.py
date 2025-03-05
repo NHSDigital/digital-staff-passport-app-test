@@ -5,7 +5,6 @@ from behave import given
 from pages.ios_pages.ios_app import IosAppAutomation
 
 
-
 @given("the ios app is launched with the specified activity")
 def step_when_launch_app_with_multiple_activities(context):
     """Step to launch the ios app with the specified activity"""

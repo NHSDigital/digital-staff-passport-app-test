@@ -84,6 +84,7 @@ def verify_prof_reg_cred_header(context):
     assert "Professional registration" in context.review_two_creds.read_prof_reg_creds_page_heading(), ("professional "
                                                                                                         "registration")
 
+
 @then("user verifies details heading")
 def verify_details_section(context):
     """step to verify prof reg page section heading"""
