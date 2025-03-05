@@ -22,7 +22,6 @@ class HRReviewedStaffPassportPage(BasePage):
         "/parent::XCUIElementTypeOther/XCUIElementTypeLink"
     )
 
-
     def hr_portal_reviewed_staff_passport_tab(self):
         """ Click on the Reviewed Staff Passport Tab within HR Portal"""
         if self.verify_element_displayed(self.menu_toggle_xpath):

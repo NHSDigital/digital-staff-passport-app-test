@@ -111,8 +111,6 @@ class HRTemporaryPlacementCredentialPage(BasePage):
     Passport_history_event_temp_creds_txt = "Temporary placement credential"
     I_do_not_know_the_position_number_xpath = AppiumBy.XPATH, ""
 
-
-
     def hr_portal_click_create_temporary_placement_credential_link(self):
         """click on Create temporary placement credential"""
         if self.verify_element_displayed(self.Create_temporary_placement_cred_link_xpath):

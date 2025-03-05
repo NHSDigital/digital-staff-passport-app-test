@@ -173,8 +173,6 @@ class HRIdentityAndAccessPage(BasePage):
         "You will no longer see the record on the Identity and access table"
     )
 
-
-
     def hr_portal_identity_and_access_tab(self):
         """ Click on Identity & Access Tab from the menu """
         if self.verify_element_displayed(self.menu_toggle_xpath):
@@ -253,7 +251,6 @@ class HRIdentityAndAccessPage(BasePage):
             self.click_element(self.emp_type_select_xpath_permanent_fixed_term, "Click")
             self.user_defined_wait(2)
 
-
     def hr_portal_identity_single_passport_emp_status(self):
         """ Select the Emp Status dropdown w.r.t single passport form"""
         if self.verify_element_displayed(self.employment_status_xpath):
@@ -286,8 +283,8 @@ class HRIdentityAndAccessPage(BasePage):
         self.user_defined_wait(2)
         if self.verify_element_displayed(self.create_passport_result_xpath):
             message = self.read_value_from_element(self.create_passport_result_xpath)
-            assert  self.create_passport_result_txt in message
-            self.user_defined_wait(2) # wait is intentional
+            assert self.create_passport_result_txt in message
+            self.user_defined_wait(2)
             self.take_screenshot("PASS")
             self.close_safari()
 
@@ -433,7 +430,6 @@ class HRIdentityAndAccessPage(BasePage):
         self.user_defined_wait(2)
         if self.verify_element_displayed(self.user_profile_heading_xpath):
             message = self.read_value_from_element(self.user_profile_heading_xpath)
-            print("value is: " +message)
             assert self.identity_and_access_text in message
             self.take_screenshot("PASS")
             self.complete_close_browser()

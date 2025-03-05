@@ -104,7 +104,6 @@ class HRPendingStaffPassportPage(BasePage):
     click_shared_review_accept_success_header_xpath = ""
     click_shared_review_accept_success_header_txt = ""
 
-
     def hr_portal_pending_staff_passport_tab(self):
         """ Click on the Pending Staff Passport Tab within HR Portal"""
         if self.verify_element_displayed(self.menu_toggle_xpath):
@@ -143,13 +142,11 @@ class HRPendingStaffPassportPage(BasePage):
             self.click_element(self.passport_show_all_details_xpath, "Click")
             self.user_defined_wait(2)
 
-
     def hr_portal_pending_click_review_credentials_request(self):
         """ Click on the Alert for reviewing the Credentials Requests"""
         if self.verify_element_displayed(self.click_review_cred_request_xpath):
             self.click_element(self.click_review_cred_request_xpath, "Click")
             self.user_defined_wait(3)
-
 
     def hr_portal_pending_provide_credentials(self):
         """ Review the credentials request & select the provide radio button for the same"""
@@ -162,13 +159,11 @@ class HRPendingStaffPassportPage(BasePage):
             cred_to_provide = self.verify_element_displayed(provide_path)
             cred_to_provide.click()
 
-
     def hr_portal_pending_provide_credentials_button(self):
         """ Click on the Provide Credential button"""
         if self.verify_element_displayed(self.provide_credentials_button_xpath):
             self.click_element(self.provide_credentials_button_xpath, "Click")
             self.user_defined_wait(3)
-
 
     def hr_portal_pending_provide_credentials_continue(self):
         """ Click on Continue button , post selection of the request"""
@@ -176,20 +171,17 @@ class HRPendingStaffPassportPage(BasePage):
             self.click_element(self.continue_btn_xpath, "Click")
             self.user_defined_wait(3)
 
-
     def hr_portal_pending_provide_credentials_confirm_yes(self):
         """ Click on Yes radio button w.r.t credential request"""
         if self.verify_element_displayed(self.review_credentials_confirm_yes_xpath):
             self.click_element(self.review_credentials_confirm_yes_xpath, "Click")
             self.user_defined_wait(3)
 
-
     def hr_portal_pending_provide_credentials_confirm_continue(self):
         """ Click on Continue button w.r.t credential request"""
         if self.verify_element_displayed(self.continue_btn_xpath):
             self.click_element(self.continue_btn_xpath, "Click")
             self.user_defined_wait(3)
-
 
     def hr_portal_pending_provide_credentials_reviewed_success(self):
         """ Request reviewed successfully and message is displayed """
@@ -269,7 +261,6 @@ class HRPendingStaffPassportPage(BasePage):
         """ Click on Delete Passport Link"""
         if self.verify_element_displayed(self.delete_passport_link_xpath):
             self.click_element(self.delete_passport_link_xpath, "Click")
-
 
     def hr_portal_pending_delete_passport_continue(self):
         """ Click on Continue button w.r.t delete passport"""

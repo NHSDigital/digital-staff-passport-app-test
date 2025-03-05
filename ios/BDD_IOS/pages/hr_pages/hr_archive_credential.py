@@ -126,9 +126,7 @@ class HRArchiveCredentialPage(BasePage):
     def hr_portal_credential_archive_page_success_message(self):
         """function to check credential archived success message"""
         if self.verify_element_displayed(self.Credential_archived_txt_xpath):
-            message = self.read_value_from_element(
-                self.Credential_archived_txt_xpath
-                )
+            message = self.read_value_from_element(self.Credential_archived_txt_xpath)
             assert self.Credential_archived_txt in message
             self.take_screenshot("PASS")
 
