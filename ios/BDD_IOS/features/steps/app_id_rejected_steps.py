@@ -1,5 +1,5 @@
-"""Step definitions for app accounts and settings page steps"""
-from behave import given, when, then
+"""Step definitions for id rejected"""
+from behave import then
 from pages.ios_pages.app_id_rejected import IdRejectedPage
 
 
@@ -18,6 +18,6 @@ def validate_question_mark(context):
 
 
 @then("User validates HR team will contact message on Page")
-def sign_in_after_initial_setup_steps(context):
+def validate_contact_message_on_page(context):
     """ Step to validates HR team will contact message on Page"""
     context.IdRejectedPage.verify_hr_team_will_contact_txt()
