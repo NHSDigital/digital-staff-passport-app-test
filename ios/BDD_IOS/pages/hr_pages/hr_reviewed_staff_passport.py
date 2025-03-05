@@ -8,16 +8,19 @@ logger = custom_logger.get_logger()
 class HRReviewedStaffPassportPage(BasePage):
     """ Elements for the HR Portal-Reviewed staff passport to provide credentials"""
     menu_toggle_xpath = AppiumBy.XPATH, "//XCUIElementTypeButton[@name=\"Open menu\"]"
-    reviewed_staff_passport_tab_xpath = AppiumBy.XPATH, ("//XCUIElementTypeStaticText[@name=\"Reviewed staff "
-                                                         "passports\"]")
+    reviewed_staff_passport_tab_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="Reviewed staff passports"]'
+    )
 
     reviewed_search_input_xpath = AppiumBy.CLASS_NAME, "XCUIElementTypeSearchField"
     reviewed_search_submit_xpath = AppiumBy.XPATH, "//XCUIElementTypeButton[@name=\"Search\"]"
     create_passport_result_xpath = AppiumBy.XPATH, "//tbody/tr[1]/td[7]/span[2]/span[1]"
     reviewed_passport_status_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name=\"Active\"]"
     reviewed_passport_status_txt = "Active"
-    reviewed_search_result_xpath = AppiumBy.XPATH, ("(//XCUIElementTypeStaticText[@name=\"Full name\"])["
-                                                   "2]/parent::XCUIElementTypeOther/XCUIElementTypeLink")
+    reviewed_search_result_xpath = AppiumBy.XPATH, (
+        "(//XCUIElementTypeStaticText[@name=\"Full name\"])[2]"
+        "/parent::XCUIElementTypeOther/XCUIElementTypeLink"
+    )
 
 
     def hr_portal_reviewed_staff_passport_tab(self):
