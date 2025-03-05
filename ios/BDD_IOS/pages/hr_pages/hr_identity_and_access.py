@@ -1,88 +1,177 @@
 """this class contains methods for the page actions
 of HR portal Identity and Access page"""
-from appium.options.common import AppiumOptions
 from appium.webdriver.common.appiumby import AppiumBy
 from pages.base_page import BasePage
-from utilities import custom_logger
-#logger = custom_logger.get_logger()
 
 
 class HRIdentityAndAccessPage(BasePage):
-    """ Elements for the HR Portal for review of the request"""
+    """Elements for the HR Portal for review of the request"""
 
-    menu_toggle_xpath = AppiumBy.XPATH, "//XCUIElementTypeButton[@name=\"Open menu\"]"
-    identity_and_access_page_link_xpath = AppiumBy.XPATH, ("(//XCUIElementTypeStaticText[@name=\"Identity and "
-                                                           "access\"])[1]")
-    invite_staff_to_DSP_xpath = AppiumBy.XPATH, ("//XCUIElementTypeStaticText[@name=\"Invite staff to Digital Staff "
-                                                 "Passport\"]")
-    select_single_passport_radio_btn_id = AppiumBy.XPATH, ("//XCUIElementTypeStaticText[@name=\"A single passport "
-                                                           "using a form\"]")
-    select_single_passport_continue_btn_xpath = AppiumBy.XPATH, "//XCUIElementTypeButton[@name=\"Continue\"]"
-    first_name_xpath = AppiumBy.XPATH, "//XCUIElementTypeTextField[@name=\"First name\"]"
-    last_name_xpath = AppiumBy.XPATH, "//XCUIElementTypeTextField[@name=\"Last name\"]"
-    date_of_birth_day_xpath = AppiumBy.XPATH, "//XCUIElementTypeTextField[@name=\"Day\"]"
-    date_of_birth_month_xpath = AppiumBy.XPATH, "//XCUIElementTypeTextField[@name=\"Month\"]"
-    date_of_birth_year_xpath = AppiumBy.XPATH, "//XCUIElementTypeTextField[@name=\"Year\"]"
-    email_address_xpath = AppiumBy.XPATH, "//XCUIElementTypeTextField[@name=\"Email address\"]"
-    phone_number_xpath = AppiumBy.XPATH, "//XCUIElementTypeTextField[@name=\"Telephone number\"]"
-    staff_group_xpath = AppiumBy.XPATH, "//XCUIElementTypeOther[@value=\"Select an option\"]"
-    staff_group_select_xpath_medical_dental = AppiumBy.XPATH, "//XCUIElementTypeButton[@name=\"Medical and Dental\"]"
-    employment_type_xpath = AppiumBy.XPATH, ("//XCUIElementTypeOther[@name=\"Employment type\" and @value=\"Select an "
-                                             "option\"]")
-    emp_type_select_xpath_permanent_fixed_term = AppiumBy.XPATH, ("//XCUIElementTypeButton[@name=\"Permanent or fixed "
-                                                                  "term\"]")
-    employment_status_xpath = AppiumBy.XPATH, ("//XCUIElementTypeOther[@name=\"Employment status\" and @value=\"Select "
-                                               "an option\"]")
-    employment_status_xpath_current_employer = AppiumBy.XPATH, ("//XCUIElementTypeButton[@name=\"Current employee or "
-                                                                "leaver\"]")
-    personal_details_continue_btn_xpath = AppiumBy.XPATH, "//XCUIElementTypeButton[@name=\"Continue\"]"
-    create_passport_yes_radio_btn_xpath = AppiumBy.XPATH, ("//XCUIElementTypeStaticText[@name=\"Yes, create this "
-                                                           "passport\"]")
-    create_passport_continue_btn_xpath = AppiumBy.XPATH, "//XCUIElementTypeButton[@name=\"Continue\"]"
-    create_passport_result_xpath = AppiumBy.XPATH, "(//XCUIElementTypeStaticText[@name=\"Invitation Sent\"])[1]"
+    menu_toggle_xpath = AppiumBy.XPATH, '//XCUIElementTypeButton[@name="Open menu"]'
+    identity_and_access_page_link_xpath = AppiumBy.XPATH, (
+        '(//XCUIElementTypeStaticText[@name="Identity and access"])[1]'
+    )
+
+    invite_staff_to_DSP_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="Invite staff to Digital Staff Passport"]'
+    )
+    select_single_passport_radio_btn_id = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="A single passport using a form"]'
+    )
+    select_single_passport_continue_btn_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeButton[@name="Continue"]',
+    )
+    first_name_xpath = AppiumBy.XPATH, '//XCUIElementTypeTextField[@name="First name"]'
+    last_name_xpath = AppiumBy.XPATH, '//XCUIElementTypeTextField[@name="Last name"]'
+    date_of_birth_day_xpath = AppiumBy.XPATH, '//XCUIElementTypeTextField[@name="Day"]'
+    date_of_birth_month_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeTextField[@name="Month"]',
+    )
+    date_of_birth_year_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeTextField[@name="Year"]',
+    )
+    email_address_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeTextField[@name="Email address"]',
+    )
+    phone_number_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeTextField[@name="Telephone number"]',
+    )
+    staff_group_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeOther[@value="Select an option"]',
+    )
+    staff_group_select_xpath_medical_dental = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeButton[@name="Medical and Dental"]',
+    )
+    employment_type_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeOther[@name="Employment type" and @value="Select an option"]'
+    )
+    emp_type_select_xpath_permanent_fixed_term = AppiumBy.XPATH, (
+        '//XCUIElementTypeButton[@name="Permanent or fixed term"]'
+    )
+    employment_status_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeOther[@name="Employment status" and @value="Select '
+        'an option"]'
+    )
+    employment_status_xpath_current_employer = AppiumBy.XPATH, (
+        '//XCUIElementTypeButton[@name="Current employee or leaver"]'
+    )
+    personal_details_continue_btn_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeButton[@name="Continue"]',
+    )
+    create_passport_yes_radio_btn_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="Yes, create this passport"]'
+    )
+    create_passport_continue_btn_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeButton[@name="Continue"]',
+    )
+    create_passport_result_xpath = (
+        AppiumBy.XPATH,
+        '(//XCUIElementTypeStaticText[@name="Invitation Sent"])[1]',
+    )
     status_invitation_sent_txt = ""
     create_passport_result_txt = "Invitation Sent"
     close_app_xpath = AppiumBy.XPATH, ""
     search_xpath = AppiumBy.CLASS_NAME, "XCUIElementTypeSearchField"
 
-    search_submit_xpath = AppiumBy.XPATH, "//XCUIElementTypeButton[@name=\"Search\"]"
-    search_result_xpath = AppiumBy.XPATH, ("(//XCUIElementTypeStaticText[@name=\"Full name\"])["
-                                           "2]/parent::XCUIElementTypeOther/XCUIElementTypeLink")
-    review_identity_details_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name=\"Review identity details\"]"
-    employment_dropdown_xpath = AppiumBy.XPATH, ("//XCUIElementTypeOther[@name=\"Employment type\" and @value=\"Select "
-                                                 "an option\"]")
-    continue_button_xpath = AppiumBy.XPATH, "//XCUIElementTypeButton[@name=\"Continue\"]"
-    confirm_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name=\"Yes, I want to confirm their identity\"]"
-    confirm_identity_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name=\"Yes, I confirm this identity.\"]"
-    gender_dropdown_xpath = AppiumBy.XPATH, "//XCUIElementTypeOther[@value=\"Select their gender\"]"
-    gender_select_male_xpath = AppiumBy.XPATH, "//XCUIElementTypeButton[@name=\"Male\"]"
-    nationality_dropdown_xpath = AppiumBy.XPATH, "//XCUIElementTypeOther[@value=\"Select their nationality\"]"
-    nationality_select_english_xpath = AppiumBy.XPATH, "//XCUIElementTypeButton[@name=\"English\"]"
-    address_1_xpath = AppiumBy.XPATH, "//XCUIElementTypeTextField[@name=\"Address line 1\"]"
-    address_2_xpath = AppiumBy.XPATH, "//XCUIElementTypeTextField[@name=\"Address line 2 (optional)\"]"
-    town_xpath = AppiumBy.XPATH, "//XCUIElementTypeTextField[@name=\"Town or city\"]"
-    postcode_xpath = AppiumBy.XPATH, "//XCUIElementTypeTextField[@name=\"Postcode\"]"
-    country_dropdown_xpath = AppiumBy.XPATH, ("//XCUIElementTypeOther[@name=\"Country\" and @value=\"Select their "
-                                              "country\"]")
-    country_select_united_kingdom_xpath = AppiumBy.XPATH, "//XCUIElementTypeButton[@name=\"United Kingdom\"]"
-    yes_i_confirm_radio_xpath = AppiumBy.XPATH, ("//XCUIElementTypeStaticText[@name=\"Yes, I confirm their identity "
-                                                 "and I want to provide an NHS identity credential.\"]")
-    success_message_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name=\"Success\"]"
+    search_submit_xpath = AppiumBy.XPATH, '//XCUIElementTypeButton[@name="Search"]'
+    search_result_xpath = AppiumBy.XPATH, (
+        '(//XCUIElementTypeStaticText[@name="Full name"])['
+        "2]/parent::XCUIElementTypeOther/XCUIElementTypeLink"
+    )
+    review_identity_details_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[@name="Review identity details"]',
+    )
+    employment_dropdown_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeOther[@name="Employment type" and @value="Select '
+        'an option"]'
+    )
+    continue_button_xpath = AppiumBy.XPATH, '//XCUIElementTypeButton[@name="Continue"]'
+    confirm_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[@name="Yes, I want to confirm their identity"]',
+    )
+    confirm_identity_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[@name="Yes, I confirm this identity."]',
+    )
+    gender_dropdown_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeOther[@value="Select their gender"]',
+    )
+    gender_select_male_xpath = AppiumBy.XPATH, '//XCUIElementTypeButton[@name="Male"]'
+    nationality_dropdown_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeOther[@value="Select their nationality"]',
+    )
+    nationality_select_english_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeButton[@name="English"]',
+    )
+    address_1_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeTextField[@name="Address line 1"]',
+    )
+    address_2_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeTextField[@name="Address line 2 (optional)"]',
+    )
+    town_xpath = AppiumBy.XPATH, '//XCUIElementTypeTextField[@name="Town or city"]'
+    postcode_xpath = AppiumBy.XPATH, '//XCUIElementTypeTextField[@name="Postcode"]'
+    country_dropdown_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeOther[@name="Country" and @value="Select their country"]'
+    )
+    country_select_united_kingdom_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeButton[@name="United Kingdom"]',
+    )
+    yes_i_confirm_radio_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="Yes, I confirm their identity '
+        'and I want to provide an NHS identity credential."]'
+    )
+    success_message_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[@name="Success"]',
+    )
     success_text = "Success"
-    delete_passport_link_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name=\"Delete passport from records.\"]"
-    no_delete_passport_radio_btn_xpath = AppiumBy.XPATH, ("//XCUIElementTypeStaticText[@name=\"No, go back and keep "
-                                                          "this record\"]")
-    yes_delete_passport_radio_btn_xpath = AppiumBy.XPATH, ("//XCUIElementTypeStaticText[@name=\"Yes, delete staff "
-                                                           "passport from records\"]")
-    delete_passport_continue_xpath = AppiumBy.XPATH, "//XCUIElementTypeButton[@name=\"Continue\"]"
-    user_profile_heading_xpath = AppiumBy.XPATH, ("//XCUIElementTypeOther[@name=\"Digital Staff Passport | "
-                                                  "Profile\"]/XCUIElementTypeOther[4]/XCUIElementTypeOther["
-                                                  "2]/XCUIElementTypeStaticText")
-    identity_and_access_text = "Identity and access"
-    Delete_passport_msg_xpath = AppiumBy.XPATH, ("//XCUIElementTypeStaticText[@name=\"You will no longer see the "
-                                                 "record on the Identity and access table.\"]")
-    Delete_passport_message_txt = "You will no longer see the record on the Identity and access table"
+    delete_passport_link_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[@name="Delete passport from records."]',
+    )
+    no_delete_passport_radio_btn_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="No, go back and keep this record"]'
+    )
 
+    yes_delete_passport_radio_btn_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="Yes, delete staff '
+        'passport from records"]'
+    )
+    delete_passport_continue_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeButton[@name="Continue"]',
+    )
+    user_profile_heading_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeOther[@name="Digital Staff Passport | '
+        'Profile"]/XCUIElementTypeOther[4]/XCUIElementTypeOther['
+        "2]/XCUIElementTypeStaticText"
+    )
+    identity_and_access_text = "Identity and access"
+    Delete_passport_msg_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="You will no longer see the '
+        'record on the Identity and access table."]'
+    )
+    Delete_passport_message_txt = (
+        "You will no longer see the record on the Identity and access table"
+    )
 
     def hr_portal_identity_and_access_tab(self):
         """ Click on Identity & Access Tab from the menu """
@@ -162,7 +251,6 @@ class HRIdentityAndAccessPage(BasePage):
             self.click_element(self.emp_type_select_xpath_permanent_fixed_term, "Click")
             self.user_defined_wait(2)
 
-
     def hr_portal_identity_single_passport_emp_status(self):
         """ Select the Emp Status dropdown w.r.t single passport form"""
         if self.verify_element_displayed(self.employment_status_xpath):
@@ -195,8 +283,8 @@ class HRIdentityAndAccessPage(BasePage):
         self.user_defined_wait(2)
         if self.verify_element_displayed(self.create_passport_result_xpath):
             message = self.read_value_from_element(self.create_passport_result_xpath)
-            assert  self.create_passport_result_txt in message
-            self.user_defined_wait(2) # Added because while taking screenshot it takes time to load the new data
+            assert self.create_passport_result_txt in message
+            self.user_defined_wait(2)
             self.take_screenshot("PASS")
             self.close_safari()
 
@@ -342,7 +430,6 @@ class HRIdentityAndAccessPage(BasePage):
         self.user_defined_wait(2)
         if self.verify_element_displayed(self.user_profile_heading_xpath):
             message = self.read_value_from_element(self.user_profile_heading_xpath)
-            print("value is: " +message)
             assert self.identity_and_access_text in message
             self.take_screenshot("PASS")
             self.complete_close_browser()
