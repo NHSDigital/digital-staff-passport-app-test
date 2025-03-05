@@ -70,7 +70,7 @@ Feature: DSP APP End to End Flow
     Then user verifies back link is present
     Then user verifies the right to work credential details - "<Fields>"
     Then user verifies link something went wrong
-    Then use click confirm credential button
+    Then user click confirm credential button
     Then user see a spinner page with confirming credential
     Then user lands on credentials confirmed page
     Then user verifies the text on the page

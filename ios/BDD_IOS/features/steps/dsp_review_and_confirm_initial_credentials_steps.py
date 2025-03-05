@@ -1,6 +1,7 @@
 """steps for review and confirm initial credentials"""
 from behave import then, when
 from pages.ios_pages.review_confirm_initial_creds_page import ReviewAndConfirmInitialCredentialsPage
+from pages.base_page import BasePage
 
 
 @then("user verifies the page heading")
@@ -155,11 +156,6 @@ def user_verifies_something_went_wrong_link(context):
     assert context.review_creds.verify_something_went_wrong_link(), "Something went wrong link is not displayed"
 
 
-@then("use click confirm credential button")
-def user_click_confirm_credential_button(context):
-    """step to click confirm credential button"""
-    context.review_creds.click_confirm_credential_button()
-
 
 @then("user see a spinner page with confirming credential")
 def user_see_spinner_page_with_confirming_credential(context):
@@ -197,10 +193,6 @@ def user_verifies_dbs_supporting_documents_details(context, fields):
                                 "Passport nationality": context.review_creds.read_passport_nationality_on_dbs_supporting_documents_page,
                                 "Passport issue date": context.review_creds.read_passport_issue_date_on_dbs_supporting_documents_page}
     assert actual_values_mapping[fields]() == BasePage.get_test_data("DBSSupportingDocuments", fields), f"{fields} mismatch"
-@then("user click confirm credential button")
-def user_click_confirm_credential_button(context):
-    """step to click confirm credential button"""
-    context.review_creds.click_confirm_credential_button()
 
 
 @then("user verifies DBS supporting documents is removed from credentials to confirm")

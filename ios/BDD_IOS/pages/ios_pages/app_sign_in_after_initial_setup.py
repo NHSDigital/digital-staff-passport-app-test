@@ -30,7 +30,6 @@ class SignInAfterInitialSetup(BasePage):
         """Function to click on I have forgotten pin link"""
         self.click_element(self.ive_forgotton_pin_link_xpath, "forgotten pin link")
 
-
     def verify_pin_input_box(self):
         """Function to verify pin input box"""
         self.verify_element_displayed(self.pin_input_xpath)

@@ -1,4 +1,6 @@
 """this class contains methods for the page actions of dsp initial app setup"""
+
+from appium.options.common import AppiumOptions
 from appium.webdriver.common.appiumby import AppiumBy
 from pages.base_page import BasePage
 
@@ -8,11 +10,11 @@ class DspInitialAppSetup(BasePage):
 
     # DSP app first page elements
     first_page_NHS_logo_xpath = AppiumBy.XPATH, ''
-    first_page_NHS_logo_text = 'NHS' # Need to check if this can be readable
+    first_page_NHS_logo_text = 'NHS'  # Need to check if this can be readable
     first_page_setup_dsp_text_xpath = AppiumBy.XPATH, ''
     first_page_setup_dsp_text = 'Set up your NHS Digital Staff Passport'
 
-    "DSP app Create PIN page elements"
+    # DSP app Create PIN page elements
     create_pin_page_header_xpath = AppiumBy.XPATH, ''
     create_pin_page_header_text = 'Create PIN'
     pin_input_xpath = AppiumBy.XPATH, ''
@@ -23,21 +25,20 @@ class DspInitialAppSetup(BasePage):
     privacy_notice_link_xpath = AppiumBy.XPATH, ''
     terms_and_conditions_link_xpath = AppiumBy.XPATH, ''
 
-    "DSP app Fingerprint page elements"
+    # DSP app Fingerprint page elements
     fingerprint_page_header_xpath = AppiumBy.XPATH, ''
     fingerprint_page_header_text = 'Fingerprint recognition'
     enable_fingerprint_recognition_toggle_xpath = AppiumBy.XPATH, ''
 
-    "DSP app Prove who you are page elements"
+    # DSP app Prove who you are page elements
     prove_who_you_are_page_header_xpath = AppiumBy.XPATH, ''
     prove_who_you_are_page_header_text = 'NHS Digital Staff Passport'
     prove_who_you_are_page_sub_header_xpath = AppiumBy.XPATH, ''
     prove_who_you_are_page_sub_header_text = 'Prove who you are to get full access'
     prove_who_you_are_page_text_xpath = AppiumBy.XPATH, ''
-    prove_who_you_are_page_text = ('You\'ll need to prove your identity before '
-                                   'you can use NHS Digital Staff Passport')
+    prove_who_you_are_page_text = 'You\'ll need to prove your identity before you can use NHS Digital Staff Passport'
 
-    "DSP app Prove your identity page elements"
+    # DSP app Prove your identity page elements
     prove_your_identity_page_header_xpath = AppiumBy.XPATH, ''
     prove_your_identity_page_header_text = 'Prove your identity'
     prove_your_identity_page_sub_header1_xpath = AppiumBy.XPATH, ''
@@ -76,24 +77,15 @@ class DspInitialAppSetup(BasePage):
 
     def verify_create_pin_term_of_use_link(self):
         """Function to verify term of use agreement link on create pin page"""
-        return (
-            self.verify_element_displayed(self.term_of_user_link_xpath),
-            "create pin term of use link",
-        )
+        return self.verify_element_displayed(self.term_of_user_link_xpath), "create pin term of use link"
 
     def verify_create_pin_privacy_link(self):
         """Function to verify privacy agreement link on create pin page"""
-        return (
-            self.verify_element_displayed(self.privacy_notice_link_xpath),
-            "create pin privacy notice",
-        )
+        return self.verify_element_displayed(self.privacy_notice_link_xpath), "create pin privacy notice"
 
     def verify_create_pin_terms_link(self):
         """Function to verify terms agreement link on create pin page"""
-        return (
-            self.verify_element_displayed(self.terms_and_conditions_link_xpath),
-            "create pin terms",
-        )
+        return self.verify_element_displayed(self.terms_and_conditions_link_xpath), "create pin terms"
 
     def set_create_pin(self, value):
         """Function to enter pin on app initial setup"""
@@ -115,9 +107,7 @@ class DspInitialAppSetup(BasePage):
     def enable_disable_figer_print_recognition(self):
         """Function to click toggle button to enable or disable fingerprint recognition"""
         if self.verify_element_displayed(self.enable_fingerprint_recognition_toggle_xpath):
-            self.click_element(
-                self.enable_fingerprint_recognition_toggle_xpath, "fingerprint toggle"
-            )
+            self.click_element(self.enable_fingerprint_recognition_toggle_xpath, "fingerprint toggle")
 
     def verify_prove_who_you_are_page_header(self):
         """Function to validate who you are page header of app initial setup validation"""
@@ -157,14 +147,11 @@ class DspInitialAppSetup(BasePage):
     def verify_prove_identity_what_happens_heading(self):
         """Function to validate prove identity what happens heading of app initial setup"""
         if self.verify_element_displayed(self.prove_your_identity_page_sub_header2_xpath):
-            message = self.read_value_from_element(
-                self.prove_your_identity_page_sub_header2_xpath
-            )
+            message = self.read_value_from_element(self.prove_your_identity_page_sub_header2_xpath)
             assert self.prove_your_identity_page_sub_header2_text in message
             self.take_screenshot("PASS")
 
     def verify_prove_identity_in_person_link(self):
         """Function to validate prove identity in_person link of app initial setup"""
-        return self.verify_element_displayed(
-            self.prove_your_identity_page_in_person_link_xpath,
-        "prove identity in-person link")
+        return self.verify_element_displayed(self.prove_your_identity_page_in_person_link_xpath), ("prove identity "
+                                                                                                   "in-person link")
