@@ -26,11 +26,10 @@ def verify_my_credentials_page(context):
 def verify_creds_to_confirm_header(context):
     """step to call read heading and assert the expected value"""
     context.review_two_creds = ReviewAndConfirmTwoCredsPage(context.driver)
-    assert "Credentials to confirm" in context.review_two_creds.read_creds_page_creds_to_confirm_heading(), ("creds to "
-                                                                                                             "confirm "
-                                                                                                             "heading "
-                                                                                                             "is not "
-                                                                                                             "displayed")
+    assert (
+        "Credentials to confirm"
+        in context.review_two_creds.read_creds_page_creds_to_confirm_heading()
+    ), "creds to confirm heading is not displayed"
 
 
 @then("user verifies credentials to confirm has Professional registration credential listed with action required")
@@ -85,6 +84,7 @@ def verify_prof_reg_cred_header(context):
     assert "Professional registration" in context.review_two_creds.read_prof_reg_creds_page_heading(), ("professional "
                                                                                                         "registration")
 
+
 @then("user verifies details heading")
 def verify_details_section(context):
     """step to verify prof reg page section heading"""
@@ -100,15 +100,17 @@ def verify_details_body_section(context):
 @then("user verifies staff member section")
 def verify_staff_member_section(context):
     """step to verify prof reg page section heading"""
-    assert "Staff member" in context.review_two_creds.read_prof_reg_staff_member_heading(), ("staff member section is not "
-                                                                                     "displayed")
+    assert (
+        "Staff member" in context.review_two_creds.read_prof_reg_staff_member_heading()
+    ), "staff member section is not displayed"
 
 
 @then("user verifies expiry date section")
 def verify_expiry_date_section(context):
     """step to verify prof reg page section heading"""
-    assert "Expiry dater" in context.review_two_creds.read_prof_reg_expiry_date_heading(), ("expiry date section is not "
-                                                                                     "displayed")
+    assert (
+        "Expiry dater" in context.review_two_creds.read_prof_reg_expiry_date_heading()
+    ), "expiry date section is not displayed"
 
 
 @then("user verifies status section")
@@ -151,7 +153,7 @@ def verify_employment_assignment_page_header(context):
 
 
 @then("user verifies emp assign details heading")
-def verify_details_section(context):
+def verify_emp_assign_details_heading(context):
     """step to verify emp assign page section heading"""
     assert "Details" in context.review_two_creds.read_emp_assign_details_heading(), ("emp assign details section is "
                                                                                      "not displayed")
@@ -160,7 +162,9 @@ def verify_details_section(context):
 @then("user verifies employer section")
 def verify_employer_section(context):
     """step to verify emp assignment page section heading"""
-    assert "Employer" in context.review_two_creds.read_emp_assign_employer_heading(), "employer section is not displayed"
+    assert (
+        "Employer" in context.review_two_creds.read_emp_assign_employer_heading()
+    ), "employer section is not displayed"
 
 
 @then("user verifies department section")
@@ -195,7 +199,10 @@ def verify_assignment_status_section(context):
 @then("user verifies assignment effective start date section")
 def verify_assign_start_date_section(context):
     """step to verify emp assignment page section heading"""
-    assert "Assignment effective start date" in context.review_two_creds.read_emp_assign_effective_date_heading(), "assign effective start date section is not displayed"
+    assert (
+        "Assignment effective start date"
+        in context.review_two_creds.read_emp_assign_effective_date_heading()
+    ), "assign effective start date section is not displayed"
 
 
 @then("user verifies employment assignment number section")
@@ -209,7 +216,7 @@ def verify_assignment_num_section(context):
 
 
 @then("user verifies employment assignment cred is removed from credentials to confirm")
-def verify_employ_assign_cred_removed_from_creds_confirm_section(context):
+def verify_employ_assign_cred_removed_cred_confirm_section(context):
     """step to verify the employment assignment credential removed from review"""
     context.review_two_creds = ReviewAndConfirmTwoCredsPage(context.driver)
     assert not context.review_creds.verify_emp_assign_cred_review_removed(), "emp assignment credential is not removed"

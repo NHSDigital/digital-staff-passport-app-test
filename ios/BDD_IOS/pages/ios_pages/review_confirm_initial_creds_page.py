@@ -1,3 +1,5 @@
+# pylint: disable=too-many-public-methods
+
 """this module to be used to call in the steps
     definition for the review initial 3 creds page
 """
@@ -81,13 +83,16 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
     account_and_settings_delete_your_nhs_digital_staff_pp = ''
     security_and_privacy_section_heading = ''
     back_link = ""
+
     def read_identity_page_heading(self):
         """method to read the page heading"""
-        return self.read_value_from_element(self.identity_page_heading, "identity page heading")
+        return self.read_value_from_element(self.identity_page_heading,
+                                            "identity page heading")
 
     def verify_question_mark_icon(self):
         """method to verify the question mark icon"""
-        return self.verify_element_displayed(self.question_icon, "question mark icon")
+        return self.verify_element_displayed(self.question_icon,
+                                             "question mark icon")
 
     def verify_user_account_icon(self):
         """method to verify the account icon"""
@@ -99,19 +104,26 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
 
     def verify_credentials_button(self):
         """method to verify the credentials icon"""
-        return self.verify_element_displayed(self.credentials_icon, "credentials icon")
+        return self.verify_element_displayed(self.credentials_icon,
+                                             "credentials icon")
 
     def verify_identity_credential(self):
         """method to verify the identity credential"""
-        return self.verify_element_displayed(self.identity_credentials, "identity credentials")
+        return self.verify_element_displayed(self.identity_credentials,
+                                             "identity credentials")
 
     def verify_right_to_work_credentials(self):
         """method to verify the right to work credentials"""
-        return self.verify_element_displayed(self.right_to_work_credentials, "right to work credentials")
+        return self.verify_element_displayed(
+            self.right_to_work_credentials, "right to work credentials"
+        )
 
     def verify_dbs_supporting_documents(self):
         """method to verify the dbs supporting documents"""
-        return self.verify_element_displayed(self.dbs_supporting_information, "dbs supporting documents")
+        return self.verify_element_displayed(
+            self.dbs_supporting_information,
+            "dbs supporting documents"
+        )
 
     def verify_no_credentials_yet(self):
         """method to verify the no credentials yet message"""
@@ -119,11 +131,13 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
 
     def click_identity_credential(self):
         """method to click on identity credential"""
-        self.click_element(self.identity_credentials, "identity credentials")
+        self.click_element(self.identity_credentials,
+                           "identity credentials")
 
     def verify_provided_by_trust(self):
         """method to verify provided by trust"""
-        return self.verify_element_displayed(self.provided_by_trust, "provided by trust")
+        return self.verify_element_displayed(self.provided_by_trust,
+                                             "provided by trust")
 
     def verify_identity_credential_details(self):
         """method to verify the identity credential details"""
@@ -131,7 +145,9 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
 
     def verify_something_not_right_link(self):
         """method to verify the something not right link"""
-        return self.verify_element_displayed(self.something_is_not_right_link, "something is not right link")
+        return self.verify_element_displayed(
+            self.something_is_not_right_link, "something is not right link"
+        )
 
     def click_confirm_credential_button(self):
         """method to click on confirm credential button"""
@@ -139,55 +155,82 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
 
     def verify_confirming_credential_spinner(self):
         """method to verify the confirming credential spinner"""
-        return self.verify_element_displayed(self.confirming_credentials_spinner, "confirming credentials spinner")
+        return self.verify_element_displayed(
+            self.confirming_credentials_spinner,
+            "confirming credentials spinner"
+        )
 
     def verify_credentials_confirmed_page(self):
         """method to verify the credentials confirmed page"""
-        return self.verify_element_displayed(self.credential_confirmed_title, "credential confirmed title")
+        return self.verify_element_displayed(
+            self.credential_confirmed_title, "credential confirmed title"
+        )
 
     def verify_text_on_page(self):
         """method to verify the text on the page"""
-        return self.verify_element_displayed(self.credentials_confirmed_message, "credentials confirmed message")
+        return self.verify_element_displayed(
+            self.credentials_confirmed_message, "credentials confirmed message"
+        )
 
     def click_back_to_my_credentials_button(self):
         """method to click back to my credentials button"""
-        self.click_element(self.back_to_my_credentials_button, "back to my credentials button")
+        self.click_element(
+            self.back_to_my_credentials_button, "back to my credentials button"
+        )
 
     def verify_credentials_page(self):
         """method to verify the credentials page"""
-        return self.verify_element_displayed(self.credentials_page_heading, "credentials page heading")
+        return self.verify_element_displayed(
+            self.credentials_page_heading, "credentials page heading"
+        )
 
     def verify_identity_credential_removed(self):
         """method to verify the identity credential removed"""
-        return self.verify_element_displayed(self.identity_credentials, "identity credentials")
+        return self.verify_element_displayed(
+            self.identity_credentials, "identity credentials"
+        )
 
     def verify_identity_listed(self):
         """method to verify the identity listed"""
-        return self.verify_element_displayed(self.identity_credentials, "identity credentials")
+        return self.verify_element_displayed(
+            self.identity_credentials, "identity credentials"
+        )
 
     def click_right_to_work_credentials(self):
         """method to click on right to work credentials"""
-        self.click_element(self.right_to_work_credentials, "right to work credentials")
+        self.click_element(self.right_to_work_credentials,
+                           "right to work credentials")
 
     def verify_right_to_work_credential_details(self):
         """method to verify the right to work credential details"""
-        return self.verify_element_displayed(self.rtw_name_title, "right to work name title")
+        return self.verify_element_displayed(
+            self.rtw_name_title, "right to work name title"
+        )
 
     def verify_something_went_wrong_link(self):
         """method to verify the something went wrong link"""
-        return self.verify_element_displayed(self.rtw_something_is_not_right_link, "something is not right link")
+        return self.verify_element_displayed(
+            self.rtw_something_is_not_right_link, "something is not right link"
+        )
 
     def verify_spinner_page_with_confirming_credential(self):
         """method to verify the spinner page with confirming credential"""
-        return self.verify_element_displayed(self.confirming_credentials_spinner, "confirming credentials spinner")
+        return self.verify_element_displayed(
+            self.confirming_credentials_spinner, "confirming credentials spinner"
+        )
 
     def verify_right_to_work_credential_removed(self):
         """method to verify the right to work credential removed"""
-        return self.verify_element_displayed(self.right_to_work_credentials, "right to work credentials")
+        return self.verify_element_displayed(
+            self.right_to_work_credentials, "right to work credentials"
+        )
 
     def verify_right_to_work_listed(self):
         """method to verify the right to work listed"""
-        return self.verify_element_displayed(self.right_to_work_credentials, "right to work credentials")
+        return self.verify_element_displayed(
+            self.right_to_work_credentials,
+            "right to work credentials"
+        )
 
     def click_dbs_supporting_documents(self):
         """method to click on dbs supporting documents"""
@@ -195,15 +238,20 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
 
     def verify_dbs_supporting_documents_details(self):
         """method to verify the dbs supporting documents details"""
-        return self.verify_element_displayed(self.dbs_name_title, "dbs name title")
+        return self.verify_element_displayed(self.dbs_name_title,
+                                             "dbs name title")
 
     def verify_dbs_supporting_documents_removed(self):
         """method for dbs supporting documents removed"""
-        return self.verify_element_displayed(self.dbs_supporting_information, "dbs supporting information")
+        return self.verify_element_displayed(
+            self.dbs_supporting_information, "dbs supporting information"
+        )
 
     def verify_dbs_supporting_documents_listed(self):
         """method to verify the dbs supporting documents listed"""
-        return self.verify_element_displayed(self.dbs_supporting_information, "dbs supporting information")
+        return self.verify_element_displayed(
+            self.dbs_supporting_information, "dbs supporting information"
+        )
 
     def verify_email_content(self):
         """method to verify email content"""
@@ -270,19 +318,22 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
         return self.read_value_from_element(self.rtw_dob_value, "right to work dob value")
 
     def read_passport_expiry_date_on_right_to_work_page(self):
-        """method to read the passport expiry date on right to work page"""
+        """method to read the passport expiry
+        date on right to work page"""
         return self.read_value_from_element(self.rtw_passport_expiry_date_title)
 
     def read_name_on_dbs_supporting_documents_page(self):
         """method to read the name on dbs supporting documents page"""
-        return self.read_value_from_element(self.dbs_name_value, "dbs name value")
+        return self.read_value_from_element(self.dbs_name_value,
+                                            "dbs name value")
 
     def read_dob_on_dbs_supporting_documents_page(self):
         """method to read the dob on dbs supporting documents page"""
         return self.read_value_from_element(self.dbs_dob_value, "dbs dob value")
 
     def read_verified_current_address_on_dbs_supporting_documents_page(self):
-        """method to read the verified current address on dbs supporting documents page"""
+        """method to read the verified current
+        address on dbs supporting documents page"""
         return self.read_value_from_element(self.dbs_verified_current_address_value)
 
     def read_resident_from_on_dbs_supporting_documents_page(self):
@@ -290,15 +341,18 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
         return self.read_value_from_element(self.dbs_resident_from_value)
 
     def read_passport_number_on_dbs_supporting_documents_page(self):
-        """method to read the passport number on dbs supporting documents page"""
+        """method to read the passport number
+        on dbs supporting documents page"""
         return self.read_value_from_element(self.dbs_passport_number_value)
 
     def read_passport_nationality_on_dbs_supporting_documents_page(self):
-        """method to read the passport nationality on dbs supporting information page"""
+        """method to read the passport nationality
+         on dbs supporting information page"""
         return self.read_value_from_element(self.dbs_passport_nationality_value)
 
     def read_passport_issue_date_on_dbs_supporting_documents_page(self):
-        """method to read the passport issue date on dbs supporting documents page"""
+        """method to read the passport issue
+        date on dbs supporting documents page"""
         return self.read_value_from_element(self.dbs_passport_issue_date_value)
 
     def click_account_icon(self):
@@ -309,14 +363,15 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
         """verify back link is displayed"""
         return self.verify_element_displayed(self.back_link)
 
-
     def verify_account_and_settings_page(self):
         """verify is there is account and setting page displayed"""
         return self.verify_element_displayed(self.account_and_settings_page_heading)
 
     def verify_delete_nhs_digital_staff_passport_section(self):
         """verify is element is present"""
-        return self.verify_element_displayed(self.account_and_settings_delete_your_nhs_digital_staff_pp)
+        return self.verify_element_displayed(
+            self.account_and_settings_delete_your_nhs_digital_staff_pp
+        )
 
     def verify_security_and_privacy_section(self):
         """verify is element is present"""
@@ -325,7 +380,6 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
     def click_back_link(self):
         """call click element from base page & click back link"""
         self.click_element(self.back_link, "back link")
-
 
     def verify_no_credentials(self):
         """verify no credentials message"""

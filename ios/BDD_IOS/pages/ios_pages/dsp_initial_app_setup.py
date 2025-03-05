@@ -8,13 +8,13 @@ from pages.base_page import BasePage
 class DspInitialAppSetup(BasePage):
     """this class contains methods for the page actions of dsp initial app setup"""
 
-    """DSP app first page elements"""
+    # DSP app first page elements
     first_page_NHS_logo_xpath = AppiumBy.XPATH, ''
-    first_page_NHS_logo_text = 'NHS' # Need to check if this can be readable
+    first_page_NHS_logo_text = 'NHS'  # Need to check if this can be readable
     first_page_setup_dsp_text_xpath = AppiumBy.XPATH, ''
     first_page_setup_dsp_text = 'Set up your NHS Digital Staff Passport'
 
-    """DSP app Create PIN page elements"""
+    # DSP app Create PIN page elements
     create_pin_page_header_xpath = AppiumBy.XPATH, ''
     create_pin_page_header_text = 'Create PIN'
     pin_input_xpath = AppiumBy.XPATH, ''
@@ -25,12 +25,12 @@ class DspInitialAppSetup(BasePage):
     privacy_notice_link_xpath = AppiumBy.XPATH, ''
     terms_and_conditions_link_xpath = AppiumBy.XPATH, ''
 
-    """DSP app Fingerprint page elements"""
+    # DSP app Fingerprint page elements
     fingerprint_page_header_xpath = AppiumBy.XPATH, ''
     fingerprint_page_header_text = 'Fingerprint recognition'
     enable_fingerprint_recognition_toggle_xpath = AppiumBy.XPATH, ''
 
-    """DSP app Prove who you are page elements"""
+    # DSP app Prove who you are page elements
     prove_who_you_are_page_header_xpath = AppiumBy.XPATH, ''
     prove_who_you_are_page_header_text = 'NHS Digital Staff Passport'
     prove_who_you_are_page_sub_header_xpath = AppiumBy.XPATH, ''
@@ -38,7 +38,7 @@ class DspInitialAppSetup(BasePage):
     prove_who_you_are_page_text_xpath = AppiumBy.XPATH, ''
     prove_who_you_are_page_text = 'You\'ll need to prove your identity before you can use NHS Digital Staff Passport'
 
-    """DSP app Prove your identity page elements"""
+    # DSP app Prove your identity page elements
     prove_your_identity_page_header_xpath = AppiumBy.XPATH, ''
     prove_your_identity_page_header_text = 'Prove your identity'
     prove_your_identity_page_sub_header1_xpath = AppiumBy.XPATH, ''
@@ -48,10 +48,9 @@ class DspInitialAppSetup(BasePage):
     prove_your_identity_page_in_person_link_xpath = AppiumBy.XPATH, ''
     prove_your_identity_page_in_person_link_text = 'I\'ll prove my identity in person instead'
 
-
     def verify_question_icon(self):
         """Function to verify question icon"""
-        return self.verify_element_displayed(self.question_button_xpath),"first page question icon"
+        return self.verify_element_displayed(self.question_button_xpath), "first page question icon"
 
     def verify_app_first_page_nhs_logo(self):
         """this method checks NHS logo on the app first page"""
