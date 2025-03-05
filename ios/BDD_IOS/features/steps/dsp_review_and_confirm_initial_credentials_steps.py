@@ -1,6 +1,7 @@
 """steps for review and confirm initial credentials"""
 from behave import then, when
 from pages.ios_pages.review_confirm_initial_creds_page import ReviewAndConfirmInitialCredentialsPage
+from pages.base_page import BasePage
 
 
 @then("user verifies the page heading")
@@ -73,13 +74,17 @@ def user_verifies_provided_by_trust(context):
 @then('user verifies the identity credential details - "{field}"')
 def user_verifies_identity_credential_details(context, field):
     """step to verify identity credential details"""
-    actual_details_mapping = {"Name": context.review_creds.read_name_on_identity_credentials_page,
-                      "DOB": context.review_creds.read_dob_on_identity_credentials_page,
-                      "Legal gender": context.review_creds.read_legal_gender_on_identity_credentials_page,
-                      "Nationality": context.review_creds.read_nationality_on_identity_credentials_page,
-                      "issued on": context.review_creds.read_issued_on_on_identity_credentials_page}
+    actual_details_mapping = {
+        "Name": context.review_creds.read_name_on_identity_credentials_page,
+        "DOB": context.review_creds.read_dob_on_identity_credentials_page,
+        "Legal gender": context.review_creds.read_legal_gender_on_identity_credentials_page,
+        "Nationality": context.review_creds.read_nationality_on_identity_credentials_page,
+        "issued on": context.review_creds.read_issued_on_on_identity_credentials_page,
+    }
 
-    assert actual_details_mapping[field]() == BasePage.get_test_data("IdentityCredentials", field), f"{field} mismatch"
+    assert actual_details_mapping[field]() == BasePage.get_test_data(
+        "IdentityCredentials", field
+    ), f"{field} mismatch"
 
 
 @then("user verifies link something is not right")
@@ -145,20 +150,20 @@ def user_click_right_to_work_credential(context):
 @then('user verifies the right to work credential details - "{fields}"')
 def user_verifies_right_to_work_credential_details(context, fields):
     """step to verify right to work credential details"""
-    actual_values_mapping = {"Name": context.review_creds.read_name_on_right_to_work_page,
-                             "DOB": context.review_creds.read_dob_on_right_to_work_page,
-                             "Passport expiry date": context.review_creds.read_passport_expiry_date_on_right_to_work_page}
-    assert actual_values_mapping[fields]() == BasePage.get_test_data("RightToWork", fields), f"{fields} mismatch"
+    actual_values_mapping = {
+        "Name": context.review_creds.read_name_on_right_to_work_page,
+        "DOB": context.review_creds.read_dob_on_right_to_work_page,
+        "Passport expiry date": context.review_creds.read_passport_expiry_date_on_right_to_work_page,
+    }
+    assert actual_values_mapping[fields]() == BasePage.get_test_data(
+        "RightToWork", fields
+    ), f"{fields} mismatch"
+
+
 @then("user verifies link something went wrong")
 def user_verifies_something_went_wrong_link(context):
     """step to verify something went wrong link"""
     assert context.review_creds.verify_something_went_wrong_link(), "Something went wrong link is not displayed"
-
-
-@then("use click confirm credential button")
-def user_click_confirm_credential_button(context):
-    """step to click confirm credential button"""
-    context.review_creds.click_confirm_credential_button()
 
 
 @then("user see a spinner page with confirming credential")
@@ -185,22 +190,21 @@ def user_click_dbs_supporting_documents(context):
     context.review_creds.click_dbs_supporting_documents()
 
 
-@then(
-    'user verifies the DBS supporting documents details - "{fields}"')
+@then('user verifies the DBS supporting documents details - "{fields}"')
 def user_verifies_dbs_supporting_documents_details(context, fields):
     """step to verify DBS supporting documents details"""
-    actual_values_mapping = {"Name": context.review_creds.read_name_on_dbs_supporting_documents_page,
-                                "DOB": context.review_creds.read_dob_on_dbs_supporting_documents_page,
-                                "Verified current address": context.review_creds.read_verified_current_address_on_dbs_supporting_documents_page,
-                                "Resident from": context.review_creds.read_resident_from_on_dbs_supporting_documents_page,
-                                "Passport number": context.review_creds.read_passport_number_on_dbs_supporting_documents_page,
-                                "Passport nationality": context.review_creds.read_passport_nationality_on_dbs_supporting_documents_page,
-                                "Passport issue date": context.review_creds.read_passport_issue_date_on_dbs_supporting_documents_page}
-    assert actual_values_mapping[fields]() == BasePage.get_test_data("DBSSupportingDocuments", fields), f"{fields} mismatch"
-@then("user click confirm credential button")
-def user_click_confirm_credential_button(context):
-    """step to click confirm credential button"""
-    context.review_creds.click_confirm_credential_button()
+    actual_values_mapping = {
+        "Name": context.review_creds.read_name_on_dbs_supporting_documents_page,
+        "DOB": context.review_creds.read_dob_on_dbs_supporting_documents_page,
+        "Verified current address": context.review_creds.read_verified_current_address_on_dbs_supporting_documents_page,
+        "Resident from": context.review_creds.read_resident_from_on_dbs_supporting_documents_page,
+        "Passport number": context.review_creds.read_passport_number_on_dbs_supporting_documents_page,
+        "Passport nationality": context.review_creds.read_passport_nationality_on_dbs_supporting_documents_page,
+        "Passport issue date": context.review_creds.read_passport_issue_date_on_dbs_supporting_documents_page,
+    }
+    assert actual_values_mapping[fields]() == BasePage.get_test_data(
+        "DBSSupportingDocuments", fields
+    ), f"{fields} mismatch"
 
 
 @then("user verifies DBS supporting documents is removed from credentials to confirm")
@@ -212,7 +216,9 @@ def user_verifies_dbs_supporting_documents_removed(context):
 @then("user verifies DBS supporting documents is listed under confirmed credentials")
 def user_verifies_dbs_supporting_documents_listed(context):
     """step to verify DBS supporting documents is listed under confirmed credentials"""
-    assert context.review_creds.verify_dbs_supporting_documents_listed(), "DBS supporting documents is not listed under confirmed credentials"
+    assert (
+        context.review_creds.verify_dbs_supporting_documents_listed()
+    ), "DBS supporting documents is not listed under confirmed credentials"
 
 
 @then("user click account icon")
@@ -227,11 +233,12 @@ def verify_user_account_and_settings_page(context):
     assert context.review_creds.verify_account_and_settings_page(), "account and setting page not displayed"
 
 
-
 @then("user see delete your NHS digital staff passport section and verifies the message inside")
 def verify_delete_nhs_digital_staff_passport_section(context):
     """step to verify delete your NHS digital staff passport section"""
-    assert context.review_creds.verify_delete_nhs_digital_staff_passport_section(), "Delete your NHS digital staff passport section is not displayed"
+    assert (
+        context.review_creds.verify_delete_nhs_digital_staff_passport_section()
+    ), "Delete your NHS digital staff passport section is not displayed"
 
 
 @then('user see security and privacy section and a link "terms of use and other policies" inside')
@@ -256,6 +263,7 @@ def click_on_back_link(context):
 def verify_user_home_page(context):
     """step to verify user is on home page"""
     assert context.review_creds.verify_home_page(), "User is not on home page"
+
 
 @when("user clicks on identity credential")
 def click_on_identity_credential(context):
@@ -291,4 +299,3 @@ def verify_back_link(context):
 def verify_no_credentials_is_present(context):
     """step to call method from page class that checks and returns the element no credentials"""
     assert context.review_creds.verify_no_credentials(), "No credentials message is not displayed"
-

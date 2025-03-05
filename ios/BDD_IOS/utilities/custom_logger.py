@@ -27,7 +27,7 @@ def get_logger():
     logger = logging.getLogger()
     if logger.hasHandlers():
         logger.handlers.clear()
-    logger.setLevel(logging.INFO)
+    logger.setLevel(logging.DEBUG)
     formatter = logging.Formatter('%(asctime)s:%(levelname)s:%(message)s')
     allure_handler = LogGenerator()
     file_handler = logging.FileHandler(os.path.join("logs", 'dsp.log'))
