@@ -19,6 +19,7 @@ def hr_portal_identity_access_invitation_link(context):
     """Step to click on invitation of Single Passport link"""
     context.hr_portal_identity_access_page.hr_portal_identity_invitation_link()
 
+
 @then('Select the single passport form radio button')
 def hr_portal_identity_access_single_passport_radio_btn(context):
     """Step to select single passport form radio button"""
@@ -136,6 +137,7 @@ def hr_portal_identity_access_username_search(context):
         BasePage.get_test_data("IdentityReview", "username",
                                "test_data.yaml"))
 
+
 @then('Click on the Search button - Identity & Access')
 def hr_portal_identity_access_search_submit(context):
     """Step to enter the user details in the search button - Identity & Access"""
@@ -153,20 +155,24 @@ def hr_portal_identity_access_review_identity(context):
     """Step to enter the user details in the search button - Review Identity Link"""
     context.hr_portal_identity_access_page.hr_portal_identity_review_details()
 
+
 @then('Employment - Permanent details selected from dropdown list')
 def hr_portal_identity_access_hr_employment_permanent(context):
     """Step to select dropdown permanent details"""
     context.hr_portal_identity_access_page.hr_portal_identity_select_employment_type_permanent()
+
 
 @then('Click on the Continue button - post selected Employment details')
 def hr_portal_identity_access_hr_employment_continue(context):
     """Step to click on the Continue button - post selected Employment details"""
     context.hr_portal_identity_access_page.hr_portal_identity_continue_button()
 
+
 @then('Click on the confirm button for identity review')
 def hr_portal_identity_access_confirm_identity(context):
     """Step to clcik on confirm button for identity review"""
     context.hr_portal_identity_access_page.hr_portal_identity_confirm_user_radiobutton()
+
 
 @then('Click on the Continue button - post confirm button selected')
 def hr_portal_identity_access_confirm_identity_continue(context):
@@ -254,30 +260,36 @@ def hr_portal_identity_access_review_success(context):
     """Step to click on the Request reviewed and success message is displayed"""
     context.hr_portal_identity_access_page.hr_portal_identity_review_request_success_message()
 
+
 @then('Click on the Delete passport from records link')
 def hr_portal_delete_from_record_link(context):
     """Step to click on the Delete passport from records link"""
     context.hr_portal_identity_access_page.hr_portal_delete_passport_link()
+
 
 @then('User selected yes for delete staff passport from record button')
 def hr_portal_yes_delete_from_record_radio_button(context):
     """Step to click on yes for delete staff passport from record button"""
     context.hr_portal_identity_access_page.hr_portal_yes_delete_passport_radio_btn()
 
+
 @then('User selected no for delete staff passport from record button')
 def hr_portal_no_delete_from_record_radio_button(context):
     """Step to click on no for delete staff passport from record button"""
     context.hr_portal_identity_access_page.hr_portal_no_delete_passport_radio_btn()
+
 
 @then('User clicks on Continue button on delete passport page')
 def hr_portal_delete_passport_continue_button(context):
     """Step to click on Continue button on delete passport page"""
     context.hr_portal_identity_access_page.hr_portal_continue_btn_delete_passport()
 
+
 @then('Verify that user profile is visible')
 def hr_portal_user_profile_validation(context):
     """Step to verify that user profile is visible"""
     context.hr_portal_identity_access_page.hr_portal_user_profile_validation()
+
 
 @then('Verify the confirmation message displayed w.r.t passport delete')
 def hr_portal_passport_deleted_confirmation_message(context):

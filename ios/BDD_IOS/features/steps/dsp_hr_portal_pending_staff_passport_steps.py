@@ -59,6 +59,7 @@ def hr_portal_pending_staff_confirm_yes_continue(context):
     context.hr_portal_pending_staff_passport_page.hr_portal_pending_provide_credentials_confirm_yes()
     context.hr_portal_pending_staff_passport_page.hr_portal_pending_provide_credentials_confirm_continue()
 
+
 @then('Request reviewed successfully and message is displayed')
 def hr_portal_pending_staff_review_request(context):
     """step implementation Request reviewed successfully and message is displayed"""

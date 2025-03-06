@@ -26,6 +26,7 @@ def hr_portal_login_credentials(context):
     context.hr_portal_login.hr_portal_login_credentials_password()
     context.hr_portal_login.hr_portal_click_login_button()
 
+
 @then('Verify the HR portal homepage is displayed')
 def hr_portal_homepage_displayed(context):
     """Step to verify the HR portal homepage is displayed"""

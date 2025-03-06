@@ -3,7 +3,6 @@ from behave import then
 from pages.ios_pages.app_id_rejected import IdRejectedPage
 
 
-
 @then("User validates your identity could not be confirm message")
 def sign_in_after_initial_setup_steps(context):
     """ Step to validate your identity could not be confirm message"""

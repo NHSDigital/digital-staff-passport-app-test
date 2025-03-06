@@ -1,4 +1,5 @@
 """page object file for ios app logon"""
+from appium.webdriver.common.appiumby import AppiumBy
 from pages.base_page import BasePage
 from utilities import custom_logger
 
