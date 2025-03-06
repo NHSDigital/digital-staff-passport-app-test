@@ -1,5 +1,5 @@
 """Step definitions for app accounts and settings page steps"""
-from behave import given, when, then
+from behave import then
 from pages.ios_pages.app_accounts_and_settings import AppAccountsandSettings
 
 
