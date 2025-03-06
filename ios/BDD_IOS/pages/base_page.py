@@ -11,6 +11,7 @@ import yaml
 from appium.options.common.base import AppiumOptions
 from appium import webdriver as appium_webdriver
 from appium.webdriver.appium_service import AppiumService
+from appium.webdriver.common.appiumby import AppiumBy
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import InvalidSelectorException
 from selenium.common.exceptions import NoSuchElementException
@@ -129,6 +130,15 @@ class BasePage:
         else:
             logger.info("DSP HR application URL is open.")
             return self.driver
+
+    def hr_portal_login_homepage(self):
+        """Browser is open and user clicks on register link"""
+        self.open_dsp_hr_portal_application_url()
+        self.user_defined_wait(5)
+
+    def click_login_page(self):
+        """click login page"""
+        self.click_element(AppiumBy.XPATH, '//XCUIElementTypeStaticText[@name="Login"]')
 
     def is_app_installed(self):
         """Check if the app is installed on the device."""
