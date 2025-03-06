@@ -9,3 +9,6 @@ def before_scenario(context, scenario):
     context.base_page = BasePage(context.driver)
     context.base_page.hr_portal_login_homepage()
     context.base_page.click_login_page()
+
+def after_scenario(context, scenario):
+    context.driver.close()
