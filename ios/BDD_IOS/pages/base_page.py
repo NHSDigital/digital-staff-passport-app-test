@@ -1,3 +1,4 @@
+"""This module contains the BasePage class for the Page Object Model."""
 # import configparser
 # import glob
 import os
@@ -10,7 +11,6 @@ import yaml
 from appium.options.common.base import AppiumOptions
 from appium import webdriver as appium_webdriver
 from appium.webdriver.appium_service import AppiumService
-from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import InvalidSelectorException
 from selenium.common.exceptions import NoSuchElementException
@@ -54,7 +54,7 @@ class BasePage:
 
     def open_app_with_activity(self):
         """Attempt to open the app using a single activity entry point."""
-
+        appium_server_url = "http://127.0.0.1:4723"
         # Define Load capabilities
         options = AppiumOptions()
         options.load_capabilities(
@@ -67,17 +67,16 @@ class BasePage:
                 "appium:noReset": True,
             }
         )
-
         try:
             # Attempt to initialize the Appium session with the specified activity
-            appium_server_url = "http://127.0.0.1:4723"
             self.driver = appium_webdriver.Remote(appium_server_url, options=options)
-            logger.info("App launched successfully with activity %s:", self.activity)
-        except Exception as e:
-            logger.warning("Failed to launch with activity %s %s:", self.activity, e)
+        except Exception as error:
+            logger.warning("Failed to launch with activity %s %s:", self.activity, error)
             if self.driver:
                 self.driver.quit()  # Only quit if session initialization failed
             self.driver = None  # Ensure driver is reset if session creation failed
+        else:
+            logger.info("App launched successfully with activity %s:", self.activity)
 
     def open_browser_mobile(self):
         """Open browser based on the browser and run the appium server"""
@@ -117,31 +116,33 @@ class BasePage:
             self.driver = appium_webdriver.Remote(appium_server_url, options=options)
             logger.info("Browser is open")
             return self.driver
+        return None
 
     def open_dsp_hr_portal_application_url(self):
         """invoke the browser and open HR Portal URL."""
         try:
             self.driver.get(ReadProperty.environment_hr_url())
-            logger.info("DSP HR application URL is open.")
-            return self.driver
         except InvalidSelectorException:
             logger.error("DSP HR application URL is not open.")
             self.driver.close()
             assert False, "Test is failed in open login page section"
+        else:
+            logger.info("DSP HR application URL is open.")
+            return self.driver
 
     def is_app_installed(self):
         """Check if the app is installed on the device."""
-
         try:
             result = subprocess.run(
                 ["adb", "shell", "pm", "list", "packages", self.package_name],
+                check=True,
                 capture_output=True,
                 text=True,
             )
-            return self.package_name in result.stdout
-        except Exception as e:
-            logger.error(f"Failed to check if app is installed: {e}")
+        except Exception as error:
+            logger.error("Failed to check if app is installed:%s", error)
             return False
+        return self.package_name in result.stdout
 
     def reset_app(self):
         """Force-stop the app to reset its state."""
@@ -149,20 +150,23 @@ class BasePage:
             subprocess.run(
                 ["adb", "shell", "am", "force-stop", self.package_name], check=True
             )
+        except Exception as error:
+            logger.warning("Failed to force-stop app: %s", error)
+        else:
             logger.info("App has been force-stopped.")
-        except Exception as e:
-            logger.warning(f"Failed to force-stop app: {e}")
 
     def uninstall_app(self):
         """Uninstall the app for test consistency if needed."""
         try:
             subprocess.run(["adb", "uninstall", self.package_name], check=True)
+        except Exception as error:
+            logger.error("Failed to uninstall app: %s", error)
+        else:
             logger.info("App has been uninstalled.")
-        except Exception as e:
-            logger.error(f"Failed to uninstall app: {e}")
 
     @staticmethod
     def start_appium():
+        """Start the Appium server."""
         # Initialize the AppiumService
         appium_service = AppiumService()
         # Start the Appium server on port 4723
@@ -198,9 +202,8 @@ class BasePage:
         if element:
             logger.info("Element %s value is : %s", objname, element.text)
             return element.text
-        else:
-            logger.info("Exception! Can't read value from element")
-            return "Can't read value from element"
+        logger.info("Exception! Can't read value from element")
+        return "Can't read value from element"
 
     @staticmethod
     def user_defined_wait(sleep_seconds):
@@ -213,10 +216,10 @@ class BasePage:
             element = WebDriverWait(self.driver, timeout).until(
                 EC.presence_of_element_located(by_locator)
             )
-            return element
         except TimeoutException:
             logger.error("Element not found: %s", by_locator)
             return None
+        return element
 
     def verify_element_displayed(self, by_locator, objname=None):
         """checks if the element is displayed"""
@@ -224,11 +227,11 @@ class BasePage:
             WebDriverWait(self.driver, 60).until(
                 EC.presence_of_element_located(by_locator)
             )
-            logger.info("Element found: %s", objname)
-            return True
         except InvalidSelectorException:
             logger.error("Element not found")
             return False
+        logger.info("Element found: %s", objname)
+        return True
 
     def type_element(self, by_locator, text, objname=None):
         """types the passed text into the web element"""
@@ -236,17 +239,17 @@ class BasePage:
             WebDriverWait(self.driver, 30).until(
                 EC.presence_of_element_located(by_locator)
             ).send_keys(text)
-            logger.info("Value entered is: %s for field.", text)
-            logger.info("Value entered is: %s for field.", objname)
         except InvalidSelectorException:
             logger.error("Exception! Can't type on the element")
+        else:
+            logger.info("Value entered is: %s for field %s", text, objname)
 
     @staticmethod
     def get_test_data(page, field, filename):
         """to read test data"""
+        file_path = os.path.join("data", filename)
+        path = os.path.abspath(file_path)
         try:
-            file_path = os.path.join("data", filename)
-            path = os.path.abspath(file_path)
             with open(path, "r", encoding="utf-8") as f_f:
                 doc = yaml.safe_load(f_f)
         except yaml.YAMLError as exception:
@@ -299,6 +302,7 @@ class BasePage:
         process.communicate()
 
     def change_element_bg_color(self, by_bojtype, by_locator):
+        """change the background color of the element"""
         element = self.driver.find_element(by_bojtype, by_locator)
         return self.driver.execute_script(
             "arguments[0].style.backgroundColor = 'lightgreen';", element
@@ -309,11 +313,11 @@ class BasePage:
         time.sleep(3)
         try:
             self.driver.find_element(by_obj_type, by_locator).is_displayed()
-            logger.info("Exception! Object is visible: %s", objname)
-            return True
         except NoSuchElementException:
             logger.info("Object is not visible: %s", objname)
             return False
+        logger.info("Exception! Object is visible: %s", objname)
+        return True
 
     def get_element_count(self, by_obj_type, by_locator):
         """to get the number of elements"""
@@ -324,11 +328,11 @@ class BasePage:
         """returns the value of .text property of a web element"""
         try:
             text = self.driver.find_element(by_obj_type, by_locator).text
-            logger.info("Element value is: %s, Name is: %s", text, objname)
-            return text
         except InvalidSelectorException:
             logger.info("Exception! Can't read value from element")
             return "Can't read value from element"
+        logger.info("Element value is: %s, Name is: %s", text, objname)
+        return text
 
     def navigate_url(self, value):
         """Navigate to the standalone URL as required"""
@@ -339,5 +343,5 @@ class BasePage:
         """Closes the Safari browser on iOS."""
         try:
             self.driver.quit()
-        except Exception as e:
-            print(f"Error closing Safari: {e}")
+        except Exception as error:
+            print("Error closing Safari:%s", error)

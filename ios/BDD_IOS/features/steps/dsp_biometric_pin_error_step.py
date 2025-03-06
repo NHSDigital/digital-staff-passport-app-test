@@ -11,6 +11,7 @@ def dsp_pin_error_enter_pin(context, pin1, pin2):
     context.pin_error.app_pin_error_enter_pin1()
     context.pin_error.app_pin_error_enter_pin1()
 
+
 @then("user clicks on continue button - create a pin page")
 def dsp_app_create_pin_continue_button(context):
     """ Step to click on continue button """
