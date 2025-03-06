@@ -7,69 +7,117 @@ logger = custom_logger.get_logger()
 
 
 class HRTemporaryPlacementCredentialPage(BasePage):
-    """ Elements for the HR Portal-temporary placement credential creation"""
+    """Elements for the HR Portal-temporary placement credential creation"""
 
-    Create_temporary_placement_cred_link_xpath = AppiumBy.XPATH, ("//XCUIElementTypeStaticText[@name=\"Create "
-                                                                  "temporary placement credential\"]")
-    When_should_you_issue_temp_cred_heading_xpath = AppiumBy.XPATH, ("//XCUIElementTypeStaticText[@name=\"When should "
-                                                                     "you issue a temporary placement credential?\"]")
-    Continue_button_1st_page_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name=\"Continue\"]"
-    Position_title_field_xpath = AppiumBy.XPATH, "//XCUIElementTypeTextField[@name=\"Position title\"]"
-    Position_number_field_xpath = AppiumBy.XPATH, "//XCUIElementTypeTextField[@name=\"Position number\"]"
-    Brief_description_textbox_xpath = AppiumBy.XPATH , ("//XCUIElementTypeTextView[@name=\"Brief description of work "
-                                                        "pattern\"]")
-    Start_day_xpath = AppiumBy.XPATH , "(//XCUIElementTypeTextField[@name=\"Day\"])[1]"
-    start_month_xpath = AppiumBy.XPATH , "(//XCUIElementTypeTextField[@name=\"Month\"])[1]"
-    start_Year_xpath = AppiumBy.XPATH , "(//XCUIElementTypeTextField[@name=\"Year\"])[1]"
-    end_day_xpath = AppiumBy.XPATH , "(//XCUIElementTypeTextField[@name=\"Day\"])[2]"
-    end_month_xpath = AppiumBy.XPATH , "(//XCUIElementTypeTextField[@name=\"Month\"])[2]"
-    end_year_xpath = AppiumBy.XPATH , "(//XCUIElementTypeTextField[@name=\"Year\"])[2]"
-    Continue_button_2nd_page = AppiumBy.XPATH , "//XCUIElementTypeButton[@name=\"Continue\"]"
-    permanent_employer_dropdown_xpath =AppiumBy.XPATH, "//XCUIElementTypeOther[@name=\"Permanent Employer\"]"
-    coventry_option_select_xpath = AppiumBy.XPATH, ("//XCUIElementTypeButton[@name=\"University Hospitals Coventry and "
-                                                    "Warwickshire NHS Trust\"]")
-    Enter_your_employer_in_text_box_xpath = AppiumBy.XPATH, ''
-    Department_field_xpath = AppiumBy.XPATH, "//XCUIElementTypeTextField[@name=\"Department\"]"
-    Depart_contact_email_address_xpath = AppiumBy.XPATH, ("//XCUIElementTypeTextField[@name=\"Department contact email "
-                                                          "address\"]")
-    HR_contact_field_xpath = AppiumBy.XPATH, "//XCUIElementTypeTextField[@name=\"HR contact\"]"
-    Depart_Contact_name_field_xpath = AppiumBy.XPATH, "//XCUIElementTypeTextField[@name=\"Department Contact name\"]"
-    Approved_by_field_xpath = AppiumBy.XPATH, "//XCUIElementTypeTextField[@name=\"Approved by\"]"
-    Licence_to_attend_heading_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name=\"Licence to attend\"]"
-    Yes_confirm_licence_requirement_radio_btn_xpath = AppiumBy.XPATH, ("//XCUIElementTypeStaticText[@name=\"Yes, "
-                                                                       "confirm licence requirement\"]")
-    No_dont_include_licence_radio_btn_xpath = AppiumBy.XPATH, ''
-    Confirm_dtls_provide_credential_heading_xpath = AppiumBy.XPATH, ("//XCUIElementTypeStaticText[@name=\"Confirm "
-                                                                     "details and provide credential\"]")
-    Yes_confirm_and_provide_credential_radio_btn_xpath = AppiumBy.XPATH, ("//XCUIElementTypeStaticText[@name=\"Yes, "
-                                                                          "confirm and provide credential\"]")
-    No_return_to_staff_profile_radio_btn_xpath = AppiumBy.XPATH, ''
-    Temporary_placement_cred_provided_heading_xpath = AppiumBy.XPATH, ("//XCUIElementTypeStaticText[@name=\"Temporary "
-                                                                       "placement credential provided\"]")
-    Temporary_placement_cred_provided_heading_txt = "Temporary placement credential provided"
-    Temp_placement_back_to_user_passport_link_xpath = AppiumBy.XPATH, ('//XCUIElementTypeStaticText[@name="Back to '
-                                                                       'AutomationTwo User\'s passport"]')
-    Temp_placement_Passport_history_link_xpath = AppiumBy.XPATH, ("//XCUIElementTypeStaticText[@name=\"Passport "
-                                                                  "history\"]")
-    Passport_history_page_heading_temp_creds_xpath = AppiumBy.XPATH, ('//XCUIElementTypeOther['
-                                                                      '@name="main"]/XCUIElementTypeOther['
-                                                                      '2]/XCUIElementTypeStaticText')
-    Passport_history_event_txt_temp_creds_xpath = AppiumBy.XPATH, ('//XCUIElementTypeOther['
-                                                                   '@name="main"]/XCUIElementTypeOther['
-                                                                   '3]/XCUIElementTypeOther['
-                                                                   '2]/XCUIElementTypeOther'
-                                                                   '/XCUIElementTypeStaticText[2]')
+    Create_temporary_placement_cred_link_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="Create temporary placement credential"]'
+    )
+    When_should_you_issue_temp_cred_heading_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="When should '
+        'you issue a temporary placement credential?"]'
+    )
+    Continue_button_1st_page_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[@name="Continue"]',
+    )
+    Position_title_field_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeTextField[@name="Position title"]',
+    )
+    Position_number_field_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeTextField[@name="Position number"]',
+    )
+    Brief_description_textbox_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeTextView[@name="Brief description of work pattern"]'
+    )
+    Start_day_xpath = AppiumBy.XPATH, '(//XCUIElementTypeTextField[@name="Day"])[1]'
+    start_month_xpath = AppiumBy.XPATH, '(//XCUIElementTypeTextField[@name="Month"])[1]'
+    start_Year_xpath = AppiumBy.XPATH, '(//XCUIElementTypeTextField[@name="Year"])[1]'
+    end_day_xpath = AppiumBy.XPATH, '(//XCUIElementTypeTextField[@name="Day"])[2]'
+    end_month_xpath = AppiumBy.XPATH, '(//XCUIElementTypeTextField[@name="Month"])[2]'
+    end_year_xpath = AppiumBy.XPATH, '(//XCUIElementTypeTextField[@name="Year"])[2]'
+    Continue_button_2nd_page = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeButton[@name="Continue"]',
+    )
+    permanent_employer_dropdown_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeOther[@name="Permanent Employer"]',
+    )
+    coventry_option_select_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeButton[@name="University Hospitals Coventry and '
+        'Warwickshire NHS Trust"]'
+    )
+    Enter_your_employer_in_text_box_xpath = AppiumBy.XPATH, ""
+    Department_field_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeTextField[@name="Department"]',
+    )
+    Depart_contact_email_address_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeTextField[@name="Department contact email address"]'
+    )
+    HR_contact_field_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeTextField[@name="HR contact"]',
+    )
+    Depart_Contact_name_field_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeTextField[@name="Department Contact name"]',
+    )
+    Approved_by_field_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeTextField[@name="Approved by"]',
+    )
+    Licence_to_attend_heading_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[@name="Licence to attend"]',
+    )
+    Yes_confirm_licence_requirement_radio_btn_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="Yes, confirm licence requirement"]'
+    )
+    No_dont_include_licence_radio_btn_xpath = AppiumBy.XPATH, ""
+    Confirm_dtls_provide_credential_heading_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="Confirm details and provide credential"]'
+    )
+    Yes_confirm_and_provide_credential_radio_btn_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="Yes, confirm and provide credential"]'
+    )
+    No_return_to_staff_profile_radio_btn_xpath = AppiumBy.XPATH, ""
+    Temporary_placement_cred_provided_heading_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="Temporary placement credential provided"]'
+    )
+    Temporary_placement_cred_provided_heading_txt = (
+        "Temporary placement credential provided"
+    )
+    Temp_placement_back_to_user_passport_link_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="Back to ' "AutomationTwo User's passport\"]"
+    )
+    Temp_placement_Passport_history_link_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="Passport history"]'
+    )
+    Passport_history_page_heading_temp_creds_xpath = AppiumBy.XPATH, (
+        "//XCUIElementTypeOther["
+        '@name="main"]/XCUIElementTypeOther['
+        "2]/XCUIElementTypeStaticText"
+    )
+    Passport_history_event_txt_temp_creds_xpath = AppiumBy.XPATH, (
+        "//XCUIElementTypeOther["
+        '@name="main"]/XCUIElementTypeOther['
+        "3]/XCUIElementTypeOther["
+        "2]/XCUIElementTypeOther"
+        "/XCUIElementTypeStaticText[2]"
+    )
     Passport_history_event_temp_creds_txt = "Temporary placement credential"
     I_do_not_know_the_position_number_xpath = AppiumBy.XPATH, ""
 
-
     def hr_portal_click_create_temporary_placement_credential_link(self):
-        """click on Create temporary placement credential link on staff passport page"""
+        """click on Create temporary placement credential"""
         if self.verify_element_displayed(self.Create_temporary_placement_cred_link_xpath):
             self.click_element(self.Create_temporary_placement_cred_link_xpath, "Click")
 
     def hr_portal_verify_heading_and_click_continue(self):
-        """Verify When should you issue a temporary placement credential? link and click continue"""
+        """Verify temporary placement credential & click continue"""
         if self.verify_element_displayed(self.When_should_you_issue_temp_cred_heading_xpath):
             self.click_element(self.Continue_button_1st_page_xpath, "Click")
 
@@ -130,7 +178,7 @@ class HRTemporaryPlacementCredentialPage(BasePage):
             self.click_element(self.Continue_button_2nd_page)
 
     def hr_portal_select_permanent_employer_detail_from_dropdown(self):
-        """function to select permanent employment details from dropdown"""
+        """Function to select permanent employment details from dropdown"""
         if self.verify_element_displayed(self.permanent_employer_dropdown_xpath):
             self.click_element(self.permanent_employer_dropdown_xpath)
         if self.verify_element_displayed(self.coventry_option_select_xpath):
@@ -177,17 +225,17 @@ class HRTemporaryPlacementCredentialPage(BasePage):
             self.click_element(self.No_dont_include_licence_radio_btn_xpath, "click")
 
     def hr_portal_confirm_details_page_and_select_yes_radio_button(self):
-        """Function to validates Confirm details and provide credential heading and select yes radio button"""
+        """Validates Confirm details and provide credential heading and select yes radio button"""
         if self.verify_element_displayed(self.Confirm_dtls_provide_credential_heading_xpath):
             self.click_element(self.Yes_confirm_and_provide_credential_radio_btn_xpath, "click")
 
     def hr_portal_confirm_details_page_and_select_no_radio_button(self):
-        """Function to validates Confirm details and provide credential heading and select No radio button"""
+        """Validates Confirm details and provide credential heading and select No radio button"""
         if self.verify_element_displayed(self.Confirm_dtls_provide_credential_heading_xpath):
             self.click_element(self.No_return_to_staff_profile_radio_btn_xpath, "click")
 
     def hr_portal_temp_placement_provided_success_message(self):
-        """Function to validate Temporary placement credential provided success message"""
+        """Validate Temporary placement credential provided success message"""
         if self.verify_element_displayed(self.Temporary_placement_cred_provided_heading_xpath):
             message = self.read_value_from_element(self.Temporary_placement_cred_provided_heading_xpath)
             assert message in self.Temporary_placement_cred_provided_heading_txt

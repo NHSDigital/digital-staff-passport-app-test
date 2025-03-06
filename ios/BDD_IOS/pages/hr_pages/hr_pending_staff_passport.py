@@ -10,43 +10,99 @@ logger = custom_logger.get_logger()
 
 
 class HRPendingStaffPassportPage(BasePage):
-    """ Elements for the HR Portal-Pending staff passport to provide credentials"""
+    """Elements for the HR Portal-Pending staff passport to provide credentials"""
 
     menu_toggle_xpath = HRIdentityAndAccessPage.menu_toggle_xpath
-    pending_staff_passport_page_link_xpath = AppiumBy.XPATH, ("//XCUIElementTypeStaticText[@name=\"Pending staff "
-                                                              "passports\"]")
-    click_review_cred_request_xpath = AppiumBy.XPATH, ("//XCUIElementTypeStaticText[@name=\"Review credential "
-                                                       "requests\"]")
-    provide_credentials_button_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name=\"Provide Credentials\"]"
-    radio_button_elements = "(//XCUIElementTypeOther[@value=\"0\"])"
+    pending_staff_passport_page_link_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="Pending staff passports"]'
+    )
+    click_review_cred_request_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="Review credential requests"]'
+    )
+    provide_credentials_button_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[@name="Provide Credentials"]',
+    )
+    radio_button_elements = '(//XCUIElementTypeOther[@value="0"])'
     pending_search_input_xpath = AppiumBy.CLASS_NAME, "XCUIElementTypeSearchField"
     pending_search_submit_xpath = AppiumBy.ACCESSIBILITY_ID, "Search"
-    pending_search_result_xpath = AppiumBy.XPATH, ("(//XCUIElementTypeStaticText[@name=\"Full name\"])["
-                                                   "2]/parent::XCUIElementTypeOther/XCUIElementTypeLink")
-    connect_to_esr_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name=\"Connect to ESR\"]"
-    enter_esr_number_xpath = AppiumBy.XPATH, "//XCUIElementTypeTextField[@name=\"ESR assignment number\"]"
-    confirm_esr_number_xpath = AppiumBy.XPATH, "//XCUIElementTypeButton[@name=\"Confirm\"]"
-    connect_passport_to_esr_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name=\"Connect passport to ESR\"]"
-    connect_button_xpath = AppiumBy.XPATH, "//XCUIElementTypeButton[@name=\"Connect\"]"
-    yes_radio_btn_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name=\"Yes, this is the correct staff member\"]"
-    no_radio_btn_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name=\"No, edit the ESR assignment number\"]"
-    continue_btn_xpath = AppiumBy.XPATH, "//XCUIElementTypeButton[@name=\"Continue\"]"
-    provide_credentials_link_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name=\"Provide Credentials\"]"
-    back_link_pending_staff_xpath = AppiumBy.XPATH, ("//XCUIElementTypeStaticText[@name=\"Not now - go back to "
-                                                     "AutomationTwo User's passport\"]")
-    provide_creds_count = "(//XCUIElementTypeOther[@value=\"0\"])[{position_number}]"
-    review_credentials_confirm_yes_xpath = AppiumBy.XPATH, ("//XCUIElementTypeStaticText[@name=\"Yes, continue with "
-                                                            "this selection\"]")
-    review_credentials_success_xpath = AppiumBy.XPATH, ("//XCUIElementTypeStaticText[@name=\"Credential requests "
-                                                        "reviewed\"]")
+    pending_search_result_xpath = AppiumBy.XPATH, (
+        '(//XCUIElementTypeStaticText[@name="Full name"])['
+        "2]/parent::XCUIElementTypeOther/XCUIElementTypeLink"
+    )
+    connect_to_esr_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[@name="Connect to ESR"]',
+    )
+    enter_esr_number_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeTextField[@name="ESR assignment number"]',
+    )
+    confirm_esr_number_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeButton[@name="Confirm"]',
+    )
+    connect_passport_to_esr_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[@name="Connect passport to ESR"]',
+    )
+    connect_button_xpath = AppiumBy.XPATH, '//XCUIElementTypeButton[@name="Connect"]'
+    yes_radio_btn_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[@name="Yes, this is the correct staff member"]',
+    )
+    no_radio_btn_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[@name="No, edit the ESR assignment number"]',
+    )
+    continue_btn_xpath = AppiumBy.XPATH, '//XCUIElementTypeButton[@name="Continue"]'
+    provide_credentials_link_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[@name="Provide Credentials"]',
+    )
+    back_link_pending_staff_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="Not now - go back to '
+        "AutomationTwo User's passport\"]"
+    )
+    provide_creds_count = '(//XCUIElementTypeOther[@value="0"])[{position_number}]'
+    review_credentials_confirm_yes_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="Yes, continue with this selection"]'
+    )
+    review_credentials_success_xpath = AppiumBy.XPATH, (
+        '//XCUIElementTypeStaticText[@name="Credential requests reviewed"]'
+    )
     review_credentials_success_txt = "Credential requests reviewed"
-    manage_passport_link_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name=\"Manage passport\"]"
-    delete_passport_link_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name=\"Delete passport\"]"
-    delete_passport_continue_btn_xpath = AppiumBy.XPATH, "//XCUIElementTypeButton[@name=\"Continue\"]"
-    delete_passport_data_xpath = AppiumBy.XPATH, "//XCUIElementTypeButton[@name=\"Delete passport and its data\"]"
-    delete_passport_message_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name=\"Passport deleted.\"]"
+    manage_passport_link_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[@name="Manage passport"]',
+    )
+    delete_passport_link_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[@name="Delete passport"]',
+    )
+    delete_passport_continue_btn_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeButton[@name="Continue"]',
+    )
+    delete_passport_data_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeButton[@name="Delete passport and its data"]',
+    )
+    delete_passport_message_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[@name="Passport deleted."]',
+    )
     delete_passport_message_txt = "Passport deleted."
-
+    passport_status_xpath = ""
+    passport_status_initial_value_xpath = ""
+    passport_status_initial_value_txt = ""
+    passport_show_all_details_xpath = ""
+    click_shared_review_cred_request_xpath = ""
+    click_shared_review_accept_radio_button_xpath = ""
+    click_shared_review_accept_continue_button_xpath = ""
+    click_shared_review_accept_yes_confirm_radio_button_xpath = ""
+    click_shared_review_accept_success_header_xpath = ""
+    click_shared_review_accept_success_header_txt = ""
 
     def hr_portal_pending_staff_passport_tab(self):
         """ Click on the Pending Staff Passport Tab within HR Portal"""
@@ -81,19 +137,16 @@ class HRPendingStaffPassportPage(BasePage):
 
     def hr_portal_passport_page_click_on_show_details(self):
         """Function to click on show details link"""
-        self.scroll_page_to_middle()
         self.user_defined_wait(2)
         if self.verify_element_displayed(self.passport_show_all_details_xpath):
             self.click_element(self.passport_show_all_details_xpath, "Click")
             self.user_defined_wait(2)
-
 
     def hr_portal_pending_click_review_credentials_request(self):
         """ Click on the Alert for reviewing the Credentials Requests"""
         if self.verify_element_displayed(self.click_review_cred_request_xpath):
             self.click_element(self.click_review_cred_request_xpath, "Click")
             self.user_defined_wait(3)
-
 
     def hr_portal_pending_provide_credentials(self):
         """ Review the credentials request & select the provide radio button for the same"""
@@ -106,13 +159,11 @@ class HRPendingStaffPassportPage(BasePage):
             cred_to_provide = self.verify_element_displayed(provide_path)
             cred_to_provide.click()
 
-
     def hr_portal_pending_provide_credentials_button(self):
         """ Click on the Provide Credential button"""
         if self.verify_element_displayed(self.provide_credentials_button_xpath):
             self.click_element(self.provide_credentials_button_xpath, "Click")
             self.user_defined_wait(3)
-
 
     def hr_portal_pending_provide_credentials_continue(self):
         """ Click on Continue button , post selection of the request"""
@@ -120,20 +171,17 @@ class HRPendingStaffPassportPage(BasePage):
             self.click_element(self.continue_btn_xpath, "Click")
             self.user_defined_wait(3)
 
-
     def hr_portal_pending_provide_credentials_confirm_yes(self):
         """ Click on Yes radio button w.r.t credential request"""
         if self.verify_element_displayed(self.review_credentials_confirm_yes_xpath):
             self.click_element(self.review_credentials_confirm_yes_xpath, "Click")
             self.user_defined_wait(3)
 
-
     def hr_portal_pending_provide_credentials_confirm_continue(self):
         """ Click on Continue button w.r.t credential request"""
         if self.verify_element_displayed(self.continue_btn_xpath):
             self.click_element(self.continue_btn_xpath, "Click")
             self.user_defined_wait(3)
-
 
     def hr_portal_pending_provide_credentials_reviewed_success(self):
         """ Request reviewed successfully and message is displayed """
@@ -214,7 +262,6 @@ class HRPendingStaffPassportPage(BasePage):
         if self.verify_element_displayed(self.delete_passport_link_xpath):
             self.click_element(self.delete_passport_link_xpath, "Click")
 
-
     def hr_portal_pending_delete_passport_continue(self):
         """ Click on Continue button w.r.t delete passport"""
         if self.verify_element_displayed(self.delete_passport_continue_btn_xpath):
@@ -241,7 +288,6 @@ class HRPendingStaffPassportPage(BasePage):
 
     def hr_portal_pending_click_shared_review_accept_radio_button(self):
         """ Click on the Accept radio button while reviewing Shared Credentials"""
-        self.scroll_page_to_bottom()
         self.user_defined_wait(2)
         if self.verify_element_displayed(self.click_shared_review_accept_radio_button_xpath):
             self.click_element(self.click_shared_review_accept_radio_button_xpath, "Click")
@@ -255,7 +301,6 @@ class HRPendingStaffPassportPage(BasePage):
 
     def hr_portal_pending_click_shared_provide_credentials_confirm_yes(self):
         """ Click on Yes radio button w.r.t to provide shared credential request"""
-        self.scroll_page_to_bottom()
         self.user_defined_wait(2)
         if self.verify_element_displayed(self.click_shared_review_accept_yes_confirm_radio_button_xpath):
             self.click_element(self.click_shared_review_accept_yes_confirm_radio_button_xpath, "Click")
