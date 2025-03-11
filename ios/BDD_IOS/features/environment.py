@@ -11,4 +11,4 @@ def before_scenario(context, scenario):
     context.base_page.click_login_page()
 
 def after_scenario(context, scenario):
-    context.driver.close()
+    context.driver.quit()

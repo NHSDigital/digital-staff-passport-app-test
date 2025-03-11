@@ -16,7 +16,7 @@ def get_browser_register_link(context):
     # context.driver = logging.FileHandler.selenium_driver = HRPortalLoginMob.open_browser_mobile(context)
     # context.driver = logging.FileHandler.selenium_driver = HRPortalLoginMob.open_browser_mobile_simulator(context)
     context.hr_portal_login = HRPortalLoginMob(context.driver)
-    context.hr_portal_login.hr_portal_login_homepage()
+    # context.hr_portal_login.hr_portal_login_homepage()
 
 
 @when('Enter the credentials & click on login button')
