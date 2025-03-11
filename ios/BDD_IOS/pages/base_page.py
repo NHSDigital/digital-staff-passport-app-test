@@ -138,7 +138,7 @@ class BasePage:
 
     def click_login_page(self):
         """click login page"""
-        self.click_element((AppiumBy.XPATH, '//XCUIElementTypeStaticText[@name="Login"]'), "Login button")
+        self.click_element((AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name=\"Login\"]"), "Login")
 
     def is_app_installed(self):
         """Check if the app is installed on the device."""
