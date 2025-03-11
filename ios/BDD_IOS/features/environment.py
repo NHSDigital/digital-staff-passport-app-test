@@ -5,7 +5,6 @@ from pages.base_page import BasePage
 
 
 def before_scenario(context, scenario):
-    if "_hr_" in context.feature.name:
         context.driver = logging.FileHandler.selenium_driver = BasePage.open_browser_mobile(context)
         context.base_page = BasePage(context.driver)
         context.base_page.hr_portal_login_homepage()
@@ -13,4 +12,4 @@ def before_scenario(context, scenario):
 
 
 def after_scenario(context, scenario):
-    context.driver.quit()
+    context.driver.close()
