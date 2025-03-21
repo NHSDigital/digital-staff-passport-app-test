@@ -16,7 +16,7 @@ class DspInitialAppSetup(BasePage):
 
     """DSP app Create PIN page elements"""
     create_pin_page_header_xpath = AppiumBy.XPATH, ''
-    create_pin_page_header_text = 'Create PIN'
+    create_pin_page_header_text = 'Create a PIN'
     pin_input_xpath = AppiumBy.XPATH, ''
     pin_confirm_input_xpath = AppiumBy.XPATH, ''
     continue_button_xpath = AppiumBy.XPATH, ''

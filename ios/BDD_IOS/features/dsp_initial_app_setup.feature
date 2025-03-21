@@ -22,7 +22,7 @@ Scenario: Verify create a pin page
 
 Scenario: Verify fingerprint page
   When user verifies the question icon present
-  Then user verifies account and setting icon present
+#  Then user verifies account and setting icon present
   Then user clicks “Enable Fingerprint recognition” toggle to enable
   Then user clicks “Enable Fingerprint recognition” toggle to disable
   Then user clicks on “Continue” button

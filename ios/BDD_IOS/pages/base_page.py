@@ -339,3 +339,38 @@ class BasePage:
             self.driver.quit()
         except Exception as e:
             print(f"Error closing Safari: {e}")
+
+    @staticmethod
+    def save_data_into_yaml_file(value, filename):
+        """to save data to datafile"""
+        try:
+            file_path = os.path.join("data", filename)
+            path = os.path.abspath(file_path)
+            save_data = {"OTP": {"code": value}}
+            with open(path, "w", encoding="utf-8") as f_f:
+                yaml.safe_dump(save_data, f_f)
+        except yaml.YAMLError as exception:
+            logger.warning(exception)
+
+    @staticmethod
+    def save_pii_into_yaml_file(value, filename, value1, data1):
+        """to save data to datafile"""
+        try:
+            file_path = os.path.join("data", filename)
+            path = os.path.abspath(file_path)
+            save_data = {value1: {data1: value}}
+            with open(path, "w", encoding="utf-8") as f_f:
+                yaml.safe_dump(save_data, f_f)
+        except yaml.YAMLError as exception:
+            logger.warning(exception)
+
+
+    @staticmethod
+    def extract_one_time_passcode(sms_text_body):
+        """Implement your logic to extract the user info from the HR portal"""
+        passcode = None
+        for word in sms_text_body.split():
+            if word.isdigit() and len(word) == 6:
+                passcode = word
+                break
+        return passcode
