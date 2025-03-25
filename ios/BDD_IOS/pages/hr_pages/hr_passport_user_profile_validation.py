@@ -151,7 +151,7 @@ class HrPortalPassportUserProfileValidation(BasePage):
                 self.passport_employment_status_value_xpath
             )
             assert element in value
-            self.close_safari()
+            # self.close_safari()
 
     def hr_portal_passport_page_complete_creds_required(self):
         """Click on complete credentials required in the passport profile page"""

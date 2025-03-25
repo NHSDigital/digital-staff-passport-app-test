@@ -31,13 +31,13 @@ class HRPortalLoginMob(BasePage):
     login_id = '//XCUIElementTypeButton[@name="Login"]'
     digital_staff_passport_portal_text = "Digital Staff Passport Portal"
 
-    def hr_portal_login_homepage(self):
-        """Browser is open and user clicks on register link"""
-        self.open_dsp_hr_portal_application_url()
-        self.user_defined_wait(5)
-        if self.verify_element_displayed(self.login_page_xpath):
-            self.click_element(self.login_page_xpath, "Click")
-            self.user_defined_wait(5)
+    # def hr_portal_login_homepage(self):
+    #     """Browser is open and user clicks on register link"""
+    #     self.open_dsp_hr_portal_application_url()
+    #     self.user_defined_wait(5)
+    #     if self.verify_element_displayed(self.login_page_xpath):
+    #         self.click_element(self.login_page_xpath, "Click")
+    #         self.user_defined_wait(5)
 
     def hr_portal_login_credentials_username(self):
         """Enter the username"""
