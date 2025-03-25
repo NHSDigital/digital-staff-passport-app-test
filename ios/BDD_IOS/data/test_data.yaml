@@ -182,7 +182,6 @@ RegisterInvalidUser:
 LoginCredentials:
   username: "07539033709"
   password: "Password@123"
-  password: "Password@123"
 
 #DSP App test data
 CreatePin:
@@ -209,4 +208,3 @@ DbsSupportingInformation:
   passport_number: ""
   passport_nationality: ""
   passport_issue_date: ""
-

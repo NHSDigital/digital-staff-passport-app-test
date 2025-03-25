@@ -1,7 +1,5 @@
 """steps for review and confirm initial credentials"""
 from behave import then, when
-
-from pages.base_page import BasePage
 from pages.ios_pages.review_confirm_initial_creds_page import ReviewAndConfirmInitialCredentialsPage
 
 
@@ -199,8 +197,6 @@ def user_verifies_dbs_supporting_documents_details(context, fields):
                                 "Passport nationality": context.review_creds.read_passport_nationality_on_dbs_supporting_documents_page,
                                 "Passport issue date": context.review_creds.read_passport_issue_date_on_dbs_supporting_documents_page}
     assert actual_values_mapping[fields]() == BasePage.get_test_data("DBSSupportingDocuments", fields), f"{fields} mismatch"
-
-
 @then("user click confirm credential button")
 def user_click_confirm_credential_button(context):
     """step to click confirm credential button"""
