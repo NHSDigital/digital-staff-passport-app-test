@@ -103,6 +103,8 @@ class HRPendingStaffPassportPage(BasePage):
     click_shared_review_accept_yes_confirm_radio_button_xpath = ""
     click_shared_review_accept_success_header_xpath = ""
     click_shared_review_accept_success_header_txt = ""
+    pending_credentials_view_credentials_link_xpath = (AppiumBy.XPATH, '//XCUIElementTypeStaticText[@name="View credentials"]')
+    dbs_supporting_information_credentials_expand_button = (AppiumBy.XPATH, '//XCUIElementTypeButton[@name="DBS supporting information"]')
 
     def hr_portal_pending_staff_passport_tab(self):
         """ Click on the Pending Staff Passport Tab within HR Portal"""
@@ -312,3 +314,13 @@ class HRPendingStaffPassportPage(BasePage):
             assert self.click_shared_review_accept_success_header_txt in message
             self.take_screenshot("PASS")
             self.complete_close_browser()
+
+
+    def hr_portal_click_pending_view_credential(self):
+        """ Click on the View Credential button"""
+        self.click_element(self.pending_credentials_view_credentials_link_xpath, "pending credentials view credentials link")
+
+    def hr_portal_click_pending_view_credential_button(self):
+        """ Click on the View Credential button"""
+        self.click_element(self.dbs_supporting_information_credentials_expand_button, "dbs supporting information expand button")
+        self.user_defined_wait(50)

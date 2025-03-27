@@ -88,7 +88,7 @@ class BasePage:
                     "appium:platformVersion": "18.1.1",
                     "appium:deviceName": "iPhone SE",
                     "appium:automationName": "XCUITest",
-                    "appium:udid": "00008110-00065C913402601E",
+                    "appium:udid": "00008110-00090DAC210BA01E",
                     "appium:app": "com.apple.mobilesafari",
                 }
             )
