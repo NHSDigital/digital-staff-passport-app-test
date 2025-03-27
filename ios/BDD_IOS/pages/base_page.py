@@ -12,9 +12,11 @@ from appium.options.common.base import AppiumOptions
 from appium import webdriver as appium_webdriver
 from appium.webdriver.appium_service import AppiumService
 from appium.webdriver.common.appiumby import AppiumBy
+from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import InvalidSelectorException
 from selenium.common.exceptions import NoSuchElementException
+from selenium import webdriver as selenium_webdriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -34,6 +36,28 @@ class BasePage:
     # Hardcoded configuration values
     package_name = "com.instagram.android"
     activity = "com.instagram.android.activity.MainTabActivity"
+
+    def open_browser(self, headless_mode):
+        """Open browser based on the browser type and headless option"""
+        browser_test = 'chrome'
+        if browser_test == 'chrome':
+            options = selenium_webdriver.ChromeOptions()
+            options.use_chromium = True
+            options.add_argument("--no-sandbox")
+            options.add_argument("--window-size=1920,1080")
+            options.add_argument('--disable-dev-shm-usage')
+            options.add_argument('--disable-gpu')
+            options.add_argument('log-level=3')
+            options.add_experimental_option('excludeSwitches', ['enable-logging'])
+            options.add_argument("ignore-certificate-errors")
+            if headless_mode == 'True':
+                options.add_argument("--headless")
+            # To avoid undesired logging on console
+            options.add_experimental_option("excludeSwitches", ["enable-logging"])
+            self.driver = selenium_webdriver.Chrome(options=options)
+            self.driver.set_page_load_timeout(100)
+            logger.info("Chrome Browser is open")
+            return self.driver
 
     def open_ios_app(self):
         """Open the ios app with below capabilities"""
@@ -136,9 +160,9 @@ class BasePage:
         self.open_dsp_hr_portal_application_url()
         self.user_defined_wait(5)
 
-    def click_login_page(self):
+    def click_login_on_login_page(self):
         """click login page"""
-        self.click_element((AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name=\"Login\"]"), "Login")
+        self.click_element((By.XPATH, "//a[contains(text(),'Login')]"), "Login button")
 
     def is_app_installed(self):
         """Check if the app is installed on the device."""

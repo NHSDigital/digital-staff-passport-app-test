@@ -2,15 +2,15 @@
 of HR portal Identity and Access page"""
 from appium.webdriver.common.appiumby import AppiumBy
 from pages.base_page import BasePage
+from selenium.webdriver.common.by import By
+
 
 
 class HRIdentityAndAccessPage(BasePage):
     """Elements for the HR Portal for review of the request"""
 
-    menu_toggle_xpath = AppiumBy.XPATH, '//XCUIElementTypeButton[@name="Open menu"]'
-    identity_and_access_page_link_xpath = AppiumBy.XPATH, (
-        '(//XCUIElementTypeStaticText[@name="Identity and access"])[1]'
-    )
+    menu_toggle_id = By.ID, 'toggle-menu'
+    identity_and_access_page_link_xpath = By.XPATH, "//*[contains(text(),' Identity and access ')]"
 
     invite_staff_to_DSP_xpath = AppiumBy.XPATH, (
         '//XCUIElementTypeStaticText[@name="Invite staff to Digital Staff Passport"]'
@@ -173,12 +173,15 @@ class HRIdentityAndAccessPage(BasePage):
         "You will no longer see the record on the Identity and access table"
     )
 
-    def hr_portal_identity_and_access_tab(self):
+    def hr_portal_menu_click(self):
         """ Click on Identity & Access Tab from the menu """
-        if self.verify_element_displayed(self.menu_toggle_xpath):
-            self.click_element(self.menu_toggle_xpath, "Click")
-        if self.verify_element_displayed(self.identity_and_access_page_link_xpath):
-            self.click_element(self.identity_and_access_page_link_xpath, "Click")
+        self.verify_element_displayed(self.menu_toggle_id, "Menu Toggle")
+        self.click_element(self.menu_toggle_id, "Menu Toggle")
+
+    def hr_portal_menu_identity_and_access_click(self):
+        """ Click on Identity & Access Tab from the menu """
+        self.verify_element_displayed(self.identity_and_access_page_link_xpath)
+        self.click_element(self.identity_and_access_page_link_xpath, "Click")
 
     def hr_portal_identity_invitation_link(self):
         """ Click on invitation of Single Passport link """

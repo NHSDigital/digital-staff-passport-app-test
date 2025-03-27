@@ -11,7 +11,7 @@ from pages.base_page import BasePage
 def hr_portal_identity_access(context):
     """Step to click on identity and access tab on HR Portal"""
     context.hr_portal_identity_access_page = HRIdentityAndAccessPage(context.driver)
-    context.hr_portal_identity_access_page.hr_portal_identity_and_access_tab()
+    context.hr_portal_identity_access_page.hr_portal_menu_click()
 
 
 @then('Click on invitation of Single Passport link')

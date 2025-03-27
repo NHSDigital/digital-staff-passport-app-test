@@ -12,7 +12,7 @@ logger = custom_logger.get_logger()
 class HRPendingStaffPassportPage(BasePage):
     """Elements for the HR Portal-Pending staff passport to provide credentials"""
 
-    menu_toggle_xpath = HRIdentityAndAccessPage.menu_toggle_xpath
+    menu_toggle_xpath = HRIdentityAndAccessPage.menu_toggle_id
     pending_staff_passport_page_link_xpath = AppiumBy.XPATH, (
         '//XCUIElementTypeStaticText[@name="Pending staff passports"]'
     )
