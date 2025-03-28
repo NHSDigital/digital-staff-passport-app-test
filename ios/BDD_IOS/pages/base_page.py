@@ -355,3 +355,14 @@ class BasePage:
             self.driver.quit()
         except Exception as error:
             print("Error closing Safari:%s", error)
+
+    def close_app(self):
+        """Closes the Safari browser on iOS."""
+        try:
+            self.driver.quit()
+        except Exception as error:
+            print("Error closing Safari:%s", error)
+
+    def tap_on_coordinates(self, x, y):
+        self.driver.execute_script("mobile: tap", {"x": x, "y": y})
+
