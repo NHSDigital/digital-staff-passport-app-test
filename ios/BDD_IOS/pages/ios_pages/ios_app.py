@@ -17,4 +17,4 @@ class IosAppAutomation(BasePage):
 
     def ios_app_homepage_click_on_continue_button(self):
         """Function to click on the continue button on the app homepage"""
-        self.click_element(self.continue_button_xpath, "first page continue")
+        self.click_element_with_wait(self.continue_button_xpath, "first page continue")

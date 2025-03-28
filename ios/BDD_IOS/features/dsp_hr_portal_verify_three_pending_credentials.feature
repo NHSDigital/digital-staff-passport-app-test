@@ -1,4 +1,4 @@
-Feature: Verify pending credentials
+Feature: Verify pending credentials app
 
   Background: HR User navigates to pending credentials page
     Given Browser is open and user clicks on HR login link

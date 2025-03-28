@@ -158,11 +158,12 @@ class BasePage:
     def hr_portal_login_homepage(self):
         """Browser is open and user clicks on register link"""
         self.open_dsp_hr_portal_application_url()
-        self.user_defined_wait(5)
+        # self.user_defined_wait(5)
 
     def click_login_on_login_page(self):
         """click login page"""
-        self.click_element((By.XPATH, "//a[contains(text(),'Login')]"), "Login button")
+        self.click_element_with_wait((By.XPATH, "//a[contains(text(),'Login')]"), "Login button")
+
 
     def is_app_installed(self):
         """Check if the app is installed on the device."""
@@ -221,8 +222,9 @@ class BasePage:
         else:
             logger.info("No Appium server is running.")
 
-    def click_element(self, by_locator, objname=None):
+    def click_element_with_wait(self, by_locator, objname=None):
         """Click the element if displayed."""
+        self.verify_element_displayed(by_locator, objname)
         element = self.find_element(by_locator)
         if element:
             element.click()
@@ -271,7 +273,7 @@ class BasePage:
         """types the passed text into the web element"""
         try:
             WebDriverWait(self.driver, 30).until(
-                EC.presence_of_element_located(by_locator)
+                EC.element_to_be_clickable(by_locator)
             ).send_keys(text)
         except InvalidSelectorException:
             logger.error("Exception! Can't type on the element")

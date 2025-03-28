@@ -18,7 +18,7 @@ class IdRejectedPage(BasePage):
     def verify_and_click_on_question_mark(self):
         """Function to question mark icon"""
         self.verify_element_displayed(self.question_mark_icon)
-        self.click_element(self.question_mark_icon, "click")
+        self.click_element_with_wait(self.question_mark_icon, "click")
 
     def verify_hr_team_will_contact_txt(self):
         """Function to verify hr team will contact text"""

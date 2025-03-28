@@ -25,7 +25,7 @@ class DspOrgAcceptID(BasePage):
 
     def app_finger_recog_continue_click(self):
         """Function to click on continue button on fingerprint recognition page"""
-        self.click_element(
+        self.click_element_with_wait(
             self.finger_recog_continue_button_xpath, "finger recognition click button xpath"
         )
 
@@ -36,7 +36,7 @@ class DspOrgAcceptID(BasePage):
 
     def app_enter_pin_continue(self):
         """Function to click on the continue button after user enters pin on app startup"""
-        self.click_element(self.continue_button_xpath, "continue button xpath")
+        self.click_element_with_wait(self.continue_button_xpath, "continue button xpath")
 
     def app_homepage_welcome_message(self):
         """Function to validate the welcome message on home page"""

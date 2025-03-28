@@ -114,12 +114,12 @@ class HRTemporaryPlacementCredentialPage(BasePage):
     def hr_portal_click_create_temporary_placement_credential_link(self):
         """click on Create temporary placement credential"""
         if self.verify_element_displayed(self.Create_temporary_placement_cred_link_xpath):
-            self.click_element(self.Create_temporary_placement_cred_link_xpath, "Click")
+            self.click_element_with_wait(self.Create_temporary_placement_cred_link_xpath, "Click")
 
     def hr_portal_verify_heading_and_click_continue(self):
         """Verify temporary placement credential & click continue"""
         if self.verify_element_displayed(self.When_should_you_issue_temp_cred_heading_xpath):
-            self.click_element(self.Continue_button_1st_page_xpath, "Click")
+            self.click_element_with_wait(self.Continue_button_1st_page_xpath, "Click")
 
     def hr_portal_add_details_in_position_title_field(self, value):
         """Function to add details in position title field"""
@@ -134,7 +134,7 @@ class HRTemporaryPlacementCredentialPage(BasePage):
     def hr_portal_select_checkbox_i_do_not_know_the_position_number(self):
         """function to select I do not know the position number checkbox"""
         if self.verify_element_displayed(self.I_do_not_know_the_position_number_xpath):
-            self.click_element(self.I_do_not_know_the_position_number_xpath)
+            self.click_element_with_wait(self.I_do_not_know_the_position_number_xpath)
 
     def hr_portal_add_details_in_brief_description_textbox(self, value):
         """Function to add details in Brief description of work pattern field """
@@ -175,14 +175,14 @@ class HRTemporaryPlacementCredentialPage(BasePage):
     def hr_portal_click_on_continue_button_on_page(self):
         """Function to click on continue button"""
         if self.verify_element_displayed(self.Continue_button_2nd_page):
-            self.click_element(self.Continue_button_2nd_page)
+            self.click_element_with_wait(self.Continue_button_2nd_page)
 
     def hr_portal_select_permanent_employer_detail_from_dropdown(self):
         """Function to select permanent employment details from dropdown"""
         if self.verify_element_displayed(self.permanent_employer_dropdown_xpath):
-            self.click_element(self.permanent_employer_dropdown_xpath)
+            self.click_element_with_wait(self.permanent_employer_dropdown_xpath)
         if self.verify_element_displayed(self.coventry_option_select_xpath):
-            self.click_element(self.coventry_option_select_xpath)
+            self.click_element_with_wait(self.coventry_option_select_xpath)
 
     def hr_portal_to_enter_employer_details_in_the_text_box(self, value):
         """function to enter your employer in the text box below field"""
@@ -217,22 +217,22 @@ class HRTemporaryPlacementCredentialPage(BasePage):
     def hr_portal_select_licence_to_attend_yes_radio_btn(self):
         """Function to select Yes, confirm licence requirement radio button option"""
         if self.verify_element_displayed(self.Licence_to_attend_heading_xpath):
-            self.click_element(self.Yes_confirm_licence_requirement_radio_btn_xpath, "click")
+            self.click_element_with_wait(self.Yes_confirm_licence_requirement_radio_btn_xpath, "click")
 
     def hr_portal_select_licence_to_attend_no_radio_btn(self):
         """Function to select No, don't include licence option"""
         if self.verify_element_displayed(self.Licence_to_attend_heading_xpath):
-            self.click_element(self.No_dont_include_licence_radio_btn_xpath, "click")
+            self.click_element_with_wait(self.No_dont_include_licence_radio_btn_xpath, "click")
 
     def hr_portal_confirm_details_page_and_select_yes_radio_button(self):
         """Validates Confirm details and provide credential heading and select yes radio button"""
         if self.verify_element_displayed(self.Confirm_dtls_provide_credential_heading_xpath):
-            self.click_element(self.Yes_confirm_and_provide_credential_radio_btn_xpath, "click")
+            self.click_element_with_wait(self.Yes_confirm_and_provide_credential_radio_btn_xpath, "click")
 
     def hr_portal_confirm_details_page_and_select_no_radio_button(self):
         """Validates Confirm details and provide credential heading and select No radio button"""
         if self.verify_element_displayed(self.Confirm_dtls_provide_credential_heading_xpath):
-            self.click_element(self.No_return_to_staff_profile_radio_btn_xpath, "click")
+            self.click_element_with_wait(self.No_return_to_staff_profile_radio_btn_xpath, "click")
 
     def hr_portal_temp_placement_provided_success_message(self):
         """Validate Temporary placement credential provided success message"""
@@ -244,9 +244,9 @@ class HRTemporaryPlacementCredentialPage(BasePage):
     def hr_portal_temp_placement_passport_history_event_details(self):
         """Function verifies passport history heading and event"""
         if self.verify_element_displayed(self.Temp_placement_back_to_user_passport_link_xpath):
-            self.click_element(self.Temp_placement_back_to_user_passport_link_xpath, "click")
+            self.click_element_with_wait(self.Temp_placement_back_to_user_passport_link_xpath, "click")
         if self.verify_element_displayed(self.Temp_placement_Passport_history_link_xpath):
-            self.click_element(self.Temp_placement_Passport_history_link_xpath, "click")
+            self.click_element_with_wait(self.Temp_placement_Passport_history_link_xpath, "click")
         if self.verify_element_displayed(self.Passport_history_page_heading_temp_creds_xpath):
             message = self.read_value_from_element(self.Passport_history_event_txt_temp_creds_xpath)
             assert self.Passport_history_event_temp_creds_txt in message

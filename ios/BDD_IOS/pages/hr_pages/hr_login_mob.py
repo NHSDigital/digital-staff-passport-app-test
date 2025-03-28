@@ -32,18 +32,17 @@ class HRPortalLoginMob(BasePage):
 
     def hr_portal_login_credentials_username(self):
         """Enter the username"""
-        self.verify_element_displayed(self.login_id, "email address field")
-        self.type_element(self.login_id, USER_NAME)
+        self.user_defined_wait(5)
+        self.type_element(self.login_id, USER_NAME, "username field")
 
     def hr_portal_login_credentials_password(self):
         """Enter the password"""
-        self.verify_element_displayed(self.password_id, "password field")
-        self.type_element(self.password_id, PWD)
+        self.type_element(self.password_id, PWD, "password field")
 
     def hr_portal_click_login_button(self):
         """Click on login button"""
         self.verify_element_displayed(self.login_button, "Login button")
-        self.click_element(self.login_button, "login button")
+        self.click_element_with_wait(self.login_button, "login button")
 
     def hr_portal_homepage(self):
         """Validate that home page is displayed"""
@@ -56,5 +55,5 @@ class HRPortalLoginMob(BasePage):
         """Browser is open and user clicks on HR login link"""
         self.navigate_url(value)
         if self.verify_element_displayed(self.login_page_xpath):
-            self.click_element(self.login_page_xpath, "Click")
+            self.click_element_with_wait(self.login_page_xpath, "Click")
             self.user_defined_wait(5)

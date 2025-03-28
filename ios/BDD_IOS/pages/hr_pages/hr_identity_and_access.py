@@ -176,30 +176,30 @@ class HRIdentityAndAccessPage(BasePage):
     def hr_portal_menu_click(self):
         """ Click on Identity & Access Tab from the menu """
         self.verify_element_displayed(self.menu_toggle_id, "Menu Toggle")
-        self.click_element(self.menu_toggle_id, "Menu Toggle")
+        self.click_element_with_wait(self.menu_toggle_id, "Menu Toggle")
 
     def hr_portal_menu_identity_and_access_click(self):
         """ Click on Identity & Access Tab from the menu """
         self.verify_element_displayed(self.identity_and_access_page_link_xpath)
-        self.click_element(self.identity_and_access_page_link_xpath, "Click")
+        self.click_element_with_wait(self.identity_and_access_page_link_xpath, "Click")
 
     def hr_portal_identity_invitation_link(self):
         """ Click on invitation of Single Passport link """
         self.user_defined_wait(3)
         if self.verify_element_displayed(self.invite_staff_to_DSP_xpath):
-            self.click_element(self.invite_staff_to_DSP_xpath, "Click")
+            self.click_element_with_wait(self.invite_staff_to_DSP_xpath, "Click")
 
     def hr_portal_identity_single_passport_rdio_btn(self):
         """ Select the single passport form radio button """
         # self.user_defined_wait(2)
         if self.verify_element_displayed(self.select_single_passport_radio_btn_id):
-            self.click_element(self.select_single_passport_radio_btn_id, "Click")
+            self.click_element_with_wait(self.select_single_passport_radio_btn_id, "Click")
 
     def hr_portal_identity_single_passport_continue(self):
         """ click on Continue button w.r.t single passport form"""
         # self.user_defined_wait(2)
         if self.verify_element_displayed(self.select_single_passport_continue_btn_xpath):
-            self.click_element(self.select_single_passport_continue_btn_xpath, "Click")
+            self.click_element_with_wait(self.select_single_passport_continue_btn_xpath, "Click")
 
     def hr_portal_identity_single_passport_first_name(self, value):
         """ Enter First name w.r.t single passport form"""
@@ -239,46 +239,46 @@ class HRIdentityAndAccessPage(BasePage):
     def hr_portal_identity_single_passport_staff_group(self):
         """ Select the Staff group dropdown w.r.t single passport form"""
         if self.verify_element_displayed(self.staff_group_xpath):
-            self.click_element(self.staff_group_xpath, "Click")
+            self.click_element_with_wait(self.staff_group_xpath, "Click")
             self.user_defined_wait(2)
         if self.verify_element_displayed(self.staff_group_select_xpath_medical_dental):
-            self.click_element(self.staff_group_select_xpath_medical_dental, "Click")
+            self.click_element_with_wait(self.staff_group_select_xpath_medical_dental, "Click")
             self.user_defined_wait(2)
 
     def hr_portal_identity_single_passport_emp_type(self):
         """ Select the Emp Type dropdown w.r.t single passport form"""
         if self.verify_element_displayed(self.employment_type_xpath):
-            self.click_element(self.employment_type_xpath, "Click")
+            self.click_element_with_wait(self.employment_type_xpath, "Click")
             self.user_defined_wait(2)
         if self.verify_element_displayed(self.emp_type_select_xpath_permanent_fixed_term):
-            self.click_element(self.emp_type_select_xpath_permanent_fixed_term, "Click")
+            self.click_element_with_wait(self.emp_type_select_xpath_permanent_fixed_term, "Click")
             self.user_defined_wait(2)
 
     def hr_portal_identity_single_passport_emp_status(self):
         """ Select the Emp Status dropdown w.r.t single passport form"""
         if self.verify_element_displayed(self.employment_status_xpath):
-            self.click_element(self.employment_status_xpath, "Click")
+            self.click_element_with_wait(self.employment_status_xpath, "Click")
             self.user_defined_wait(2)
         if self.verify_element_displayed(self.employment_status_xpath_current_employer):
-            self.click_element(self.employment_status_xpath_current_employer, "Click")
+            self.click_element_with_wait(self.employment_status_xpath_current_employer, "Click")
             self.user_defined_wait(2)
 
     def hr_portal_identity_single_passport_details_continue_btn(self):
         """ Click on continue button w.r.t single passport form"""
         if self.verify_element_displayed(self.personal_details_continue_btn_xpath):
-            self.click_element(self.personal_details_continue_btn_xpath, "Click")
+            self.click_element_with_wait(self.personal_details_continue_btn_xpath, "Click")
 
     def hr_portal_identity_single_passport_create_passport_radio_btn(self):
         """ Select create passport radio button w.r.t single passport form"""
         self.user_defined_wait(2)
         if self.verify_element_displayed(self.create_passport_yes_radio_btn_xpath):
-            self.click_element(self.create_passport_yes_radio_btn_xpath, "Click")
+            self.click_element_with_wait(self.create_passport_yes_radio_btn_xpath, "Click")
 
     def hr_portal_identity_single_passport_create_passport_continue_btn(self):
         """ Click continue button w.r.t create passport"""
         self.user_defined_wait(2)
         if self.verify_element_displayed(self.create_passport_continue_btn_xpath):
-            self.click_element(self.create_passport_continue_btn_xpath, "Click")
+            self.click_element_with_wait(self.create_passport_continue_btn_xpath, "Click")
             self.user_defined_wait(2)
 
     def hr_portal_identity_single_passport_create_passport_message(self):
@@ -300,59 +300,59 @@ class HRIdentityAndAccessPage(BasePage):
     def hr_portal_identity_search_submit_click(self):
         """ Click on the search button """
         if self.verify_element_displayed(self.search_submit_xpath):
-            self.click_element(self.search_submit_xpath, "Click")
+            self.click_element_with_wait(self.search_submit_xpath, "Click")
             self.user_defined_wait(2)
 
     def hr_portal_identity_search_result(self):
         """ Result should be displayed and user should click on the same"""
         if self.verify_element_displayed(self.search_result_xpath):
-            self.click_element(self.search_result_xpath, "Click")
+            self.click_element_with_wait(self.search_result_xpath, "Click")
             self.user_defined_wait(2)
 
     def hr_portal_identity_review_details(self):
         """ Click on the review Identity Details link to review the request """
         if self.verify_element_displayed(self.review_identity_details_xpath):
-            self.click_element(self.review_identity_details_xpath, "Click")
+            self.click_element_with_wait(self.review_identity_details_xpath, "Click")
             self.user_defined_wait(2)
 
     def hr_portal_identity_select_employment_type_permanent(self):
         """ Select the Employment type details from the dropdown """
         if self.verify_element_displayed(self.employment_dropdown_xpath):
-            self.click_element(self.employment_dropdown_xpath, "Click")
+            self.click_element_with_wait(self.employment_dropdown_xpath, "Click")
             self.user_defined_wait(2)
         if self.verify_element_displayed(self.emp_type_select_xpath_permanent_fixed_term):
-            self.click_element(self.emp_type_select_xpath_permanent_fixed_term, "Click")
+            self.click_element_with_wait(self.emp_type_select_xpath_permanent_fixed_term, "Click")
             self.user_defined_wait(2)
 
     def hr_portal_identity_continue_button(self):
         """ Click on the continue button"""
         self.user_defined_wait(2)
         if self.verify_element_displayed(self.continue_button_xpath):
-            self.click_element(self.continue_button_xpath, "Click")
+            self.click_element_with_wait(self.continue_button_xpath, "Click")
 
     def hr_portal_identity_confirm_user_radiobutton(self):
         """ Click on the confirm Identity Button """
         # Add scroll as per the need
         if self.verify_element_displayed(self.confirm_identity_xpath):
-            self.click_element(self.confirm_identity_xpath, "Click")
+            self.click_element_with_wait(self.confirm_identity_xpath, "Click")
             self.user_defined_wait(2)
 
     def hr_portal_identity_select_gender_dropdown_male(self):
         """ Select the gender details from the dropdown """
         # Add down scroll as per the need
         if self.verify_element_displayed(self.gender_dropdown_xpath):
-            self.click_element(self.gender_dropdown_xpath, "Click")
+            self.click_element_with_wait(self.gender_dropdown_xpath, "Click")
             self.user_defined_wait(2)
         if self.verify_element_displayed(self.gender_select_male_xpath):
-            self.click_element(self.gender_select_male_xpath, "Click")
+            self.click_element_with_wait(self.gender_select_male_xpath, "Click")
 
     def hr_portal_identity_select_nationality_dropdown(self):
         """ Select the nationality details from the dropdown """
         if self.verify_element_displayed(self.nationality_dropdown_xpath):
-            self.click_element(self.nationality_dropdown_xpath, "Click")
+            self.click_element_with_wait(self.nationality_dropdown_xpath, "Click")
             self.user_defined_wait(2)
         if self.verify_element_displayed(self.nationality_select_english_xpath):
-            self.click_element(self.nationality_select_english_xpath, "Click")
+            self.click_element_with_wait(self.nationality_select_english_xpath, "Click")
 
     def hr_portal_identity_enter_address_line_1_details(self, value):
         """ Enter the address details in Line 1 """
@@ -382,21 +382,21 @@ class HRIdentityAndAccessPage(BasePage):
         """ Enter the country details """
         # self.user_defined_wait(2)
         if self.verify_element_displayed(self.country_dropdown_xpath):
-            self.click_element(self.country_dropdown_xpath, "Click")
+            self.click_element_with_wait(self.country_dropdown_xpath, "Click")
         if self.verify_element_displayed(self.country_select_united_kingdom_xpath):
-            self.click_element(self.country_select_united_kingdom_xpath, "Click")
+            self.click_element_with_wait(self.country_select_united_kingdom_xpath, "Click")
 
     def hr_portal_identity_confirm_review_button(self):
         """ Click on the continue button"""
         # Add scroll to down as per requirement
         if self.verify_element_displayed(self.confirm_xpath):
-            self.click_element(self.confirm_xpath, "Click")
+            self.click_element_with_wait(self.confirm_xpath, "Click")
             self.user_defined_wait(5)
 
     def hr_portal_identity_yes_confirm_radio_xpath(self):
         """Click on the yes I confirm and provide identity"""
         if self.verify_element_displayed(self.confirm_identity_xpath):
-            self.click_element(self.confirm_identity_xpath, "Click")
+            self.click_element_with_wait(self.confirm_identity_xpath, "Click")
 
     def hr_portal_identity_review_request_success_message(self):
         """ Once submitted, success message should be displayed """
@@ -410,23 +410,23 @@ class HRIdentityAndAccessPage(BasePage):
         """User selects the option to delete staff passport"""
         self.user_defined_wait(2)
         if self.verify_element_displayed(self.delete_passport_link_xpath):
-            self.click_element(self.delete_passport_link_xpath, "Click")
+            self.click_element_with_wait(self.delete_passport_link_xpath, "Click")
             # self.user_defined_wait(3)
 
     def hr_portal_no_delete_passport_radio_btn(self):
         """User not delete staff passport from records"""
         if self.verify_element_displayed(self.no_delete_passport_radio_btn_xpath):
-            self.click_element(self.no_delete_passport_radio_btn_xpath, "Click")
+            self.click_element_with_wait(self.no_delete_passport_radio_btn_xpath, "Click")
 
     def hr_portal_yes_delete_passport_radio_btn(self):
         """User confirms to delete the staff passport"""
         if self.verify_element_displayed(self.yes_delete_passport_radio_btn_xpath):
-            self.click_element(self.yes_delete_passport_radio_btn_xpath, "Click")
+            self.click_element_with_wait(self.yes_delete_passport_radio_btn_xpath, "Click")
 
     def hr_portal_continue_btn_delete_passport(self):
         """User clicks on continue button w.r.t delete the staff passport"""
         if self.verify_element_displayed(self.delete_passport_continue_xpath):
-            self.click_element(self.delete_passport_continue_xpath, "Click")
+            self.click_element_with_wait(self.delete_passport_continue_xpath, "Click")
 
     def hr_portal_user_profile_validation(self):
         """Validate the user profile is visible"""

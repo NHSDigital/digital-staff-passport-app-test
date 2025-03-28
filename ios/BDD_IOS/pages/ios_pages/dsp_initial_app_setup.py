@@ -66,7 +66,7 @@ class DspInitialAppSetup(BasePage):
     def click_continue(self):
         """Function to click continue on dsp app page"""
         if self.verify_element_displayed(self.continue_button_xpath):
-            self.click_element(self.continue_button_xpath, "Continue")
+            self.click_element_with_wait(self.continue_button_xpath, "Continue")
 
     def verify_create_pin_page_header(self):
         """this method checks header of the create pin page"""
@@ -107,7 +107,7 @@ class DspInitialAppSetup(BasePage):
     def enable_disable_figer_print_recognition(self):
         """Function to click toggle button to enable or disable fingerprint recognition"""
         if self.verify_element_displayed(self.enable_fingerprint_recognition_toggle_xpath):
-            self.click_element(self.enable_fingerprint_recognition_toggle_xpath, "fingerprint toggle")
+            self.click_element_with_wait(self.enable_fingerprint_recognition_toggle_xpath, "fingerprint toggle")
 
     def verify_prove_who_you_are_page_header(self):
         """Function to validate who you are page header of app initial setup validation"""
