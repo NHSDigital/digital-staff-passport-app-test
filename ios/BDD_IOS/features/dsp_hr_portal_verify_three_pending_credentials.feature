@@ -24,7 +24,7 @@ Feature: Verify pending credentials app
       | dbs_dob                         | 6 July 1999        |
       | dbs_current_address_verified    | Active             |
       | dbs_current_address             | Admin              |
-      | dbs_date_of_address check       | New York           |
+      | dbs_date_of_address_check       | New York           |
       | dbs_identity_verified           | USA                |
       | dbs_level_of_Assurance          | 10001              |
       | dbs_policy                      | 2025-03-26 12:30:00|
@@ -62,17 +62,17 @@ Feature: Verify pending credentials app
     When user clicks on expand button for DBS supporting information
     Then user verify the credentials details should match
       | Attribute                   | Expected Value     |
-      | Legal first name              | JACOB SEBASTIAN    |
-      | Legal surname               | SMITH              |
-      | Birth date                     | 6 July 1999        |
-      | Identity verified    | Active             |
-      | Evidence checked by             | Admin              |
-      | GPG45 Profile       | New York           |
-      | Origin           | USA                |
-      | Assurance policy          | 10001              |
-      | Assurance outcome                      | 2025-03-26 12:30:00|
-      | Provider         | Premium            |
-      | Verifier      | 30                 |
-      | Verification method            | Male               |
-      | Pedigree                   | English            |
-      | Last refresh               |     6 March 2025   |
+      | rtw_legal_first_name              | JACOB SEBASTIAN    |
+      | rtw_legal_surname               | SMITH              |
+      | rtw_birth_date                     | 6 July 1999        |
+      | rtw_identity_verified    | Active             |
+      | rtw_evidence_checked_by             | Admin              |
+      | rtw_gpg45_profile       | New York           |
+      | rtw_origin           | USA                |
+      | rtw_assurance_policy          | 10001              |
+      | rtw_assurance_outcome                      | 2025-03-26 12:30:00|
+      | rtw_provider         | Premium            |
+      | rtw_verifier      | 30                 |
+      | rtw_verification_method            | Male               |
+      | rtw_pedigree                   | English            |
+      | rtw_last_refresh               |     6 March 2025   |
