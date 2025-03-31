@@ -17,10 +17,9 @@ def hr_portal_pending_staff_passport(context):
 def hr_portal_pending_staff_username_search(context):
     """step implementation Enter the user details in the search button - Pending Staff Passport"""
     context.hr_portal_pending_staff_passport_page = HRPendingStaffPassportPage(context.driver)
-    # context.hr_portal_pending_staff_passport_page.hr_portal_pending_search_username(
-    #     BasePage.get_test_data("IdentityReview", "username",
-    #                            "test_data.yaml"))
-    context.hr_portal_pending_staff_passport_page.hr_portal_pending_search_username("JACOB SEBASTIAN")
+    context.hr_portal_pending_staff_passport_page.hr_portal_pending_search_username(
+        BasePage.get_test_data("IdentityReview", "username",
+                               "test_data.yaml"))
 
 
 @then('Click on the Search button - Pending Staff Passport')

@@ -548,7 +548,7 @@ class HRPendingStaffPassportPage(BasePage):
     def hr_portal_read_the_supplied_attribute(self, attribute):
         """ Read the supplied attribute from the page"""
         attribute_xpath = getattr(self, attribute)
-        return self.read_value_from_element(attribute_xpath)
+        return self.read_value_from_element(attribute_xpath, attribute)
 
     def hr_portal_click_pending_view_credential_button_identity(self):
         """Click on the View Credential button"""
