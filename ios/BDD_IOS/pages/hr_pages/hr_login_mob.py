@@ -10,8 +10,8 @@ logger = custom_logger.get_logger()
 
 # user_name = ReadProperty.get_user_id()
 # pwd = ReadProperty.get_pwd()
-# USER_NAME = "parth.prajapati1@nhs.net"
-# PWD = "Password@123"
+USER_NAME = "parth.prajapati1@nhs.net"
+PWD = "Password@123"
 
 global sms_text_body, passcode_sms
 
@@ -39,7 +39,6 @@ class HRPortalLoginMob(BasePage):
 
     def hr_portal_click_login_button(self):
         """Click on login button"""
-        # self.verify_element_displayed(self.login_button, "Login button")
         self.click_element_with_wait(self.login_button, "login button")
 
     def hr_portal_homepage(self):
