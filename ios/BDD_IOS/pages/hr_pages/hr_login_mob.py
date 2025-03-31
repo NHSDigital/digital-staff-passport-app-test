@@ -10,11 +10,8 @@ logger = custom_logger.get_logger()
 
 # user_name = ReadProperty.get_user_id()
 # pwd = ReadProperty.get_pwd()
-
-USER_NAME = "tushar.dandwate1@nhs.net"
 # USER_NAME = "parth.prajapati1@nhs.net"
 # PWD = "Password@123"
-PWD = "bPspG@251994"
 
 global sms_text_body, passcode_sms
 
