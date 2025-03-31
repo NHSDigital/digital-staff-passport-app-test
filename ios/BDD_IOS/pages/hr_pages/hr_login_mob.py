@@ -1,9 +1,10 @@
 """Contains login functions for HR login for mobile"""
 
 from appium.webdriver.common.appiumby import AppiumBy
+from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 from utilities import custom_logger
-from selenium.webdriver.common.by import By
+
 
 logger = custom_logger.get_logger()
 
@@ -20,15 +21,15 @@ global sms_text_body, passcode_sms
 
 class HRPortalLoginMob(BasePage):
     """contains the page actions & objects related to the hr portal form"""
-    """appium version locators"""
+
+    # appium version locators
     login_page_xpath = AppiumBy.XPATH, '//XCUIElementTypeStaticText[@name="Login"]'
     login_id = By.ID, 'signInName'
     password_id = By.ID, 'password'
     login_button = By.ID, 'next'
     digital_staff_passport_portal_text_xpath = By.XPATH, "//h1[contains(text(),' Digital Staff Passport Portal ')]"
-    """selenium version locators"""
+    # selenium version locators
     login_page_xpath_selenium = 'xpath://XCUIElementTypeStaticText[@name="Login"]'
-
 
     def hr_portal_login_credentials_username(self):
         """Enter the username"""
@@ -49,7 +50,6 @@ class HRPortalLoginMob(BasePage):
         self.verify_element_displayed(self.digital_staff_passport_portal_text_xpath)
         self.take_screenshot("PASS")
         return self.read_value_from_element(self.digital_staff_passport_portal_text_xpath)
-
 
     def hr_portal_login_homepage_share_journey(self, value):
         """Browser is open and user clicks on HR login link"""

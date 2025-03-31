@@ -1,9 +1,8 @@
 """this class contains methods for the page actions
 of HR portal Identity and Access page"""
+from selenium.webdriver.common.by import By
 from appium.webdriver.common.appiumby import AppiumBy
 from pages.base_page import BasePage
-from selenium.webdriver.common.by import By
-
 
 
 class HRIdentityAndAccessPage(BasePage):

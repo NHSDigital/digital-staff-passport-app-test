@@ -104,70 +104,227 @@ class HRPendingStaffPassportPage(BasePage):
     dbs_supporting_information_credentials_expand_button = By.XPATH, "//span[contains(text(),'DBS supporting')]"
     pending_staff_passports_menu_link = By.XPATH, "//a[contains(text(),' Pending staff passports ')]"
     hr_portal_pending_staff_passport_back_link = By.LINK_TEXT, "Back"
+    remind_user_to_review_link = By.XPATH, "//span[contains(text(),'Remind')]"
+    identity_credentials_expand_button = By.XPATH, "//span[contains(text(),'Identity')]"
+    rtw_credentials_expand_button = By.XPATH, "//span[contains(text(),'Right to work')]"
     """dbs credentials"""
-    dbs_first_name = By.XPATH, "//dt[contains(text(),'First name')]/../dd"
-    dbs_last_name = By.XPATH, "//dt[contains(text(),'Last name')]/../dd"
-    dbs_dob = By.XPATH, "//dt[contains(text(),'Date of birth')]/../dd"
-    dbs_current_address_verified = By.XPATH, "//dt[contains(text(),'Current address verified')]/../dd"
-    dbs_current_address = By.XPATH, "//dt[contains(text(),'Current address')]/../dd"
-    dbs_telephone = By.XPATH, "//dt[contains(text(),'Telephone')]/../dd"
-    dbs_date_of_address_check = By.XPATH, "//dt[contains(text(),'Date of address check')]/../dd"
-    dbs_identity_verified = By.XPATH, "//dt[contains(text(),'Identity verified')]/../dd"
-    dbs_level_of_Assurance = By.XPATH, "//dt[contains(text(),'Level of assurance')]/../dd"
-    dbs_policy = By.XPATH, "//dt[contains(text(),'Policy')]/../dd"
-    dbs_evidence_checked_by = By.XPATH, "//dt[contains(text(),'Evidence checked by')]/../dd"
-    dbs_passport_date_of_birth = By.XPATH, "//dt[contains(text(),'Date of birth')]/../dd"
-    dbs_evidence_profile = By.XPATH, "//dt[contains(text(),'Evidence profile')]/../dd"
-    dbs_subject_id = By.XPATH, "//dt[contains(text(),'Subject ID')]/../dd"
-    dbs_origin = By.XPATH, "//dt[contains(text(),'Origin')]/../dd"
-    dbs_assurance_policy = By.XPATH, "//dt[contains(text(),'Assurance policy')]/../dd"
-    dbs_assurance_outcome = By.XPATH, "//dt[contains(text(),'Assurance outcome')]/../dd"
-    dbs_provider = By.XPATH, "//dt[contains(text(),'Provider')]/../dd"
-    dbs_verification_method = By.XPATH, "//dt[contains(text(),'Verification method')]/../dd"
-    dbs_pedigree = By.XPATH, "//dt[contains(text(),'Pedigree')]/../dd"
-    dbs_last_refresh = By.XPATH, "//dt[contains(text(),'Last refresh')]/../dd"
+    dbs_withdraw_link = (
+        By.XPATH,
+        "//div[contains(text(),'DBS supporting information')]/../details/summary/div/a[contains(text(),'Withdraw')]",
+    )
+    dbs_first_name = (
+        By.XPATH,
+        "//div[contains(text(),'DBS supporting information')]/..//dt[contains(text(),'First name')]/../dd",
+    )
+    dbs_last_name = (
+        By.XPATH,
+        "//div[contains(text(),'DBS')]/..//dt[contains(text(),'Last name')]/../dd",
+    )
+    dbs_dob = (
+        By.XPATH,
+        "//div[contains(text(),'DBS')]/..//dt[contains(text(),'Date of birth')]/../dd",
+    )
+    dbs_current_address_verified = (
+        By.XPATH,
+        "//div[contains(text(),'DBS')]/..//dt[contains(text(),'Current address verified')]/../dd",
+    )
+    dbs_current_address = (
+        By.XPATH,
+        "//div[contains(text(),'DBS')]/..//dt[text()='Current address']/../dd",
+    )
+    dbs_date_of_address_check = (
+        By.XPATH,
+        "//div[contains(text(),'DBS')]/..//dt[contains(text(),'Date of address check')]/../dd",
+    )
+    dbs_identity_verified = (
+        By.XPATH,
+        "//div[contains(text(),'DBS')]/..//dt[contains(text(),'Identity verified')]/../dd",
+    )
+    dbs_level_of_Assurance = (
+        By.XPATH,
+        "//div[contains(text(),'DBS')]/..//dt[contains(text(),'Level of Assurance')]/../dd",
+    )
+    dbs_policy = (
+        By.XPATH,
+        "//div[contains(text(),'DBS')]/..//dt[contains(text(),'Policy')]/../dd",
+    )
+    dbs_evidence_checked_by = (
+        By.XPATH,
+        "//div[contains(text(),'DBS')]/..//dt[contains(text(),'Evidence checked by')]/../dd",
+    )
+    dbs_passport_date_of_birth = (
+        By.XPATH,
+        "//div[contains(text(),'DBS')]/..//dt[contains(text(),'Date of birth')]/../dd",
+    )
+    dbs_evidence_profile = (
+        By.XPATH,
+        "//div[contains(text(),'DBS')]/..//dt[contains(text(),'Evidence Profile')]/../dd",
+    )
+    dbs_subject_id = (
+        By.XPATH,
+        "//div[contains(text(),'DBS')]/..//dt[contains(text(),'SubjectID')]/../dd",
+    )
+    dbs_origin = (
+        By.XPATH,
+        "//div[contains(text(),'DBS')]/..//dt[contains(text(),'Origin')]/../dd",
+    )
+    dbs_assurance_policy = (
+        By.XPATH,
+        "//div[contains(text(),'DBS')]/..//dt[contains(text(),'Assurance policy')]//../dd",
+    )
+    dbs_assurance_outcome = (
+        By.XPATH,
+        "//div[contains(text(),'DBS')]/..//dt[contains(text(),'Assurance outcome')]/../dd",
+    )
+    dbs_provider = (
+        By.XPATH,
+        "//div[contains(text(),'DBS')]/..//dt[contains(text(),'Provider')]/../dd",
+    )
+    dbs_verifier = (
+        By.XPATH,
+        "//div[contains(text(),'DBS')]/..//dt[contains(text(),'Verifier')]/../dd",
+    )
+    dbs_verification_method = (
+        By.XPATH,
+        "//div[contains(text(),'DBS')]/..//dt[contains(text(),'Verification method')]/../dd",
+    )
+    dbs_pedigree = (
+        By.XPATH,
+        "//div[contains(text(),'DBS')]/..//dt[contains(text(),'Pedigree')]/../dd",
+    )
+    dbs_last_refresh = (
+        By.XPATH,
+        "//div[contains(text(),'DBS')]/..//dt[contains(text(),'Last refresh')]/../dd",
+    )
 
     """identity credentials"""
-    id_first_name = By.XPATH, "//dt[contains(text(),'First name')]/../dd"
-    id_last_name = By.XPATH, "//dt[contains(text(),'Last name')]/../dd"
-    id_dob = By.XPATH, "//dt[contains(text(),'Date of birth')]/../dd"
-    id_current_address_verified = By.XPATH, "//dt[contains(text(),'Current address verified')]/../dd"
-    id_legal_gender = By.XPATH, "//dt[contains(text(),'Legal gender')]/../dd"
-    id_address = By.XPATH, "//dt[contains(text(),'Address')]/../dd"
-    id_origin = By.XPATH, "//dt[contains(text(),'Origin')]/../dd"
-    id_assurance_policy = By.XPATH, "//dt[contains(text(),'Assurance policy')]"
-    id_assurance_outcome = By.XPATH, "//dt[contains(text(),'Assurance outcome')]/../dd"
-    id_provider = By.XPATH, "//dt[contains(text(),'Provider')]/../dd"
-    id_verifier = By.XPATH, "//dt[contains(text(),'Verifier')]/../dd"
-    id_verification_method = By.XPATH, "//dt[contains(text(),'Verification method')]/../dd"
-    id_pedigree = By.XPATH, "//dt[contains(text(),'Pedigree')]/../dd"
-    id_last_refresh = By.XPATH, "//dt[contains(text(),'Last refresh')]/../dd"
+    id_withdraw_link = (
+        By.XPATH,
+        "//div[contains(text(),'Identity')]/../details/summary/div/a[contains(text(),'Withdraw')]",
+    )
+    id_first_name = (
+        By.XPATH,
+        "//span[contains(text(),'Identity')]/../../..//dt[contains(text(),'First name')]/../dd",
+    )
+    id_last_name = (
+        By.XPATH,
+        "//span[contains(text(),'Identity')]/../../..//dt[contains(text(),'Last name')]/../dd",
+    )
+    id_dob = (
+        By.XPATH,
+        "//span[contains(text(),'Identity')]/../../..//dt[contains(text(),'Date of birth')]/../dd",
+    )
+    id_current_address_verified = (
+        By.XPATH,
+        "//span[contains(text(),'Identity')]/../../..//dt[contains(text(),'Current address verified')]/../dd",
+    )
+    id_legal_gender = (
+        By.XPATH,
+        "//span[contains(text(),'Identity')]/../../..//dt[contains(text(),'Legal gender')]/../dd",
+    )
+    id_address = (
+        By.XPATH,
+        "//span[contains(text(),'Identity')]/../../..//dt[contains(text(),'Address')]/../dd",
+    )
+    id_origin = (
+        By.XPATH,
+        "//span[contains(text(),'Identity')]/../../..//dt[contains(text(),'Origin')]/../dd",
+    )
+    id_assurance_policy = (
+        By.XPATH,
+        "//span[contains(text(),'Identity')]/../../..//dt[contains(text(),'Assurance policy')]/../dd",
+    )
+    id_assurance_outcome = (
+        By.XPATH,
+        "//span[contains(text(),'Identity')]/../../..//dt[contains(text(),'Assurance outcome')]/../dd",
+    )
+    id_provider = (
+        By.XPATH,
+        "//span[contains(text(),'Identity')]/../../..//dt[contains(text(),'Provider')]/../dd",
+    )
+    id_verifier = (
+        By.XPATH,
+        "//span[contains(text(),'Identity')]/../../..//dt[contains(text(),'Verifier')]/../dd",
+    )
+    id_verification_method = (
+        By.XPATH,
+        "//span[contains(text(),'Identity')]/../../..//dt[contains(text(),'Verification method')]/../dd",
+    )
+    id_pedigree = (
+        By.XPATH,
+        "//span[contains(text(),'Identity')]/../../..//dt[contains(text(),'Pedigree')]/../dd",
+    )
+    id_last_refresh = (
+        By.XPATH,
+        "//span[contains(text(),'Identity')]/../../..//dt[contains(text(),'Last refresh')]/../dd",
+    )
 
     """right to work credentials"""
-    rtw_legal_first_name = By.XPATH, "//dt[contains(text(),'Legal first name')]/../dd"
-    rtw_legal_surname = By.XPATH, "//dt[contains(text(),'Legal surname')]/../dd"
-    rtw_birth_date = By.XPATH, "//dt[contains(text(),'Birth date')]/../dd"
-    rtw_identity_verified = By.XPATH, "//dt[contains(text(),'Identity verified')]/../dd"
-    rtw_evidence_checked_by = By.XPATH, "//dt[contains(text(),'Evidence checked by')]/../dd"
-    rtw_gpg45_profile = By.XPATH, "//dt[contains(text(),'GPG45 profile')]/../dd"
-    rtw_origin = By.XPATH, "//dt[contains(text(),'Origin')]/../dd"
-    rtw_assurance_policy = By.XPATH, "//dt[contains(text(),'Assurance policy')]"
-    rtw_assurance_outcome = By.XPATH, "//dt[contains(text(),'Assurance outcome')]"
-    rtw_provider = By.XPATH, "//dt[contains(text(),'Provider')]/../dd"
-    rtw_verifier = By.XPATH, "//dt[contains(text(),'Verifier')]/../dd"
-    rtw_verification_method = By.XPATH, "//dt[contains(text(),'Verification method')]/../dd"
-    rtw_pedigree = By.XPATH, "//dt[contains(text(),'Pedigree')]/../dd"
-    rtw_last_refresh = By.XPATH, "//dt[contains(text(),'Last refresh')]/../dd"
-
-
-
-
+    rtw_withdraw_link = (
+        By.XPATH,
+        "//div[contains(text(),'Right to work')]/../details/summary/div/a[contains(text(),'Withdraw')]",
+    )
+    rtw_legal_first_name = (
+        By.XPATH,
+        "//div[contains(text(),'Right to work')]/..//dt[contains(text(),'Legal first name')]/../dd",
+    )
+    rtw_legal_surname = (
+        By.XPATH,
+        "//div[contains(text(),'Right to work')]/..//dt[contains(text(),'Legal surname')]/../dd",
+    )
+    rtw_birth_date = (
+        By.XPATH,
+        "//div[contains(text(),'Right to work')]/..//dt[contains(text(),'Birth date')]/../dd",
+    )
+    rtw_identity_verified = (
+        By.XPATH,
+        "//div[contains(text(),'Right to work')]/..//dt[contains(text(),'Identity verified')]/../dd",
+    )
+    rtw_evidence_checked_by = (
+        By.XPATH,
+        "//div[contains(text(),'Right to work')]/..//dt[contains(text(),'Evidence checked by')]/../dd",
+    )
+    rtw_gpg45_profile = (
+        By.XPATH,
+        "//div[contains(text(),'Right to work')]/..//dt[contains(text(),'GPG45 Profile')]/../dd",
+    )
+    rtw_origin = (
+        By.XPATH,
+        "//div[contains(text(),'Right to work')]/..//dt[contains(text(),'Origin')]/../dd",
+    )
+    rtw_assurance_policy = (
+        By.XPATH,
+        "//div[contains(text(),'Right to work')]/..//dt[contains(text(),'Assurance policy')]/../dd",
+    )
+    rtw_assurance_outcome = (
+        By.XPATH,
+        "//div[contains(text(),'Right to work')]/..//dt[contains(text(),'Assurance outcome')]/../dd",
+    )
+    rtw_provider = (
+        By.XPATH,
+        "//div[contains(text(),'Right to work')]/..//dt[contains(text(),'Provider')]/../dd",
+    )
+    rtw_verifier = (
+        By.XPATH,
+        "//div[contains(text(),'Right to work')]/..//dt[contains(text(),'Verifier')]/../dd",
+    )
+    rtw_verification_method = (
+        By.XPATH,
+        "//div[contains(text(),'Right to work')]/..//dt[contains(text(),'Verification method')]/../dd",
+    )
+    rtw_pedigree = (
+        By.XPATH,
+        "//div[contains(text(),'Right to work')]/..//dt[contains(text(),'Pedigree')]/../dd",
+    )
+    rtw_last_refresh = (
+        By.XPATH,
+        "//div[contains(text(),'Right to work')]/..//dt[contains(text(),'Last refresh')]/../dd",
+    )
 
     def hr_portal_pending_staff_passport_tab(self):
         """ Click on the Pending Staff Passport Tab within HR Portal"""
         self.click_element_with_wait(self.pending_staff_passports_menu_link, "pending staff passport menu link")
         self.user_defined_wait(3)
-
 
     def hr_portal_pending_search_username(self, value):
         """ Enter the DSP user details in the search box """
@@ -181,7 +338,6 @@ class HRPendingStaffPassportPage(BasePage):
     def hr_portal_pending_search_result(self):
         """ Result should be displayed and user should click on the same"""
         self.click_element_with_wait(self.pending_search_result_xpath, "searched staff name link")
-
 
     def hr_portal_passport_page_initial_status_validation(self):
         """ Validate the passport status in the passport profile page"""
@@ -207,9 +363,8 @@ class HRPendingStaffPassportPage(BasePage):
         """ Review the credentials request & select the provide radio button for the same"""
         # add scroll
         count = self.get_element_count("xpath", self.radio_button_elements)
-        element_list = count // 2 # This will give you an integer result
+        element_list = count // 2   # This will give you an integer result
         for i in range(1, element_list + 1, 1):
-            print(i)
             provide_path = By.XPATH, self.provide_creds_count.format(position_number=i)
             cred_to_provide = self.verify_element_displayed(provide_path)
             cred_to_provide.click()
@@ -368,24 +523,52 @@ class HRPendingStaffPassportPage(BasePage):
             self.take_screenshot("PASS")
             self.complete_close_browser()
 
-
     def hr_portal_click_pending_view_credential(self):
-        """ Click on the View Credential button"""
-        self.click_element_with_wait(self.pending_credentials_view_credentials_link_xpath, "pending credentials view credentials link")
-
+        """Click on the View Credential button"""
+        self.click_element_with_wait(
+            self.pending_credentials_view_credentials_link_xpath,
+            "pending credentials view credentials link",
+        )
 
     def hr_portal_click_pending_view_credential_button(self):
-        """ Click on the View Credential button"""
-        self.click_element_with_wait(self.dbs_supporting_information_credentials_expand_button, "dbs supporting information expand button")
-
+        """Click on the View Credential button"""
+        self.click_element_with_wait(
+            self.dbs_supporting_information_credentials_expand_button,
+            "dbs supporting information expand button",
+        )
 
     def hr_portal_pending_back_link_displayed(self):
         """ Validate the back link displayed on the page"""
-        self.read_value_from_element(self.hr_portal_pending_staff_passport_back_link, "back link ")
+        return self.verify_element_displayed(self.hr_portal_pending_staff_passport_back_link, "back link ")
 
-
+    def hr_portal_pending_remind_username_review_credential_link(self):
+        """ verify the remind username link"""
+        return self.verify_element_displayed(self.remind_user_to_review_link, "remind username link")
 
     def hr_portal_read_the_supplied_attribute(self, attribute):
         """ Read the supplied attribute from the page"""
         attribute_xpath = getattr(self, attribute)
         return self.read_value_from_element(attribute_xpath)
+
+    def hr_portal_click_pending_view_credential_button_identity(self):
+        """Click on the View Credential button"""
+        self.click_element_with_wait(
+            self.identity_credentials_expand_button,
+            "dbs supporting information expand button",
+        )
+
+    def hr_portal_click_pending_view_credential_button_right_to_work(self):
+        """ Click on the View Credential button"""
+        self.click_element_with_wait(self.rtw_credentials_expand_button, "dbs supporting information expand button")
+
+    def hr_portal_pending_withdraw_link_dbs_credentials(self):
+        """ Click on the withdraw link for DBS credentials"""
+        return self.verify_element_displayed(self.dbs_withdraw_link, "dbs withdraw link")
+
+    def hr_portal_pending_withdraw_link_identity_credentials(self):
+        """ Click on the withdraw link for Identity credentials"""
+        return self.verify_element_displayed(self.id_withdraw_link, "identity withdraw link")
+
+    def hr_portal_pending_withdraw_link_right_to_work_credentials(self):
+        """ Click on the withdraw link for Right to work credentials"""
+        return self.verify_element_displayed(self.rtw_withdraw_link, "right to work withdraw link")

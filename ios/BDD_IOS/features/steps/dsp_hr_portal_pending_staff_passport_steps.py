@@ -23,9 +23,6 @@ def hr_portal_pending_staff_username_search(context):
     context.hr_portal_pending_staff_passport_page.hr_portal_pending_search_username("JACOB SEBASTIAN")
 
 
-
-
-
 @then('Click on the Search button - Pending Staff Passport')
 def hr_portal_pending_staff_search_submit(context):
     """step implementation Click on the Search button - Pending Staff Passport"""
@@ -180,25 +177,30 @@ def hr_portal_pending_staff_view_credential(context):
     """step implementation Click on view credential inside 3 pending credential banner"""
     context.hr_portal_pending_staff_passport_page.hr_portal_click_pending_view_credential()
 
+
 @then("verify back link is displayed")
 def verify_back_link_displayed(context):
     """step implementation verify back link is displayed"""
-    context.hr_portal_pending_staff_passport_page.hr_portal_pending_back_link_displayed()
+    assert context.hr_portal_pending_staff_passport_page.hr_portal_pending_back_link_displayed()
+
 
 @then("verify the link - remind username to review credential")
 def verify_remind_username_review_credential_link(context):
     """step implementation verify the link - remind username to review credential"""
-    context.hr_portal_pending_staff_passport_page.hr_portal_pending_remind_username_review_credential_link()
+    assert context.hr_portal_pending_staff_passport_page.hr_portal_pending_remind_username_review_credential_link()
 
-@then("verify credential heading has identity and new starter information sub heading")
+
+@then("verify withdraw link for dbs credentials")
 def verify_credential_heading_sub_heading(context):
-    """step implementation verify credential heading has identity and new starter information sub heading"""
-    context.hr_portal_pending_staff_passport_page.hr_portal_pending_credential_heading_sub_heading()
+    """step implementation verify withdraw link for dbs credentials"""
+    assert context.hr_portal_pending_staff_passport_page.hr_portal_pending_withdraw_link_dbs_credentials()
+
 
 @when("user clicks on expand button for DBS supporting information")
 def click_expand_button_dbs_supporting_info(context):
     """step implementation user clicks on expand button for DBS supporting information"""
     context.hr_portal_pending_staff_passport_page.hr_portal_click_pending_view_credential_button()
+
 
 @then("user verify the credentials details should match")
 def verify_credentials_details_match(context):
@@ -206,11 +208,35 @@ def verify_credentials_details_match(context):
     mismatches = {}
 
     for row in context.table:
-        attribute = row["attribute"]
-        expected_value = row["expected_value"]
+        attribute = row["Attribute"]
+        expected_value = row["Expected Value"]
         actual_value = context.hr_portal_pending_staff_passport_page.hr_portal_read_the_supplied_attribute(attribute)
 
         if expected_value != actual_value:
             mismatches[attribute] = {"expected": expected_value, "actual": actual_value}
 
     assert not mismatches, f"Data Mismatch Found: {mismatches}"
+
+
+@when("user clicks on expand button for identity")
+def click_expand_button_identity(context):
+    """step implementation user clicks on expand button for identity"""
+    context.hr_portal_pending_staff_passport_page.hr_portal_click_pending_view_credential_button_identity()
+
+
+@when("user clicks on expand button for right to work")
+def click_expand_button_right_to_work(context):
+    """step implementation user clicks on expand button for right to work"""
+    context.hr_portal_pending_staff_passport_page.hr_portal_click_pending_view_credential_button_right_to_work()
+
+
+@then("verify withdraw link for identity credentials")
+def verify_withdraw_link_for_id_credentials(context):
+    """step implementation verify withdraw link for identity credentials"""
+    assert context.hr_portal_pending_staff_passport_page.hr_portal_pending_withdraw_link_identity_credentials()
+
+
+@then("verify withdraw link for right to work credentials")
+def verify_withdraw_link_for_right_to_work_credentials(context):
+    """step implementation verify withdraw link for right to work credentials"""
+    assert context.hr_portal_pending_staff_passport_page.hr_portal_pending_withdraw_link_right_to_work_credentials()
