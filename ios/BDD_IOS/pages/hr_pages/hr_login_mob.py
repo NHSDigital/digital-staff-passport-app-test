@@ -41,7 +41,7 @@ class HRPortalLoginMob(BasePage):
 
     def hr_portal_click_login_button(self):
         """Click on login button"""
-        self.verify_element_displayed(self.login_button, "Login button")
+        # self.verify_element_displayed(self.login_button, "Login button")
         self.click_element_with_wait(self.login_button, "login button")
 
     def hr_portal_homepage(self):

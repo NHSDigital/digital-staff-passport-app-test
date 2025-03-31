@@ -203,35 +203,11 @@ def click_expand_button_dbs_supporting_info(context):
 @then("user verify the credentials details should match")
 def verify_credentials_details_match(context):
     """step implementation user verify the credentials details should match"""
-    # context.actual_dbs_credentials_attributes = {
-    #     "dbs_first_name": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_first_name_read(),
-    #     "dbs_last_name": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_last_name_read(),
-    #     "dbs_dob": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_dob_read(),
-    #     "dbs_current_address_verified": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_current_address_verified_read(),
-    #     "dbs_current_address": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_current_address_read(),
-    #     "dbs_date_of_address_check": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_date_of_address_check_read(),
-    #     "dbs_identity_verified": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_address_check_verified_read(),
-    #     "dbs_level_of_assurance": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_level_of_assurance_read(),
-    #     "dbs_policy": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_certificate_number_read(),
-    #     "dbs_evidence_checked_by": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_evidence_checked_by_read(),
-    #     "dbs_passport_date_of_birth": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_passport_dob_read(),
-    #     "dbs_evidence_profile": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_evidence_profile_read(),
-    #     "dbs_subject_id": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_subject_id_read(),
-    #     "dbs_origin": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_origin_read(),
-    #     "dbs_assurance_policy": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_assurance_policy_read(),
-    #     "dbs_assurance_outcome": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_assurance_outcome_read(),
-    #     "dbs_provider": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_provider_read(),
-    #     "dbs_verifier": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_verifier_read(),
-    #     "dbs_verification_method": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_verification_method_read(),
-    #     "dbs_pedigree": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_pedigree_read(),
-    #     "dbs_last_refresh": context.hr_portal_pending_staff_passport_page.hr_portal_pending_dbs_last_refresh_read()
-    # }
     mismatches = {}
 
     for row in context.table:
         attribute = row["attribute"]
         expected_value = row["expected_value"]
-        # actual_value = context.actual_dbs_credentials_attributes.get(attribute, "NOT FOUND")
         actual_value = context.hr_portal_pending_staff_passport_page.hr_portal_read_the_supplied_attribute(attribute)
 
         if expected_value != actual_value:

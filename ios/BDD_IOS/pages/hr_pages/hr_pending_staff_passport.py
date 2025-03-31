@@ -329,21 +329,8 @@ class HRPendingStaffPassportPage(BasePage):
         self.read_value_from_element(self.hr_portal_pending_staff_passport_back_link, "back link ")
 
 
-    # def hr_portal_pending_dbs_first_name_read(self):
-    #     """ Read the first name from the DBS Supporting Information"""
-    #     dbs_first_name = self.read_value_from_element(self.dbs_first_name_xpath)
-    #     print(dbs_first_name)
-    #     return dbs_first_name
-    #
-    # def hr_portal_pending_dbs_last_name_read(self):
-    #     """ Read the last name from the DBS Supporting Information"""
-    #     dbs_last_name = self.read_value_from_element(self.dbs_last_name_xpath)
-    #     print(dbs_last_name)
-    #     return dbs_last_name
 
     def hr_portal_read_the_supplied_attribute(self, attribute):
         """ Read the supplied attribute from the page"""
         attribute_xpath = getattr(self, attribute)
         return self.read_value_from_element(attribute_xpath)
-        # return self.read_value_from_element(attribute)
-
