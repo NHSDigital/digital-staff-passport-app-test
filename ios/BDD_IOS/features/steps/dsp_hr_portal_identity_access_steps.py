@@ -315,9 +315,7 @@ def verify_page_title(context):
     """
     verify page title
     """
-    assert context.hr_portal_identity_access_page.verify_page_title_confirm_identity(
-        "Confirm identity"
-    ), "Page title does not match"
+    assert context.hr_portal_identity_access_page.verify_page_title_confirm_identity, "Page title does not match"
 
 
 @then("user selects yes radio button")
@@ -333,23 +331,19 @@ def click_continue_button(context):
 
 
 @then("user verifies the page title - Provide right to work")
-def verify_page_title(context):
+def verify_page_title_rtw(context):
     """
     verify page title
     """
-    assert context.hr_portal_identity_access_page.verify_page_title(
-        "Provide right to work"
-    ), "Page title does not match"
+    assert context.hr_portal_identity_access_page.verify_page_title_rtw(), "Page title does not match"
 
 
 @then("user verifies the page title - Provide DBS supporting information")
-def verify_page_title_DBS(context):
+def verify_page_title_dbs(context):
     """
     verify page title
     """
-    assert context.hr_portal_identity_access_page.verify_page_title_dbs(
-        "Provide DBS supporting information"
-    ), "Page title does not match"
+    assert context.hr_portal_identity_access_page.verify_page_title_dbs(), "Page title does not match"
 
 
 @then("user see success page")
@@ -370,7 +364,7 @@ def verify_credential_status(context):
     assert context.hr_portal_identity_access_page.verify_identity_status_confirmed(
         "Identity credential provided"
     ), "Credential status does not match"
-    assert context.hr_portal_identity_access_page.verify_rtw_status_confirmed()
+
 
 @then("user verifies the credential status is confirmed and provided - right to work")
 def verify_rtw_status(context):

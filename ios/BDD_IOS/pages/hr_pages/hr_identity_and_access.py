@@ -442,3 +442,64 @@ class HRIdentityAndAccessPage(BasePage):
             message = self.read_value_from_element(self.Delete_passport_msg_xpath)
             assert message in self.Delete_passport_message_txt
             self.take_screenshot("PASS")
+
+
+    def verify_identity_and_access_page_opened(self):
+        """
+        Verify that the Identity and Access page is opened
+        """
+        return self.verify_element_displayed(self.identity_and_access_page_link_xpath, "identity and access page")
+
+    def click_on_review_identity_details(self):
+        """
+        Click on the Review Identity Details link
+        """
+        self.click_element_with_wait(self.review_identity_details_xpath, "Click review identity details")
+
+    def verify_page_title_confirm_identity(self):
+        """
+        Verify the page title of the Confirm Identity page
+        """
+        return self.verify_element_displayed(self.confirm_identity_xpath, "Confirm identity page")
+
+    def select_yes_radio_button(self):
+        """
+        Select the Yes radio button
+        """
+        self.click_element_with_wait(self.yes_i_confirm_radio_xpath, "Select yes radio button")
+
+    def verify_page_title_rtw(self):
+        """
+        Verify the page title of the Right to Work page
+        """
+        return self.verify_element_displayed(self.provide_rtw_page, "Right to Work page")
+
+    def verify_page_title_dbs(self):
+        """
+        Verify the page title of the DBS page
+        """
+        return self.verify_element_displayed(self.provide_dbs_page, "DBS page")
+
+    def verify_success_page(self):
+        """
+        Verify the success page
+        """
+        return self.verify_element_displayed(self.success_page_title, "Success page")
+
+    def verify_identity_status_confirmed(self):
+        """
+        Verify the identity status is confirmed
+        """
+        return self.verify_element_displayed(self.identity_status_confirmed, "Identity status confirmed")
+
+    def verify_rtw_status_confirmed(self):
+        """
+        Verify the RTW status is confirmed
+        """
+        return self.verify_element_displayed(self.rtw_status_confirmed, "RTW status confirmed")
+
+    def verify_dbs_status_confirmed(self):
+        """
+        Verify the DBS status is confirmed
+        """
+        return self.verify_element_displayed(self.dbs_status_confirmed, "DBS status confirmed")
