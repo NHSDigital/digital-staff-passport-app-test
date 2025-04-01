@@ -7,6 +7,7 @@ Feature: HR user perform identity review
     Then Enter the user details in the search button - Identity & Access
     And Click on the Search button - Identity & Access
     Then Result is displayed & click on the same - Identity & Access
+    Then identity and access page is opened for the user
     And Click on the Review Identity details
     Then Employment - Permanent details selected from dropdown list
     And Click on the Continue button - post selected Employment details
