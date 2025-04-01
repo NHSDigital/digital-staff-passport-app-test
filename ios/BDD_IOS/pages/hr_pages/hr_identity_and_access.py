@@ -10,6 +10,12 @@ class HRIdentityAndAccessPage(BasePage):
 
     menu_toggle_id = By.ID, 'toggle-menu'
     identity_and_access_page_link_xpath = By.XPATH, "//*[contains(text(),' Identity and access ')]"
+    provide_rtw_page_title = ""
+    provide_dbs_page_title = ''
+    success_page_title = ""
+    identity_status_confirmed = ""
+    rtw_status_confirmed = ""
+    dbs_status_confirmed = ""
 
     invite_staff_to_DSP_xpath = AppiumBy.XPATH, (
         '//XCUIElementTypeStaticText[@name="Invite staff to Digital Staff Passport"]'
@@ -472,13 +478,13 @@ class HRIdentityAndAccessPage(BasePage):
         """
         Verify the page title of the Right to Work page
         """
-        return self.verify_element_displayed(self.provide_rtw_page, "Right to Work page")
+        return self.verify_element_displayed(self.provide_rtw_page_title, "Right to Work page")
 
     def verify_page_title_dbs(self):
         """
         Verify the page title of the DBS page
         """
-        return self.verify_element_displayed(self.provide_dbs_page, "DBS page")
+        return self.verify_element_displayed(self.provide_dbs_page_title, "DBS page")
 
     def verify_success_page(self):
         """
