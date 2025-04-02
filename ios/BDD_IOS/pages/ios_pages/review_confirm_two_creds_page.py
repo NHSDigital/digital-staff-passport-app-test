@@ -50,7 +50,7 @@ class ReviewAndConfirmTwoCredsPage(BasePage):
 
     def click_two_creds_ready_review(self):
         """method to click two credentials ready to review"""
-        return self.click_element(
+        return self.click_element_with_wait(
             self.two_creds_home_page_2creds_ready_review_xpath, "click 2 creds review"
         )
 
@@ -105,7 +105,7 @@ class ReviewAndConfirmTwoCredsPage(BasePage):
 
     def click_prof_reg_cred_to_review(self):
         """method to click prof reg cred to review"""
-        return self.click_element(
+        return self.click_element_with_wait(
             self.prof_reg_cred_action_required_xpath, "click prof reg to review"
         )
 
@@ -165,7 +165,7 @@ class ReviewAndConfirmTwoCredsPage(BasePage):
 
     def click_emp_assign_cred_to_review(self):
         """method to click employment assignment cred to review"""
-        return self.click_element(
+        return self.click_element_with_wait(
             self.employ_assign_acton_required_xpath, "click emp assignment to review"
         )
 

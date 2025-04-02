@@ -20,16 +20,16 @@ class DspBiometricPinError(BasePage):
     def app_pin_error_enter_pin1(self):
         """Function to enter in pin1"""
         if self.verify_element_displayed(self.pin_error_pin1_xpath):
-            self.click_element(self.pin_error_pin1_xpath, "Click")
+            self.click_element_with_wait(self.pin_error_pin1_xpath, "Click")
 
     def app_pin_error_enter_pin2(self):
         """Function to enter in pin2"""
         if self.verify_element_displayed(self.pin_error_pin2_xpath):
-            self.click_element(self.pin_error_pin2_xpath, "Click")
+            self.click_element_with_wait(self.pin_error_pin2_xpath, "Click")
 
     def app_create_pin_continue_button(self):
         """Function to click on continue button"""
-        self.click_element(self.create_pin_continue_xpath, "Create a pin continue button")
+        self.click_element_with_wait(self.create_pin_continue_xpath, "Create a pin continue button")
 
     def app_pin_does_not_match_validation(self, error_pin_do_not_match):
         """Function to validate error message when pin does not match"""

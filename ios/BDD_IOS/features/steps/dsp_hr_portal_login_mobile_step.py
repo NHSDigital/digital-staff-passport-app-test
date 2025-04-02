@@ -27,7 +27,8 @@ def hr_portal_login_credentials(context):
 @then('Verify the HR portal homepage is displayed')
 def hr_portal_homepage_displayed(context):
     """Step to verify the HR portal homepage is displayed"""
-    context.hr_portal_login.hr_portal_homepage()
+    digital_staff_passport_portal_text = "Digital Staff Passport Portal"
+    assert digital_staff_passport_portal_text in context.hr_portal_login.hr_portal_homepage()
 
 
 @given('Browser is open and user clicks on STH HR login link - share journey')
