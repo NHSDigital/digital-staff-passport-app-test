@@ -35,23 +35,31 @@ class DspInitialAppSetup(BasePage):
     fingerprint_page_header_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@value=\"Fingerprint recognition\"]"
     fingerprint_page_header_text = 'Fingerprint recognition'
     enable_fingerprint_recognition_toggle_xpath = AppiumBy.XPATH, ''
+    fingerprint_disable_xpath = AppiumBy.XPATH, ('//XCUIElementTypeStaticText[@label="Fingerprint recognition has been '
+                                                 'disabled on your device"]')
+    fingerprint_disable_text = 'Fingerprint recognition has been disabled on your device'
 
     # DSP app Prove who you are page elements
-    prove_who_you_are_page_header_xpath = AppiumBy.XPATH, ''
+    prove_who_you_are_page_header_xpath = AppiumBy.XPATH, ('//XCUIElementTypeStaticText[@label="NHS Digital Staff '
+                                                           'Passport"]')
     prove_who_you_are_page_header_text = 'NHS Digital Staff Passport'
-    prove_who_you_are_page_sub_header_xpath = AppiumBy.XPATH, ''
+    prove_who_you_are_page_sub_header_xpath = AppiumBy.XPATH, ('//XCUIElementTypeStaticText[@label="Prove who you are '
+                                                               'to get full access"]')
     prove_who_you_are_page_sub_header_text = 'Prove who you are to get full access'
-    prove_who_you_are_page_text_xpath = AppiumBy.XPATH, ''
+    prove_who_you_are_page_text_xpath = AppiumBy.XPATH, ('//XCUIElementTypeStaticText[@label="You\'ll need to prove '
+                                                         'your identity before you can use NHS Digital Staff '
+                                                         'Passport"]')
     prove_who_you_are_page_text = 'You\'ll need to prove your identity before you can use NHS Digital Staff Passport'
 
     # DSP app Prove your identity page elements
-    prove_your_identity_page_header_xpath = AppiumBy.XPATH, ''
-    prove_your_identity_page_header_text = 'Prove your identity'
-    prove_your_identity_page_sub_header1_xpath = AppiumBy.XPATH, ''
+    prove_your_identity_page_header_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@value=\"Prove your Identity\"]"
+    prove_your_identity_page_header_text = 'Prove your Identity'
+    prove_your_identity_page_sub_header1_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@label=\"What to expect\"]"
     prove_your_identity_page_sub_header1_text = 'What to expect'
-    prove_your_identity_page_sub_header2_xpath = AppiumBy.XPATH, ''
+    prove_your_identity_page_sub_header2_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@label=\"What happens then\"]"
     prove_your_identity_page_sub_header2_text = 'What happens then'
-    prove_your_identity_page_in_person_link_xpath = AppiumBy.XPATH, ''
+    prove_your_identity_page_in_person_link_xpath = AppiumBy.XPATH, ('//XCUIElementTypeStaticText[@label="I\'ll prove '
+                                                                     'my identity in person instead"]')
     prove_your_identity_page_in_person_link_text = 'I\'ll prove my identity in person instead'
 
     def verify_question_icon(self):
@@ -171,3 +179,10 @@ class DspInitialAppSetup(BasePage):
         """Function to validate prove identity in_person link of app initial setup"""
         return self.verify_element_displayed(self.prove_your_identity_page_in_person_link_xpath), ("prove identity "
                                                                                                    "in-person link")
+
+    def verify_fingerprint_toggle_disable(self):
+        """Function to verify if the toggle is disabled"""
+        self.verify_element_displayed(self.fingerprint_disable_xpath)
+        message = self.read_value_from_element(self.fingerprint_disable_xpath)
+        assert message in self.fingerprint_disable_text
+        self.take_screenshot("PASS")

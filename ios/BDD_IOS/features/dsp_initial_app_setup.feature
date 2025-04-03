@@ -8,34 +8,32 @@ Feature: Validate initial app setup journey
     Then user verifies the NHS logo - on first page
     Then user verifies the text on the “First page”
     And user clicks on “Continue” button
-    Then user verifies “Create a PIN” opened
 
   Scenario: Verify create a pin page
     When user verifies the question icon present
+    Then user verifies “Create a PIN” opened
     Then user verifies term of use link present
     Then user verifies privacy notice link present
     Then user verifies terms and condition link present
     Then user sets new PIN
     And user confirms new PIN
     Then user clicks on “Continue” button
-    Then user verifies “Fingerprint” page opened
 
   Scenario: Verify fingerprint page
     When user verifies the question icon present
-  #  Then user verifies account and setting icon present
-    Then user clicks “Enable Fingerprint recognition” toggle to enable
-    Then user clicks “Enable Fingerprint recognition” toggle to disable
+    Then user verifies “Fingerprint” page opened
+    Then user verifies if fingerprint toggle is disable
     Then user clicks on “Continue” button
-    Then user verifies “Prove who you are” page opened
 
   Scenario: Verify prove who you are page
     When user verifies the question icon present
+    Then user verifies “Prove who you are” page opened
     Then user verifies the text on the “Prove who you are” page
     Then user clicks on “Continue” button
-    Then user verifies “Prove your identity” page opened
 
   Scenario: Verify prove your identity page
-    Then user verifies what to expect heading
+    When user verifies what to expect heading
+    Then user verifies “Prove your identity” page opened
     Then user verifies what happens then heading
     Then user verifies my identity in person link present
     Then user clicks on “Continue” button

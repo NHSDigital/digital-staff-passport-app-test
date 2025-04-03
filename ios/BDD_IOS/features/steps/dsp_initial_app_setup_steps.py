@@ -81,16 +81,14 @@ def dsp_app_verify_account_icon(context):
     """step implementation to verify account icon"""
     assert context.dsp_app_initial_setup.verify_account_icon(), "account icon is not present"
 
+@then("user verifies if fingerprint toggle is disable")
+def dsp_app_verify_fingerprint_toggle(context):
+    """Step to verify the toggle state"""
+    context.dsp_app_initial_setup.verify_fingerprint_toggle_disable()
 
 @then("user clicks “Enable Fingerprint recognition” toggle to enable")
 def dsp_app_verify_finger_print_enable(context):
     """step implementation to enable finger print toggle"""
-    assert context.dsp_app_initial_setup.enable_disable_figer_print_recognition(), "finger print toggle is not present"
-
-
-@then("user clicks “Enable Fingerprint recognition” toggle to disable")
-def dsp_app_verify_finger_print_disable(context):
-    """step implementation to disable finger print toggle"""
     assert context.dsp_app_initial_setup.enable_disable_figer_print_recognition(), "finger print toggle is not present"
 
 
@@ -113,9 +111,10 @@ def verify_prove_your_identity_header(context):
     context.dsp_app_initial_setup.verify_prove_your_identity_header()
 
 
-@then("user verifies what to expect heading")
+@when("user verifies what to expect heading")
 def verify_prove_identity_what_to_expect_heading(context):
     """step implementation Verify what to expect heading"""
+    context.dsp_app_initial_setup = DspInitialAppSetup(context.driver)
     context.dsp_app_initial_setup.verify_prove_identity_what_to_expect_heading()
 
 
