@@ -12,7 +12,6 @@ class SignInAfterInitialSetup(BasePage):
      of dsp app sign in after initial setup page"""
 
     Log_into_NHS_DSP_heading_xpath = AppiumBy.XPATH, '//XCUIElementTypeStaticText[name == "Login to NHS Digital Staff Passport"]'
-    # pin_input_xpath = AppiumBy.XPATH, '//XCUIElementTypeStaticText[name == "Enter your 6 digit PIN"]'
     pin_input_xpath = AppiumBy.ACCESSIBILITY_ID, "login pin-inputField"
     ive_forgotton_pin_link_xpath = AppiumBy.ACCESSIBILITY_ID, "I've forgotten my PIN"
     continue_button_initial_page_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@label=\'Continue\']"
@@ -27,6 +26,7 @@ class SignInAfterInitialSetup(BasePage):
     incorrect_pin_2attempt_remaining_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='login pin-error-text']"
     incorrect_pin_1attempt_remaining_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='login pin-error-text']"
     maximum_number_of_login_exceeded_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='login pin-error-text']"
+
     def click_on_forgotton_pin_link(self):
         """Function to click on I have forgotten pin link"""
         self.click_element(self.ive_forgotton_pin_link_xpath, "forgotten pin link")
