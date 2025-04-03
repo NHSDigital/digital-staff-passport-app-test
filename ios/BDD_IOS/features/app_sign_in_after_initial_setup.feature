@@ -4,7 +4,8 @@ Feature: NHS IOS App - Sign in After Initial Setup Flows - Scenario
   """In first scenario we are validating the incorrect pin message error on Sign in after initial setup page"""
   Scenario: Verify Incorrect Pin message
     Given the ios app is launched with the specified activity
-    When User enters incorrect pin on enter your pin box
+    When User clicks on continue button on initial page
+    Then User enters incorrect pin on enter your pin box
     Then User clicks on Continue button on log in page
     And User verifies Incorrect Pin error message on UI screen for 4 attempts remaining
     Then User re-enters incorrect pin on enter your pin box
@@ -23,6 +24,7 @@ Feature: NHS IOS App - Sign in After Initial Setup Flows - Scenario
   """In Below scenario we are validating forgotton pin error message on UI screen"""
   Scenario: Launch the ios app and perform action
     Given the ios app is launched with the specified activity
-    When User Click on I've forgotton my pin link
+    When User clicks on continue button on initial page
+    Then User Click on I've forgotton my pin link
     Then User Verifies forgotten pin message is displaying
 
