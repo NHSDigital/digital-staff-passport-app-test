@@ -208,3 +208,7 @@ DbsSupportingInformation:
   passport_number: ""
   passport_nationality: ""
   passport_issue_date: ""
+
+InCorrectPin:
+  InvalidPin: "345678"
+  InvalidPinAgain: "453478"
