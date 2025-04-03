@@ -58,7 +58,7 @@ class HRArchiveCredentialPage(BasePage):
     def hr_portal_click_on_fire_safety_credential(self):
         """Click on Fire safety credentials"""
         if self.verify_element_displayed(self.Fire_safety_link_xpath):
-            self.click_element(self.Fire_safety_link_xpath, "Click")
+            self.click_element_with_wait(self.Fire_safety_link_xpath, "Click")
 
     def hr_portal_click_on_moving_and_handling_credential(self):
         """Click on auto archived moving and handling creds"""
@@ -72,7 +72,7 @@ class HRArchiveCredentialPage(BasePage):
             )
             print(moving_handling_cred_arch_xpath)
             if self.verify_element_displayed(moving_handling_cred_arch_xpath):
-                self.click_element(moving_handling_cred_arch_xpath, "Click")
+                self.click_element_with_wait(moving_handling_cred_arch_xpath, "Click")
 
     def hr_portal_click_on_auto_archived_fire_safety_credential(self):
         """click on auto archived Fire safety credential"""
@@ -85,12 +85,12 @@ class HRArchiveCredentialPage(BasePage):
                 f"(//a[contains(text(),'Fire safety')])[{fs_element_count}]",
             )
             if self.verify_element_displayed(fire_safety_cred_archived_xpath):
-                self.click_element(fire_safety_cred_archived_xpath, "Click")
+                self.click_element_with_wait(fire_safety_cred_archived_xpath, "Click")
 
     def hr_portal_click_on_archive_this_credential_link(self):
         """Checks creds heading & click on archive credential"""
         if self.verify_element_displayed(self.Credential_page_heading_xpath):
-            self.click_element(
+            self.click_element_with_wait(
                 self.Archive_this_credential_link_xpath, "click"
             )
 
@@ -110,7 +110,7 @@ class HRArchiveCredentialPage(BasePage):
         if self.verify_element_displayed(
             self.Back_to_users_passport_link_xpath
         ):
-            self.click_element(
+            self.click_element_with_wait(
                 self.Back_to_users_passport_link_xpath, "click"
             )
 
@@ -119,7 +119,7 @@ class HRArchiveCredentialPage(BasePage):
         if self.verify_element_displayed(
             self.Include_archived_credentials_xpath
         ):
-            self.click_element(
+            self.click_element_with_wait(
                 self.Include_archived_credentials_xpath, "click"
             )
 
@@ -135,7 +135,7 @@ class HRArchiveCredentialPage(BasePage):
         if self.verify_element_displayed(
             self.Credential_archived_restore_link_xpath
         ):
-            self.click_element(
+            self.click_element_with_wait(
                 self.Credential_archived_restore_link_xpath, "click"
             )
 

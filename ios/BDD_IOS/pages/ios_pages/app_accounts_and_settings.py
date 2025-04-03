@@ -19,7 +19,7 @@ class AppAccountsandSettings(BasePage):
     def click_account_and_settings_tab(self):
         """Function to click on account and settings tab"""
         if self.verify_element_displayed(self.Accounts_and_settings_tab_xpath):
-            self.click_element(self.Accounts_and_settings_tab_xpath, "Click")
+            self.click_element_with_wait(self.Accounts_and_settings_tab_xpath, "Click")
 
     def verify_account_and_settings_heading(self):
         """Function to verify account and settings heading"""
@@ -28,13 +28,13 @@ class AppAccountsandSettings(BasePage):
     def verify_and_click_question_mark_icon(self):
         """Function to validate the welcome message on home page"""
         if self.verify_element_displayed(self.question_mark_xpath):
-            self.click_element(self.question_mark_xpath, "click")
+            self.click_element_with_wait(self.question_mark_xpath, "click")
 
     def click_on_back_link(self):
         """Function click on back link and then again on account and settings tab"""
         if self.verify_element_displayed(self.back_link_xpath):
-            self.click_element(self.back_link_xpath, "click")
-            self.click_element(self.Accounts_and_settings_tab_xpath, "click")
+            self.click_element_with_wait(self.back_link_xpath, "click")
+            self.click_element_with_wait(self.Accounts_and_settings_tab_xpath, "click")
 
     def verify_delete_your_staff_passport_page(self):
         """Function to validate delete your staff passport page"""
@@ -43,4 +43,4 @@ class AppAccountsandSettings(BasePage):
     def click_on_terms_of_use_and_other_policies(self):
         """Function to validate the action on home page"""
         if self.verify_element_displayed(self.terms_of_use_and_other_policies_link_xpath):
-            self.click_element(self.terms_of_use_and_other_policies_link_xpath, "click")
+            self.click_element_with_wait(self.terms_of_use_and_other_policies_link_xpath, "click")

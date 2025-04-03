@@ -11,7 +11,7 @@ from pages.base_page import BasePage
 def hr_portal_identity_access(context):
     """Step to click on identity and access tab on HR Portal"""
     context.hr_portal_identity_access_page = HRIdentityAndAccessPage(context.driver)
-    context.hr_portal_identity_access_page.hr_portal_identity_and_access_tab()
+    context.hr_portal_identity_access_page.hr_portal_menu_click()
 
 
 @then('Click on invitation of Single Passport link')
@@ -295,3 +295,92 @@ def hr_portal_user_profile_validation(context):
 def hr_portal_passport_deleted_confirmation_message(context):
     """Step to verify that user profile is visible"""
     context.hr_portal_identity_access_page.hr_portal_delete_passport_message()
+
+
+@then("identity and access page is opened for the user")
+def verify_identity_and_access_page(context):
+    """verify identity and access page is opened for the user"""
+    context.hr_portal_identity_access_page = HRIdentityAndAccessPage(context.driver)
+    assert context.hr_portal_identity_access_page.verify_identity_and_access_page_opened()
+
+
+@then("Click on the Review Identity details")
+def click_on_review_id_details(context):
+    """Click on the Review Identity details"""
+    context.hr_portal_identity_access_page.click_on_review_identity_details()
+
+
+@then("user verifies the page title - Confirm identity")
+def verify_page_title(context):
+    """
+    verify page title
+    """
+    assert context.hr_portal_identity_access_page.verify_page_title_confirm_identity, "Page title does not match"
+
+
+@then("user selects yes radio button")
+def select_radio_button_yes(context):
+    """click on yes radio button to accept credential"""
+    context.hr_portal_identity_access_page.select_yes_radio_button()
+
+
+@then("user clicks on continue button")
+def click_continue_button(context):
+    """click on continue button"""
+    context.hr_portal_identity_access_page.click_continue_button()
+
+
+@then("user verifies the page title - Provide right to work")
+def verify_page_title_rtw(context):
+    """
+    verify page title
+    """
+    assert context.hr_portal_identity_access_page.verify_page_title_rtw(), "Page title does not match"
+
+
+@then("user verifies the page title - Provide DBS supporting information")
+def verify_page_title_dbs(context):
+    """
+    verify page title
+    """
+    assert context.hr_portal_identity_access_page.verify_page_title_dbs(), "Page title does not match"
+
+
+@then("user see success page")
+def verify_success(context):
+    """
+    verify success page
+    """
+    assert context.hr_portal_identity_access_page.verify_success_page(
+        "New Identity credential provided"
+    ), "Success page does not match"
+
+
+@then("user verifies the credential status is confirmed and provided - identity")
+def verify_credential_status(context):
+    """
+    verify credential status
+    """
+    assert context.hr_portal_identity_access_page.verify_identity_status_confirmed(
+        "Identity credential provided"
+    ), "Credential status does not match"
+
+
+@then("user verifies the credential status is confirmed and provided - right to work")
+def verify_rtw_status(context):
+    """
+    verify credential status
+    """
+    assert context.hr_portal_identity_access_page.verify_rtw_status_confirmed(
+        "DBS credential provided"
+    ), "Credential status does not match"
+
+
+@then("user verifies the credential status is confirmed and provided - dbs")
+def verify_dbs_status(context):
+    """
+    verify credential status
+    """
+    assert context.hr_portal_identity_access_page.verify_dbs_status_confirmed(
+        "DBS credential provided"
+    ), "Credential status does not match"

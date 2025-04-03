@@ -28,7 +28,7 @@ class SignInAfterInitialSetup(BasePage):
 
     def click_on_forgotton_pin_link(self):
         """Function to click on I have forgotten pin link"""
-        self.click_element(self.ive_forgotton_pin_link_xpath, "forgotten pin link")
+        self.click_element_with_wait(self.ive_forgotton_pin_link_xpath, "forgotten pin link")
 
     def verify_pin_input_box(self):
         """Function to verify pin input box"""
@@ -44,7 +44,7 @@ class SignInAfterInitialSetup(BasePage):
 
     def click_continue_button(self):
         """function to click on continue button"""
-        self.click_element(self.continue_button_xpath, "Click")
+        self.click_element_with_wait(self.continue_button_xpath, "Click")
 
     def forgotten_pin_error(self):
         """Function to verify forgotten pin error message"""

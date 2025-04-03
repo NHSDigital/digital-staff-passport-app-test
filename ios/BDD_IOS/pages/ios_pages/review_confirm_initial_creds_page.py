@@ -131,7 +131,7 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
 
     def click_identity_credential(self):
         """method to click on identity credential"""
-        self.click_element(self.identity_credentials,
+        self.click_element_with_wait(self.identity_credentials,
                            "identity credentials")
 
     def verify_provided_by_trust(self):
@@ -151,7 +151,7 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
 
     def click_confirm_credential_button(self):
         """method to click on confirm credential button"""
-        self.click_element(self.confirm_credential_button, "confirm credential button")
+        self.click_element_with_wait(self.confirm_credential_button, "confirm credential button")
 
     def verify_confirming_credential_spinner(self):
         """method to verify the confirming credential spinner"""
@@ -174,7 +174,7 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
 
     def click_back_to_my_credentials_button(self):
         """method to click back to my credentials button"""
-        self.click_element(
+        self.click_element_with_wait(
             self.back_to_my_credentials_button, "back to my credentials button"
         )
 
@@ -198,7 +198,7 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
 
     def click_right_to_work_credentials(self):
         """method to click on right to work credentials"""
-        self.click_element(self.right_to_work_credentials,
+        self.click_element_with_wait(self.right_to_work_credentials,
                            "right to work credentials")
 
     def verify_right_to_work_credential_details(self):
@@ -234,7 +234,7 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
 
     def click_dbs_supporting_documents(self):
         """method to click on dbs supporting documents"""
-        self.click_element(self.dbs_supporting_information, "dbs supporting information")
+        self.click_element_with_wait(self.dbs_supporting_information, "dbs supporting information")
 
     def verify_dbs_supporting_documents_details(self):
         """method to verify the dbs supporting documents details"""
@@ -357,7 +357,7 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
 
     def click_account_icon(self):
         """click account icon with click element"""
-        self.click_element(self.account_icon)
+        self.click_element_with_wait(self.account_icon)
 
     def verify_back_link(self):
         """verify back link is displayed"""
@@ -379,7 +379,7 @@ class ReviewAndConfirmInitialCredentialsPage(BasePage):
 
     def click_back_link(self):
         """call click element from base page & click back link"""
-        self.click_element(self.back_link, "back link")
+        self.click_element_with_wait(self.back_link, "back link")
 
     def verify_no_credentials(self):
         """verify no credentials message"""

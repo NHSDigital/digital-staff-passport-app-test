@@ -55,19 +55,19 @@ class SsPortalShareCredWithDiffOrg(BasePage):
     def hr_portal_review_credential_link(self):
         """ function to click on Review credential link and select accept all checkbox """
         if self.verify_element_displayed(self.Review_credential_link_xpath):
-            self.click_element(self.Review_credential_link_xpath, "Click")
-            self.click_element(self.Accept_all_checkbox_xpath, "Click")
+            self.click_element_with_wait(self.Review_credential_link_xpath, "Click")
+            self.click_element_with_wait(self.Accept_all_checkbox_xpath, "Click")
 
     def hr_portal_select_continue_button(self):
         """ Function to click on continue button on review shared credential page"""
         if self.verify_element_displayed(self.Continue_button_xpath):
-            self.click_element(self.Continue_button_xpath, "Click")
+            self.click_element_with_wait(self.Continue_button_xpath, "Click")
 
     def hr_portal_yes_confirm_radio_button(self):
         """Verify Review shared credential heading and select yes confirm button"""
         if self.verify_element_displayed(self.Review_shared_credentials_heading_xpath):
             self.take_screenshot("PASS")
-            self.click_element(self.Yes_confirm_button_id, "Click")
+            self.click_element_with_wait(self.Yes_confirm_button_id, "Click")
 
     def hr_portal_status_confirmed_message(self):
         """Function to confirm success message"""
@@ -233,7 +233,7 @@ class SsPortalShareCredWithDiffOrg(BasePage):
     def hr_portal_conflict_resolution_creds_click(self):
         """Function to click on the occupation health credentials"""
         if self.verify_element_displayed(self.hr_conflict_resolution_value_xpath):
-            self.click_element(self.hr_conflict_resolution_value_xpath, "Click")
+            self.click_element_with_wait(self.hr_conflict_resolution_value_xpath, "Click")
 
     def hr_portal_occupation_health_creds_reject_shared_credentials_check(self):
         """Verify if shared credentials with different org have reject shared credentials"""
