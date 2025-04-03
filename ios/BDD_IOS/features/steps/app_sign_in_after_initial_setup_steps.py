@@ -13,7 +13,7 @@ def initial_setup_forgot_pin(context):
 
 @then("User Verifies forgotten pin message is displaying")
 def initial_setup_forgot_pin_message(context):
-    """ Steo to verify forgotten pin message"""
+    """ Step to verify forgotten pin message"""
     context.sign_in_after_initial_setup.forgotten_pin_error()
 
 
@@ -31,16 +31,30 @@ def initial_setup_click_continue(context):
     context.sign_in_after_initial_setup.click_continue_button()
 
 
-@then("User verifies Incorrect Pin error message on UI screen for 2 attempts remaining")
+@then("User verifies Incorrect Pin error message on UI screen for 4 attempts remaining")
 def initial_setup_incorrect_pin_error_message(context):
-    """ Step to verify Incorrect pin. you have (2) tries remaining"""
-    context.sign_in_after_initial_setup.incorrect_pin_2attempts_remaining_error()
+    """ Step to verify Incorrect pin. you have (4) tries remaining"""
+    context.sign_in_after_initial_setup.incorrect_pin_4attempts_remaining_error()
 
 
 @then("User re-enters incorrect pin on enter your pin box")
 def initial_setup_reenter_incorrect_pin(context):
     """step to re-enter incorrect pin on enter your pin box"""
     context.sign_in_after_initial_setup.enter_incorrect_pin_value_in_input_box()
+    BasePage.get_test_data("IdentityReview", "Incorrect_pin",
+                           "test_data.yaml")
+
+
+@then("User verifies Incorrect Pin error message on UI screen for 3 attempts remaining")
+def initial_setup_incorrect_pin_error_message(context):
+        """ Step to verify Incorrect pin. you have (3) tries remaining"""
+        context.sign_in_after_initial_setup.incorrect_pin_3attempts_remaining_error()
+
+
+@then("User verifies Incorrect Pin error message on UI screen for 2 attempts remaining")
+def initial_setup_incorrect_pin_error_message(context):
+    """ Step to verify Incorrect pin. you have (2) tries remaining"""
+    context.sign_in_after_initial_setup.incorrect_pin_2attempts_remaining_error()
 
 
 @then("User verifies Incorrect Pin error message on UI screen for 1 attempts remaining")
