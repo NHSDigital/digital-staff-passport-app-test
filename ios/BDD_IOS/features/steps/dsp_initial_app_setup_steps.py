@@ -12,6 +12,11 @@ def dsp_app_verify_question_icon(context):
     context.dsp_app_initial_setup = DspInitialAppSetup(context.driver)
     assert context.dsp_app_initial_setup.verify_question_icon(), "first page question icon is not present"
 
+@then("user verifies the NHS logo - on first page")
+def user_verifies_nhs_logo(context):
+    """step to verify nhs logo"""
+    assert context.dsp_app_initial_setup.verify_nhs_logo_first_page()
+
 
 @then("user verifies the text on the “First page”")
 def dsp_app_verify_first_page_text(context):
@@ -22,7 +27,7 @@ def dsp_app_verify_first_page_text(context):
 @then("user clicks on “Continue” button")
 def dsp_app_click_continue(context):
     """step implementation to click on continue button"""
-    assert context.dsp_app_initial_setup.click_continue(), "Continue button is not present"
+    context.dsp_app_initial_setup.create_a_pin_click_continue()
 
 
 @then("user verifies “Create a PIN” opened")
@@ -34,25 +39,25 @@ def dsp_app_verify_create_pin_header(context):
 @then("user verifies term of use link present")
 def dsp_app_verify_terms_of_use_agreement_link(context):
     """step implementation to verify term of use link"""
-    assert context.dsp_app_initial_setup.verify_terms_of_use_link(), "term of use link is not present"
+    assert context.dsp_app_initial_setup.verify_create_pin_term_of_use_link(), "term of use link is not present"
 
 
 @then("user verifies privacy notice link present")
 def dsp_app_verify_privacy_agreement_link(context):
     """step implementation to verify privacy notice link"""
-    assert context.dsp_app_initial_setup.verify_privacy_agreement_link(), "privacy notice link is not present"
+    assert context.dsp_app_initial_setup.verify_create_pin_privacy_link(), "privacy notice link is not present"
 
 
-@then("user verifies terms link present")
+@then("user verifies terms and condition link present")
 def dsp_app_verify_terms_agreement_link(context):
     """step implementation to verify terms link"""
-    assert context.dsp_app_initial_setup.verify_terms_agreement_link(), "terms link is not present"
+    assert context.dsp_app_initial_setup.verify_create_pin_terms_link(), "terms link is not present"
 
 
 @then("user sets new PIN")
 def dsp_app_create_pin_sets_new(context):
     """step implementation to set new pin"""
-    context.dsp_app_initial_setup.app_create_pin_enter(
+    context.dsp_app_initial_setup.set_create_pin(
         BasePage.get_test_data("CreatePin", "set_pin",
                                "test_data.yaml"))
 
@@ -60,14 +65,14 @@ def dsp_app_create_pin_sets_new(context):
 @then("user confirms new PIN")
 def dsp_app_create_pin_confirm(context):
     """step implementation to confirm new pin"""
-    context.dsp_app_initial_setup.app_create_pin_confirm(
+    context.dsp_app_initial_setup.confirm_create_pin(
         BasePage.get_test_data("CreatePin", "confirm_pin",
                                "test_data.yaml"))
 
 
 @then("user verifies “Fingerprint” page opened")
 def dsp_app_verify_finger_print_header(context):
-    """step implementation to verify finger print page header"""
+    """step implementation to verify fingerprint page header"""
     context.dsp_app_initial_setup.verify_fingerprint_page_header()
 
 
@@ -76,16 +81,14 @@ def dsp_app_verify_account_icon(context):
     """step implementation to verify account icon"""
     assert context.dsp_app_initial_setup.verify_account_icon(), "account icon is not present"
 
+@then("user verifies if fingerprint toggle is disable")
+def dsp_app_verify_fingerprint_toggle(context):
+    """Step to verify the toggle state"""
+    context.dsp_app_initial_setup.verify_fingerprint_toggle_disable()
 
 @then("user clicks “Enable Fingerprint recognition” toggle to enable")
 def dsp_app_verify_finger_print_enable(context):
     """step implementation to enable finger print toggle"""
-    assert context.dsp_app_initial_setup.enable_disable_figer_print_recognition(), "finger print toggle is not present"
-
-
-@then("user clicks “Enable Fingerprint recognition” toggle to disable")
-def dsp_app_verify_finger_print_disable(context):
-    """step implementation to disable finger print toggle"""
     assert context.dsp_app_initial_setup.enable_disable_figer_print_recognition(), "finger print toggle is not present"
 
 
@@ -108,9 +111,10 @@ def verify_prove_your_identity_header(context):
     context.dsp_app_initial_setup.verify_prove_your_identity_header()
 
 
-@then("user verifies what to expect heading")
+@when("user verifies what to expect heading")
 def verify_prove_identity_what_to_expect_heading(context):
     """step implementation Verify what to expect heading"""
+    context.dsp_app_initial_setup = DspInitialAppSetup(context.driver)
     context.dsp_app_initial_setup.verify_prove_identity_what_to_expect_heading()
 
 
