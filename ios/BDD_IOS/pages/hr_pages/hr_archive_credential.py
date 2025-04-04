@@ -57,8 +57,7 @@ class HRArchiveCredentialPage(BasePage):
 
     def hr_portal_click_on_fire_safety_credential(self):
         """Click on Fire safety credentials"""
-        if self.verify_element_displayed(self.Fire_safety_link_xpath):
-            self.click_element_with_wait(self.Fire_safety_link_xpath, "Click")
+        self.click_element_with_wait(self.Fire_safety_link_xpath, "Click on fire safety")
 
     def hr_portal_click_on_moving_and_handling_credential(self):
         """Click on auto archived moving and handling creds"""
@@ -71,8 +70,7 @@ class HRArchiveCredentialPage(BasePage):
                 f"Level 1)')])[{mh_element_count}]"
             )
             print(moving_handling_cred_arch_xpath)
-            if self.verify_element_displayed(moving_handling_cred_arch_xpath):
-                self.click_element_with_wait(moving_handling_cred_arch_xpath, "Click")
+            self.click_element_with_wait(moving_handling_cred_arch_xpath, "Click on moving handling")
 
     def hr_portal_click_on_auto_archived_fire_safety_credential(self):
         """click on auto archived Fire safety credential"""
@@ -84,70 +82,55 @@ class HRArchiveCredentialPage(BasePage):
                 By.XPATH,
                 f"(//a[contains(text(),'Fire safety')])[{fs_element_count}]",
             )
-            if self.verify_element_displayed(fire_safety_cred_archived_xpath):
-                self.click_element_with_wait(fire_safety_cred_archived_xpath, "Click")
+            self.click_element_with_wait(fire_safety_cred_archived_xpath, "Click on auto archive")
 
     def hr_portal_click_on_archive_this_credential_link(self):
         """Checks creds heading & click on archive credential"""
-        if self.verify_element_displayed(self.Credential_page_heading_xpath):
-            self.click_element_with_wait(
-                self.Archive_this_credential_link_xpath, "click"
-            )
+        self.click_element_with_wait(
+                self.Archive_this_credential_link_xpath, "click on archive credential")
 
     def hr_portal_credential_archive_success_message(self):
         """function to check credential archived success heading"""
-        if self.verify_element_displayed(
+        self.verify_element_displayed(
             self.Credential_archived_success_heading_xpath
-        ):
-            message = self.read_value_from_element(
-                self.Credential_archived_success_heading_xpath
-            )
-            assert message in self.Credential_archived_success_txt
-            self.take_screenshot("PASS")
+        )
+        message = self.read_value_from_element(
+            self.Credential_archived_success_heading_xpath
+        )
+        assert message in self.Credential_archived_success_txt
+        self.take_screenshot("PASS")
 
     def hr_portal_click_on_back_to_user_passport_link(self):
         """Function to click on go back to users passport link"""
-        if self.verify_element_displayed(
-            self.Back_to_users_passport_link_xpath
-        ):
-            self.click_element_with_wait(
-                self.Back_to_users_passport_link_xpath, "click"
-            )
+        self.click_element_with_wait(
+            self.Back_to_users_passport_link_xpath, "click on back")
 
     def hr_portal_click_on_include_archived_credentials(self):
         """Check creds heading & clicks include archived creds checkbox"""
-        if self.verify_element_displayed(
-            self.Include_archived_credentials_xpath
-        ):
-            self.click_element_with_wait(
-                self.Include_archived_credentials_xpath, "click"
-            )
+        self.click_element_with_wait(
+                self.Include_archived_credentials_xpath, "click on include archived")
 
     def hr_portal_credential_archive_page_success_message(self):
         """function to check credential archived success message"""
-        if self.verify_element_displayed(self.Credential_archived_txt_xpath):
-            message = self.read_value_from_element(self.Credential_archived_txt_xpath)
-            assert self.Credential_archived_txt in message
-            self.take_screenshot("PASS")
+        self.verify_element_displayed(self.Credential_archived_txt_xpath)
+        message = self.read_value_from_element(self.Credential_archived_txt_xpath)
+        assert self.Credential_archived_txt in message
+        self.take_screenshot("PASS")
 
     def hr_portal_click_on_restore_archived_credential_link(self):
         """Function to click restore archived credentials link"""
-        if self.verify_element_displayed(
-            self.Credential_archived_restore_link_xpath
-        ):
-            self.click_element_with_wait(
-                self.Credential_archived_restore_link_xpath, "click"
-            )
+        self.click_element_with_wait(
+                self.Credential_archived_restore_link_xpath, "click on restore")
 
     def hr_portal_credential_archived_restore_page_success_message(self):
         """function to check archived credential restore success message"""
         self.user_defined_wait(2)
-        if self.verify_element_displayed(
+        self.verify_element_displayed(
+        self.credential_restore_page_heading_xpath
+        )
+        message = self.read_value_from_element(
             self.credential_restore_page_heading_xpath
-        ):
-            message = self.read_value_from_element(
-                self.credential_restore_page_heading_xpath
-            )
-            assert self.Credential_restore_heading_txt in message
-            self.take_screenshot("PASS")
-            self.close_safari()
+        )
+        assert self.Credential_restore_heading_txt in message
+        self.take_screenshot("PASS")
+        self.close_safari()

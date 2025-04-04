@@ -24,35 +24,31 @@ class HRReviewedStaffPassportPage(BasePage):
 
     def hr_portal_reviewed_staff_passport_tab(self):
         """ Click on the Reviewed Staff Passport Tab within HR Portal"""
-        if self.verify_element_displayed(self.menu_toggle_xpath):
-            self.click_element_with_wait(self.menu_toggle_xpath, "Click")
-        if self.verify_element_displayed(self.reviewed_staff_passport_tab_xpath):
-            self.click_element_with_wait(self.reviewed_staff_passport_tab_xpath, "Click")
-            self.user_defined_wait(5)
+        self.click_element_with_wait(self.menu_toggle_xpath, "Click menu")
+        self.click_element_with_wait(self.reviewed_staff_passport_tab_xpath, "Click")
+        self.user_defined_wait(5)
 
     def hr_portal_reviewed_search_username(self, value):
         """ Enter the DSP user details in the search box """
         self.user_defined_wait(2)
-        if self.verify_element_displayed(self.reviewed_search_input_xpath):
-            self.type_element(self.reviewed_search_input_xpath, value)
-            self.user_defined_wait(3)
+        self.verify_element_displayed(self.reviewed_search_input_xpath)
+        self.type_element(self.reviewed_search_input_xpath, value)
+        self.user_defined_wait(3)
 
     def hr_portal_reviewed_search_submit_click(self):
         """ Click on the search button """
-        if self.verify_element_displayed(self.reviewed_search_submit_xpath):
-            self.click_element_with_wait(self.reviewed_search_submit_xpath, "Click")
-            self.user_defined_wait(3)
+        self.click_element_with_wait(self.reviewed_search_submit_xpath, "Click")
+        self.user_defined_wait(3)
 
     def hr_portal_reviewed_validate_search_result(self):
         """ Result should be displayed and user validate the status of the passport"""
         self.user_defined_wait(2)
-        if self.verify_element_displayed(self.reviewed_passport_status_xpath):
-            message = self.read_value_from_element(self.reviewed_passport_status_xpath)
-            assert message in self.reviewed_passport_status_txt
-            self.take_screenshot("PASS")
+        self.verify_element_displayed(self.reviewed_passport_status_xpath)
+        message = self.read_value_from_element(self.reviewed_passport_status_xpath)
+        assert message in self.reviewed_passport_status_txt
+        self.take_screenshot("PASS")
 
     def hr_portal_reviewed_click_search_result(self):
         """ Result should be displayed and user click on the result"""
-        if self.verify_element_displayed(self.reviewed_search_result_xpath):
-            self.click_element_with_wait(self.reviewed_search_result_xpath, "click")
-            self.user_defined_wait(2)
+        self.click_element_with_wait(self.reviewed_search_result_xpath, "click")
+        self.user_defined_wait(2)

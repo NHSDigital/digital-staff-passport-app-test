@@ -70,24 +70,22 @@ class HRPortalCreateNewIdentityCredentialPage(BasePage):
 
     def hr_portal_create_new_identity_credential_details_continue(self):
         """Create new identity credential for user page and click on continue button"""
-        if self.verify_element_displayed(self.Create_new_identity_cred_for_user_heading_xpath):
-            message = self.read_value_from_element(self.Create_new_identity_cred_for_user_heading_xpath)
-            assert self.Create_new_identity_cred_for_user_heading_text in message
-        if self.verify_element_displayed(self.Create_new_ID_Continue_button_xpath):
-            self.click_element_with_wait(self.Create_new_ID_Continue_button_xpath, "Click")
+        self.verify_element_displayed(self.Create_new_identity_cred_for_user_heading_xpath)
+        message = self.read_value_from_element(self.Create_new_identity_cred_for_user_heading_xpath)
+        assert self.Create_new_identity_cred_for_user_heading_text in message
+        self.click_element_with_wait(self.Create_new_ID_Continue_button_xpath, "Click")
 
     def hr_portal_create_new_identity_cred_yes_radio_button(self):
         """Function to confirm users details page and click yes provide credential radio button"""
-        if self.verify_element_displayed(self.Confirm_users_details_heading_xpath):
-            self.click_element_with_wait(self.Yes_provide_credential_radio_button_xpath, "Click")
-            self.click_element_with_wait(self.Create_new_ID_Continue_button_xpath, "Click")
+        self.click_element_with_wait(self.Yes_provide_credential_radio_button_xpath, "Click")
+        self.click_element_with_wait(self.Create_new_ID_Continue_button_xpath, "Click")
 
     def hr_portal_new_identity_credential_provided_success(self):
         """Function to verify New Identity credential provided success message"""
-        if self.verify_element_displayed(self.New_Identity_credential_provided_success_xpath):
-            message = self.read_value_from_element(self.New_Identity_credential_provided_success_xpath)
-            assert message in self.New_Identity_credential_provided_success_heading_txt
-            self.take_screenshot("PASS")
+        self.verify_element_displayed(self.New_Identity_credential_provided_success_xpath)
+        message = self.read_value_from_element(self.New_Identity_credential_provided_success_xpath)
+        assert message in self.New_Identity_credential_provided_success_heading_txt
+        self.take_screenshot("PASS")
 
     def hr_portal_new_identity_creds_passport_history_event_details(self):
         """Function to verify passport history heading & event"""
