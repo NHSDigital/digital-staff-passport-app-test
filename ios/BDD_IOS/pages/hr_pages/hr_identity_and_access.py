@@ -201,38 +201,38 @@ class HRIdentityAndAccessPage(BasePage):
 
     def hr_portal_identity_single_passport_first_name(self, value):
         """ Enter First name w.r.t single passport form"""
-        if self.verify_element_displayed(self.first_name_xpath):
-            self.type_element(self.first_name_xpath, value)
+        self.verify_element_displayed(self.first_name_xpath)
+        self.type_element(self.first_name_xpath, value)
 
     def hr_portal_identity_single_passport_last_name(self, value):
         """ Enter Last name w.r.t single passport form"""
-        if self.verify_element_displayed(self.last_name_xpath):
-            self.type_element(self.last_name_xpath, value)
+        self.verify_element_displayed(self.last_name_xpath)
+        self.type_element(self.last_name_xpath, value)
 
     def hr_portal_identity_single_passport_dob_day(self, value):
         """ Enter Day - DOB w.r.t single passport form"""
-        if self.verify_element_displayed(self.date_of_birth_day_xpath):
-            self.type_element(self.date_of_birth_day_xpath, value)
+        self.verify_element_displayed(self.date_of_birth_day_xpath)
+        self.type_element(self.date_of_birth_day_xpath, value)
 
     def hr_portal_identity_single_passport_dob_month(self, value):
         """ Enter Month - DOB w.r.t single passport form"""
-        if self.verify_element_displayed(self.date_of_birth_month_xpath):
-            self.type_element(self.date_of_birth_month_xpath, value)
+        self.verify_element_displayed(self.date_of_birth_month_xpath)
+        self.type_element(self.date_of_birth_month_xpath, value)
 
     def hr_portal_identity_single_passport_dob_year(self, value):
         """ Enter Year - DOB w.r.t single passport form"""
-        if self.verify_element_displayed(self.date_of_birth_year_xpath):
-            self.type_element(self.date_of_birth_year_xpath, value)
+        self.verify_element_displayed(self.date_of_birth_year_xpath)
+        self.type_element(self.date_of_birth_year_xpath, value)
 
     def hr_portal_identity_single_passport_email(self, value):
         """ Enter Email address w.r.t single passport form"""
-        if self.verify_element_displayed(self.email_address_xpath):
-            self.type_element(self.email_address_xpath, value)
+        self.verify_element_displayed(self.email_address_xpath)
+        self.type_element(self.email_address_xpath, value)
 
     def hr_portal_identity_single_passport_phone(self, value):
         """ Enter Phone number w.r.t single passport form"""
-        if self.verify_element_displayed(self.phone_number_xpath):
-            self.type_element(self.phone_number_xpath, value)
+        self.verify_element_displayed(self.phone_number_xpath)
+        self.type_element(self.phone_number_xpath, value)
 
     def hr_portal_identity_single_passport_staff_group(self):
         """ Select the Staff group dropdown w.r.t single passport form"""
@@ -273,12 +273,12 @@ class HRIdentityAndAccessPage(BasePage):
     def hr_portal_identity_single_passport_create_passport_message(self):
         """ Validate the status of the request under Identity & access search form"""
         self.user_defined_wait(2)
-        if self.verify_element_displayed(self.create_passport_result_xpath):
-            message = self.read_value_from_element(self.create_passport_result_xpath)
-            assert self.create_passport_result_txt in message
-            self.user_defined_wait(2)
-            self.take_screenshot("PASS")
-            self.close_safari()
+        self.verify_element_displayed(self.create_passport_result_xpath)
+        message = self.read_value_from_element(self.create_passport_result_xpath)
+        assert self.create_passport_result_txt in message
+        self.user_defined_wait(2)
+        self.take_screenshot("PASS")
+        self.close_safari()
 
     def hr_portal_identity_search_username(self, value):
         """ Enter the DSP user details in the search box """
@@ -368,11 +368,11 @@ class HRIdentityAndAccessPage(BasePage):
 
     def hr_portal_identity_review_request_success_message(self):
         """ Once submitted, success message should be displayed """
-        if self.verify_element_displayed(self.success_message_xpath):
-            message = self.read_value_from_element(self.success_message_xpath)
-            assert message in self.success_text
-            self.take_screenshot("PASS")
-            self.close_safari()
+        self.verify_element_displayed(self.success_message_xpath)
+        message = self.read_value_from_element(self.success_message_xpath)
+        assert message in self.success_text
+        self.take_screenshot("PASS")
+        self.close_safari()
 
     def hr_portal_delete_passport_link(self):
         """User selects the option to delete staff passport"""
@@ -395,18 +395,18 @@ class HRIdentityAndAccessPage(BasePage):
     def hr_portal_user_profile_validation(self):
         """Validate the user profile is visible"""
         self.user_defined_wait(2)
-        if self.verify_element_displayed(self.user_profile_heading_xpath):
-            message = self.read_value_from_element(self.user_profile_heading_xpath)
-            assert self.identity_and_access_text in message
-            self.take_screenshot("PASS")
-            self.complete_close_browser()
+        self.verify_element_displayed(self.user_profile_heading_xpath)
+        message = self.read_value_from_element(self.user_profile_heading_xpath)
+        assert self.identity_and_access_text in message
+        self.take_screenshot("PASS")
+        self.complete_close_browser()
 
     def hr_portal_delete_passport_message(self):
         """validating the message displayed post deleting staff passport"""
-        if self.verify_element_displayed(self.Delete_passport_msg_xpath):
-            message = self.read_value_from_element(self.Delete_passport_msg_xpath)
-            assert message in self.Delete_passport_message_txt
-            self.take_screenshot("PASS")
+        self.verify_element_displayed(self.Delete_passport_msg_xpath)
+        message = self.read_value_from_element(self.Delete_passport_msg_xpath)
+        assert message in self.Delete_passport_message_txt
+        self.take_screenshot("PASS")
 
 
     def verify_identity_and_access_page_opened(self):

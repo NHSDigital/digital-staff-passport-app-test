@@ -54,8 +54,8 @@ class SsPortalShareCredWithDiffOrg(BasePage):
 
     def hr_portal_review_credential_link(self):
         """ function to click on Review credential link and select accept all checkbox """
-        self.click_element_with_wait(self.Review_credential_link_xpath, "Click")
-        self.click_element_with_wait(self.Accept_all_checkbox_xpath, "Click")
+        self.click_element_with_wait(self.Review_credential_link_xpath, "Click on review credential link")
+        self.click_element_with_wait(self.Accept_all_checkbox_xpath, "Click on accept all checkbox")
 
     def hr_portal_select_continue_button(self):
         """ Function to click on continue button on review shared credential page"""
@@ -65,7 +65,7 @@ class SsPortalShareCredWithDiffOrg(BasePage):
         """Verify Review shared credential heading and select yes confirm button"""
         self.verify_element_displayed(self.Review_shared_credentials_heading_xpath)
         self.take_screenshot("PASS")
-        self.click_element_with_wait(self.Yes_confirm_button_id, "Click")
+        self.click_element_with_wait(self.Yes_confirm_button_id, "Click on yes confirm button")
 
     def hr_portal_status_confirmed_message(self):
         """Function to confirm success message"""
@@ -78,12 +78,12 @@ class SsPortalShareCredWithDiffOrg(BasePage):
     def hr_portal_creds_check(self, creds_value):
         """Common function to verify the credentials"""
         dynamic_value = creds_value
-        if self.verify_element_visible("xpath", self.hr_portal_creds_value.format(dynamic_value=dynamic_value)):
-            self.user_defined_wait(2)
-            message = self.read_text_from_element("xpath",
+        self.verify_element_visible("xpath", self.hr_portal_creds_value.format(dynamic_value=dynamic_value))
+        self.user_defined_wait(2)
+        message = self.read_text_from_element("xpath",
                                                   self.hr_portal_creds_value.format(dynamic_value=dynamic_value))
-            assert dynamic_value in message
-            self.user_defined_wait(2)
+        assert dynamic_value in message
+        self.user_defined_wait(2)
 
     def hr_portal_identity_creds_check(self):
         """Verify if the identity credentials are shared and visible"""

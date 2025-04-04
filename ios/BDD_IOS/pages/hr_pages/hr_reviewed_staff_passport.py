@@ -25,7 +25,7 @@ class HRReviewedStaffPassportPage(BasePage):
     def hr_portal_reviewed_staff_passport_tab(self):
         """ Click on the Reviewed Staff Passport Tab within HR Portal"""
         self.click_element_with_wait(self.menu_toggle_xpath, "Click menu")
-        self.click_element_with_wait(self.reviewed_staff_passport_tab_xpath, "Click")
+        self.click_element_with_wait(self.reviewed_staff_passport_tab_xpath, "Click on Reviewed Staff Passport")
         self.user_defined_wait(5)
 
     def hr_portal_reviewed_search_username(self, value):
@@ -37,7 +37,7 @@ class HRReviewedStaffPassportPage(BasePage):
 
     def hr_portal_reviewed_search_submit_click(self):
         """ Click on the search button """
-        self.click_element_with_wait(self.reviewed_search_submit_xpath, "Click")
+        self.click_element_with_wait(self.reviewed_search_submit_xpath, "Click on search")
         self.user_defined_wait(3)
 
     def hr_portal_reviewed_validate_search_result(self):
@@ -50,5 +50,5 @@ class HRReviewedStaffPassportPage(BasePage):
 
     def hr_portal_reviewed_click_search_result(self):
         """ Result should be displayed and user click on the result"""
-        self.click_element_with_wait(self.reviewed_search_result_xpath, "click")
+        self.click_element_with_wait(self.reviewed_search_result_xpath, "click on search result")
         self.user_defined_wait(2)

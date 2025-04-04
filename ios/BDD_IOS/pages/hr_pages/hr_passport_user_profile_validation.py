@@ -93,7 +93,7 @@ class HrPortalPassportUserProfileValidation(BasePage):
 
     def hr_portal_passport_page_click_on_show_details(self):
         """Function to click on show details link"""
-        self.click_element_with_wait(self.passport_show_all_details_xpath, "Click")
+        self.click_element_with_wait(self.passport_show_all_details_xpath, "Click on show details")
         self.user_defined_wait(2)
 
     def hr_portal_passport_page_firstname(self, value):
@@ -154,8 +154,8 @@ class HrPortalPassportUserProfileValidation(BasePage):
 
     def hr_portal_passport_page_complete_creds_required(self):
         """Click on complete credentials required in the passport profile page"""
-        self.click_element_with_wait(self.complete_creds_required_xpath, "click")
-        self.click_element_with_wait(self.complete_creds_confirm_xpath, "click")
+        self.click_element_with_wait(self.complete_creds_required_xpath, "click on complete credentials required")
+        self.click_element_with_wait(self.complete_creds_confirm_xpath, "click on complete credentials required")
         self.verify_element_displayed(self.complete_success_message_xpath)
         element = self.read_value_from_element(self.complete_success_message_xpath)
         assert element in self.complete_success_message_txt
