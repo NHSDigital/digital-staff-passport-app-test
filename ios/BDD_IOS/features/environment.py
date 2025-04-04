@@ -9,7 +9,7 @@ def before_scenario(context, scenario):
         context.driver = logging.FileHandler.selenium_driver = BasePage.open_browser_mobile(context)
         context.base_page = BasePage(context.driver)
         context.base_page.hr_portal_login_homepage()
-        context.base_page.click_login_page()
+        context.base_page.click_login_on_login_page()
 
 
 def before_feature(context, feature):

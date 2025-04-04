@@ -1,16 +1,17 @@
 """Step definitions for dsp initial app setup"""
 
 
-from behave import when, then
+from behave import given, then
 from pages.base_page import BasePage
 from pages.ios_pages.dsp_initial_app_setup import DspInitialAppSetup
 
 
-@when("user verifies the question icon present")
+@given("user verifies the question icon present")
 def dsp_app_verify_question_icon(context):
     """step implementation to verify question icon"""
     context.dsp_app_initial_setup = DspInitialAppSetup(context.driver)
     assert context.dsp_app_initial_setup.verify_question_icon(), "first page question icon is not present"
+
 
 @then("user verifies the NHS logo - on first page")
 def user_verifies_nhs_logo(context):
@@ -24,7 +25,7 @@ def dsp_app_verify_first_page_text(context):
     context.dsp_app_initial_setup.verify_app_first_page_setup_dsp_text()
 
 
-@then("user clicks on “Continue” button")
+@then("user clicks on continue button on first page")
 def dsp_app_click_continue(context):
     """step implementation to click on continue button"""
     context.dsp_app_initial_setup.create_a_pin_click_continue()
@@ -81,10 +82,12 @@ def dsp_app_verify_account_icon(context):
     """step implementation to verify account icon"""
     assert context.dsp_app_initial_setup.verify_account_icon(), "account icon is not present"
 
+
 @then("user verifies if fingerprint toggle is disable")
 def dsp_app_verify_fingerprint_toggle(context):
     """Step to verify the toggle state"""
     context.dsp_app_initial_setup.verify_fingerprint_toggle_disable()
+
 
 @then("user clicks “Enable Fingerprint recognition” toggle to enable")
 def dsp_app_verify_finger_print_enable(context):
@@ -111,7 +114,7 @@ def verify_prove_your_identity_header(context):
     context.dsp_app_initial_setup.verify_prove_your_identity_header()
 
 
-@when("user verifies what to expect heading")
+@given("user verifies what to expect heading")
 def verify_prove_identity_what_to_expect_heading(context):
     """step implementation Verify what to expect heading"""
     context.dsp_app_initial_setup = DspInitialAppSetup(context.driver)

@@ -37,8 +37,7 @@ class DspInitialAppSetup(BasePage):
     fingerprint_page_header_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@value=\"Fingerprint recognition\"]"
     fingerprint_page_header_text = 'Fingerprint recognition'
     enable_fingerprint_recognition_toggle_xpath = AppiumBy.XPATH, ''
-    fingerprint_disable_xpath = AppiumBy.XPATH, ('//XCUIElementTypeStaticText[@label="Fingerprint recognition has been '
-                                                 'disabled on your device"]')
+    fingerprint_disable_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@label=\"Fingerprint recognition has been disabled on your device\"]"
     fingerprint_disable_text = 'Fingerprint recognition has been disabled on your device'
 
     # DSP app Prove who you are page elements
@@ -87,27 +86,25 @@ class DspInitialAppSetup(BasePage):
 
     def verify_app_first_page_setup_dsp_text(self):
         """this method checks text on the app first page"""
-        if self.verify_element_displayed(self.first_page_setup_dsp_text_xpath):
-            message = self.read_value_from_element(self.first_page_setup_dsp_text_xpath)
-            assert self.first_page_setup_dsp_text in message
-            self.take_screenshot("PASS")
+        self.verify_element_displayed(self.first_page_setup_dsp_text_xpath)
+        message = self.read_value_from_element(self.first_page_setup_dsp_text_xpath)
+        assert self.first_page_setup_dsp_text in message
+        self.take_screenshot("PASS")
 
     def click_continue(self):
         """Function to click continue on dsp app page"""
-        self.verify_element_displayed(self.continue_button_xpath)
-        self.click_element(self.continue_button_xpath, "Continue")
+        self.click_element_with_wait(self.continue_button_xpath, "Continue")
 
     def create_a_pin_click_continue(self):
         """Function to create a pin click continue on dsp app page"""
-        self.verify_element_displayed(self.create_a_pin_continue_button_xpath)
-        self.click_element(self.create_a_pin_continue_button_xpath, "Continue")
+        self.click_element_with_wait(self.create_a_pin_continue_button_xpath, "Continue")
 
     def verify_create_pin_page_header(self):
         """this method checks header of the create pin page"""
-        if self.verify_element_displayed(self.create_pin_page_header_xpath):
-            message = self.read_value_from_element(self.create_pin_page_header_xpath)
-            assert self.create_pin_page_header_text in message
-            self.take_screenshot("PASS")
+        self.verify_element_displayed(self.create_pin_page_header_xpath)
+        message = self.read_value_from_element(self.create_pin_page_header_xpath)
+        assert self.create_pin_page_header_text in message
+        self.take_screenshot("PASS")
 
     def verify_create_pin_term_of_use_link(self):
         """Function to verify term of use agreement link on create pin page"""
@@ -123,68 +120,67 @@ class DspInitialAppSetup(BasePage):
 
     def set_create_pin(self, value):
         """Function to enter pin on app initial setup"""
-        if self.verify_element_displayed(self.pin_input_xpath):
-            self.type_element(self.pin_input_xpath, value)
+        self.verify_element_displayed(self.pin_input_xpath)
+        self.type_element(self.pin_input_xpath, value)
 
     def confirm_create_pin(self, value):
         """Function to confirm pin on app initial setup"""
-        if self.verify_element_displayed(self.pin_confirm_input_xpath):
-            self.type_element(self.pin_confirm_input_xpath, value)
-            self.tap_on_coordinates(140, 360)
+        self.verify_element_displayed(self.pin_confirm_input_xpath)
+        self.type_element(self.pin_confirm_input_xpath, value)
+        self.tap_on_coordinates(140, 360)
 
     def verify_fingerprint_page_header(self):
         """Function to validate Fingerprint page heading of app initial setup"""
-        if self.verify_element_displayed(self.fingerprint_page_header_xpath):
-            message = self.read_value_from_element(self.fingerprint_page_header_xpath)
-            assert self.fingerprint_page_header_text in message
-            self.take_screenshot("PASS")
+        self.verify_element_displayed(self.fingerprint_page_header_xpath)
+        message = self.read_value_from_element(self.fingerprint_page_header_xpath)
+        assert self.fingerprint_page_header_text in message
+        self.take_screenshot("PASS")
 
     def enable_disable_figer_print_recognition(self):
         """Function to click toggle button to enable or disable fingerprint recognition"""
-        if self.verify_element_displayed(self.enable_fingerprint_recognition_toggle_xpath):
-            self.click_element(self.enable_fingerprint_recognition_toggle_xpath, "fingerprint toggle")
+        self.click_element_with_wait(self.enable_fingerprint_recognition_toggle_xpath, "fingerprint toggle")
 
     def verify_prove_who_you_are_page_header(self):
         """Function to validate who you are page header of app initial setup validation"""
-        if self.verify_element_displayed(self.prove_who_you_are_page_header_xpath):
-            message = self.read_value_from_element(self.prove_who_you_are_page_header_xpath)
-            assert self.prove_who_you_are_page_header_text in message
-            self.take_screenshot("PASS")
+        self.verify_element_displayed(self.prove_who_you_are_page_header_xpath)
+        message = self.read_value_from_element(self.prove_who_you_are_page_header_xpath)
+        assert self.prove_who_you_are_page_header_text in message
+        self.take_screenshot("PASS")
 
     def verify_prove_who_you_are_sub_header(self):
         """Function to validate who you are sub header of app initial setup"""
-        if self.verify_element_displayed(self.prove_who_you_are_page_sub_header_xpath):
-            message = self.read_value_from_element(self.prove_who_you_are_page_sub_header_xpath)
-            assert self.prove_who_you_are_page_sub_header_text in message
-            self.take_screenshot("PASS")
+        self.verify_element_displayed(self.prove_who_you_are_page_sub_header_xpath)
+        message = self.read_value_from_element(self.prove_who_you_are_page_sub_header_xpath)
+        assert self.prove_who_you_are_page_sub_header_text in message
+        self.take_screenshot("PASS")
 
     def verify_prove_who_you_are_page_text(self):
         """Function to validate who you are page text of app initial setup"""
-        if self.verify_element_displayed(self.prove_who_you_are_page_text_xpath):
-            message = self.read_value_from_element(self.prove_who_you_are_page_text_xpath)
-            assert self.prove_who_you_are_page_text in message
-            self.take_screenshot("PASS")
+        self.verify_element_displayed(self.prove_who_you_are_page_text_xpath)
+        message = self.read_value_from_element(self.prove_who_you_are_page_text_xpath)
+        assert self.prove_who_you_are_page_text in message
+        self.take_screenshot("PASS")
 
     def verify_prove_your_identity_header(self):
         """Function to validate prove your identity header of app initial setup"""
-        if self.verify_element_displayed(self.prove_your_identity_page_header_xpath):
-            message = self.read_value_from_element(self.prove_your_identity_page_header_xpath)
-            assert self.prove_your_identity_page_header_text in message
-            self.take_screenshot("PASS")
+        self.verify_element_displayed(self.prove_your_identity_page_header_xpath)
+        message = self.read_value_from_element(self.prove_your_identity_page_header_xpath)
+        assert self.prove_your_identity_page_header_text in message
+        self.take_screenshot("PASS")
 
     def verify_prove_identity_what_to_expect_heading(self):
         """Function to validate prove identity what to expect heading of app initial setup"""
-        if self.verify_element_displayed(self.prove_your_identity_page_sub_header1_xpath):
-            message = self.read_value_from_element(self.prove_your_identity_page_sub_header1_xpath)
-            assert self.prove_your_identity_page_sub_header1_text in message
-            self.take_screenshot("PASS")
+        self.verify_element_displayed(self.prove_your_identity_page_sub_header1_xpath)
+        message = self.read_value_from_element(self.prove_your_identity_page_sub_header1_xpath)
+        assert self.prove_your_identity_page_sub_header1_text in message
+        self.take_screenshot("PASS")
 
     def verify_prove_identity_what_happens_heading(self):
         """Function to validate prove identity what happens heading of app initial setup"""
-        if self.verify_element_displayed(self.prove_your_identity_page_sub_header2_xpath):
-            message = self.read_value_from_element(self.prove_your_identity_page_sub_header2_xpath)
-            assert self.prove_your_identity_page_sub_header2_text in message
-            self.take_screenshot("PASS")
+        self.verify_element_displayed(self.prove_your_identity_page_sub_header2_xpath)
+        message = self.read_value_from_element(self.prove_your_identity_page_sub_header2_xpath)
+        assert self.prove_your_identity_page_sub_header2_text in message
+        self.take_screenshot("PASS")
 
     def verify_prove_identity_in_person_link(self):
         """Function to validate prove identity in_person link of app initial setup"""
