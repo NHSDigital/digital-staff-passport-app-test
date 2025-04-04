@@ -209,7 +209,10 @@ class HRTemporaryPlacementCredentialPage(BasePage):
 
     def hr_portal_select_licence_to_attend_yes_radio_btn(self):
         """Function to select Yes, confirm licence requirement radio button option"""
-        self.click_element_with_wait(self.Yes_confirm_licence_requirement_radio_btn_xpath, "click on yes radio button")
+        self.click_element_with_wait(
+            self.Yes_confirm_licence_requirement_radio_btn_xpath,
+            "click on yes radio button",
+        )
 
     def hr_portal_select_licence_to_attend_no_radio_btn(self):
         """Function to select No, don't include licence option"""
@@ -217,7 +220,10 @@ class HRTemporaryPlacementCredentialPage(BasePage):
 
     def hr_portal_confirm_details_page_and_select_yes_radio_button(self):
         """Validates Confirm details and provide credential heading and select yes radio button"""
-        self.click_element_with_wait(self.Yes_confirm_and_provide_credential_radio_btn_xpath, "click on yes radio button")
+        self.click_element_with_wait(
+            self.Yes_confirm_and_provide_credential_radio_btn_xpath,
+            "click on yes radio button",
+        )
 
     def hr_portal_confirm_details_page_and_select_no_radio_button(self):
         """Validates Confirm details and provide credential heading and select No radio button"""
@@ -232,10 +238,18 @@ class HRTemporaryPlacementCredentialPage(BasePage):
 
     def hr_portal_temp_placement_passport_history_event_details(self):
         """Function verifies passport history heading and event"""
-        self.click_element_with_wait(self.Temp_placement_back_to_user_passport_link_xpath, "click on back to user passport")
-        self.click_element_with_wait(self.Temp_placement_Passport_history_link_xpath, "click on passport history")
+        self.click_element_with_wait(
+            self.Temp_placement_back_to_user_passport_link_xpath,
+            "click on back to user passport",
+        )
+        self.click_element_with_wait(
+            self.Temp_placement_Passport_history_link_xpath, "click on passport history"
+        )
         self.verify_element_displayed(self.Passport_history_page_heading_temp_creds_xpath)
-        message = self.read_value_from_element(self.Passport_history_event_txt_temp_creds_xpath)
+        message = self.read_value_from_element(
+            self.Passport_history_event_txt_temp_creds_xpath
+        )
         assert self.Passport_history_event_temp_creds_txt in message
         self.take_screenshot("PASS")
         self.close_safari()
+

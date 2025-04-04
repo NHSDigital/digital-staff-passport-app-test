@@ -65,7 +65,10 @@ class HRPortalCreateNewIdentityCredentialPage(BasePage):
 
     def hr_portal_create_a_new_identity_credential(self):
         """Function to create a new identity credential"""
-        self.click_element_with_wait(self.Create_new_identity_credential_link_xpath, "Click on create new identity credential")
+        self.click_element_with_wait(
+            self.Create_new_identity_credential_link_xpath,
+            "Click on create new identity credential",
+        )
 
     def hr_portal_create_new_identity_credential_details_continue(self):
         """Create new identity credential for user page and click on continue button"""
@@ -76,8 +79,13 @@ class HRPortalCreateNewIdentityCredentialPage(BasePage):
 
     def hr_portal_create_new_identity_cred_yes_radio_button(self):
         """Function to confirm users details page and click yes provide credential radio button"""
-        self.click_element_with_wait(self.Yes_provide_credential_radio_button_xpath, "Click on yes provide credential radio button")
-        self.click_element_with_wait(self.Create_new_ID_Continue_button_xpath, "Click on continue button")
+        self.click_element_with_wait(
+            self.Yes_provide_credential_radio_button_xpath,
+            "Click on yes provide credential radio button",
+        )
+        self.click_element_with_wait(
+            self.Create_new_ID_Continue_button_xpath, "Click on continue button"
+        )
 
     def hr_portal_new_identity_credential_provided_success(self):
         """Function to verify New Identity credential provided success message"""
@@ -88,12 +96,17 @@ class HRPortalCreateNewIdentityCredentialPage(BasePage):
 
     def hr_portal_new_identity_creds_passport_history_event_details(self):
         """Function to verify passport history heading & event"""
-        if self.verify_element_displayed(self.New_Identity_back_to_user_passport_link_xpath):
-            self.click_element_with_wait(self.New_Identity_back_to_user_passport_link_xpath, "click on back to user passport link")
-        if self.verify_element_displayed(self.New_Identity_Passport_history_link_xpath):
-            self.click_element_with_wait(self.New_Identity_Passport_history_link_xpath, "click on passport history link")
-        if self.verify_element_displayed(self.Passport_history_page_heading_new_id_creds_xpath):
-            message = self.read_value_from_element(self.Passport_history_event_txt_new_id_creds_xpath)
-            assert self.Passport_history_event_new_id_creds_txt in message
-            self.take_screenshot("PASS")
-            self.close_safari()
+        self.click_element_with_wait(
+            self.New_Identity_back_to_user_passport_link_xpath,
+            "click on back to user passport link",
+        )
+        self.click_element_with_wait(
+            self.New_Identity_Passport_history_link_xpath, "click on passport history link"
+        )
+        message = self.read_value_from_element(
+            self.Passport_history_event_txt_new_id_creds_xpath
+        )
+        assert self.Passport_history_event_new_id_creds_txt in message
+        self.take_screenshot("PASS")
+        self.close_safari()
+

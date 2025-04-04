@@ -11,16 +11,26 @@ class SignInAfterInitialSetup(BasePage):
     """this class contains methods for the page actions
      of dsp app sign in after initial setup page"""
 
-    Log_into_NHS_DSP_heading_xpath = AppiumBy.XPATH, '//XCUIElementTypeStaticText[name == "Login to NHS Digital Staff Passport"]'
+    Log_into_NHS_DSP_heading_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[name == "Login to NHS Digital Staff Passport"]',
+    )
     pin_input_xpath = AppiumBy.ACCESSIBILITY_ID, "login pin-inputField"
     ive_forgotton_pin_link_xpath = AppiumBy.ACCESSIBILITY_ID, "I've forgotten my PIN"
     continue_button_initial_page_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@label=\'Continue\']"
     continue_button_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='undefined-text' and @label='Continue']"
     forgotten_pin_heading_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='undefined-heading-text']"
-    your_account_must_be_reset_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='undefined-text' and @label='Your account must be reset and you will need to start again.']"
+    your_account_must_be_reset_xpath = (
+        AppiumBy.XPATH,
+        "//XCUIElementTypeStaticText[@name='undefined-text' and @label='Your account must be reset and you will need to start again.']",
+    )
     your_account_must_be_reset_txt = "Your account must be reset and you will need to start again."
-    contact_the_organisation_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='undefined-text' and @label='Contact the organisation's HR team and ask them to delete your details and send you a new invitation email.']"
-    contact_the_organisation_txt = "Contact the organisation's HR team and ask them to delete your details and send you a new invitation email."
+    contact_the_organisation_xpath = (
+        AppiumBy.XPATH,
+        "//XCUIElementTypeStaticText[@name='undefined-text' and @label='Contact the organisation's HR team and ask them to delete your details and send you a new invitation email.']",
+    )
+    contact_the_organisation_txt = ("Contact the organisation's HR team and ask them to delete "
+                                    "your details and send you a new invitation email.")
     incorrect_pin_4attempt_remaining_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='login pin-error-text']"
     incorrect_pin_3attempt_remaining_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='login pin-error-text']"
     incorrect_pin_2attempt_remaining_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='login pin-error-text']"

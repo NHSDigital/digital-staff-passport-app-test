@@ -302,10 +302,15 @@ class HRIdentityAndAccessPage(BasePage):
         self.user_defined_wait(2)
 
     def hr_portal_identity_select_employment_type_permanent(self):
-        """ Select the Employment type details from the dropdown """
-        self.click_element_with_wait(self.employment_dropdown_xpath, "Click on Employment type dropdown")
+        """Select the Employment type details from the dropdown"""
+        self.click_element_with_wait(
+            self.employment_dropdown_xpath, "Click on Employment type dropdown"
+        )
         self.user_defined_wait(2)
-        self.click_element_with_wait(self.emp_type_select_xpath_permanent_fixed_term, "Click on Permanent or fixed term")
+        self.click_element_with_wait(
+            self.emp_type_select_xpath_permanent_fixed_term,
+            "Click on Permanent or fixed term",
+        )
         self.user_defined_wait(2)
 
     def hr_portal_identity_continue_button(self):
