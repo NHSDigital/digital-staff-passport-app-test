@@ -341,23 +341,21 @@ class HRPendingStaffPassportPage(BasePage):
 
     def hr_portal_passport_page_initial_status_validation(self):
         """ Validate the passport status in the passport profile page"""
-        if self.verify_element_displayed(self.passport_status_xpath):
-            element = self.read_value_from_element(self.passport_status_initial_value_xpath)
-            assert element in self.passport_status_initial_value_txt
-            self.take_screenshot("PASS")
+        self.verify_element_displayed(self.passport_status_xpath)
+        element = self.read_value_from_element(self.passport_status_initial_value_xpath)
+        assert element in self.passport_status_initial_value_txt
+        self.take_screenshot("PASS")
 
     def hr_portal_passport_page_click_on_show_details(self):
         """Function to click on show details link"""
         self.user_defined_wait(2)
-        if self.verify_element_displayed(self.passport_show_all_details_xpath):
-            self.click_element_with_wait(self.passport_show_all_details_xpath, "Click")
-            self.user_defined_wait(2)
+        self.click_element_with_wait(self.passport_show_all_details_xpath, "click show all details")
+        self.user_defined_wait(2)
 
     def hr_portal_pending_click_review_credentials_request(self):
         """ Click on the Alert for reviewing the Credentials Requests"""
-        if self.verify_element_displayed(self.click_review_cred_request_xpath):
-            self.click_element_with_wait(self.click_review_cred_request_xpath, "Click")
-            self.user_defined_wait(3)
+        self.click_element_with_wait(self.click_review_cred_request_xpath, "click review credential request")
+        self.user_defined_wait(3)
 
     def hr_portal_pending_provide_credentials(self):
         """ Review the credentials request & select the provide radio button for the same"""
@@ -371,157 +369,135 @@ class HRPendingStaffPassportPage(BasePage):
 
     def hr_portal_pending_provide_credentials_button(self):
         """ Click on the Provide Credential button"""
-        if self.verify_element_displayed(self.provide_credentials_button_xpath):
-            self.click_element_with_wait(self.provide_credentials_button_xpath, "Click")
-            self.user_defined_wait(3)
+        self.click_element_with_wait(self.provide_credentials_button_xpath, "click provide credentials button")
+        self.user_defined_wait(3)
 
     def hr_portal_pending_provide_credentials_continue(self):
         """ Click on Continue button , post selection of the request"""
-        if self.verify_element_displayed(self.continue_btn_xpath):
-            self.click_element_with_wait(self.continue_btn_xpath, "Click")
-            self.user_defined_wait(3)
+        self.click_element_with_wait(self.continue_btn_xpath, "continue button")
+        self.user_defined_wait(3)
 
     def hr_portal_pending_provide_credentials_confirm_yes(self):
         """ Click on Yes radio button w.r.t credential request"""
-        if self.verify_element_displayed(self.review_credentials_confirm_yes_xpath):
-            self.click_element_with_wait(self.review_credentials_confirm_yes_xpath, "Click")
-            self.user_defined_wait(3)
+        self.click_element_with_wait(self.review_credentials_confirm_yes_xpath, "Click confirm yes")
+        self.user_defined_wait(3)
 
     def hr_portal_pending_provide_credentials_confirm_continue(self):
         """ Click on Continue button w.r.t credential request"""
-        if self.verify_element_displayed(self.continue_btn_xpath):
-            self.click_element_with_wait(self.continue_btn_xpath, "Click")
-            self.user_defined_wait(3)
+        self.click_element_with_wait(self.continue_btn_xpath, "continue button")
+        self.user_defined_wait(3)
 
     def hr_portal_pending_provide_credentials_reviewed_success(self):
         """ Request reviewed successfully and message is displayed """
         self.user_defined_wait(3)
-        if self.verify_element_displayed(self.review_credentials_success_xpath):
-            message = self.read_value_from_element(self.review_credentials_success_xpath)
-            assert message in self.review_credentials_success_txt
-            self.take_screenshot("PASS")
-            self.close_safari()
+        self.verify_element_displayed(self.review_credentials_success_xpath)
+        message = self.read_value_from_element(self.review_credentials_success_xpath)
+        assert message in self.review_credentials_success_txt
+        self.take_screenshot("PASS")
+        self.close_safari()
 
     def hr_portal_pending_connect_esr(self):
         """ Click on the Connect To ESR link button under Photo section"""
-        if self.verify_element_displayed(self.connect_to_esr_xpath):
-            self.click_element_with_wait(self.connect_to_esr_xpath, "Click")
-            self.user_defined_wait(3)
+        self.click_element_with_wait(self.connect_to_esr_xpath, "click connect to esr")
+        self.user_defined_wait(3)
 
     def hr_portal_pending_enter_esr_number(self, value):
         """ Enter valid ESR Number """
-        if self.verify_element_displayed(self.enter_esr_number_xpath):
-            self.type_element(self.enter_esr_number_xpath, value)
-            self.user_defined_wait(3)
+        self.type_element(self.enter_esr_number_xpath, value)
+        self.user_defined_wait(3)
 
     def hr_portal_pending_confirm_esr_number(self):
         """ Click on the confirm button w.r.t ESR """
-        if self.verify_element_displayed(self.confirm_esr_number_xpath):
-            self.click_element_with_wait(self.confirm_esr_number_xpath, "Click")
-            self.user_defined_wait(3)
+        self.click_element_with_wait(self.confirm_esr_number_xpath, "click confirm esr number")
+        self.user_defined_wait(3)
 
     def hr_portal_pending_connect_to_passport(self):
         """ Click on the Connect to Passport Link"""
-        if self.verify_element_displayed(self.connect_passport_to_esr_xpath):
-            self.click_element_with_wait(self.connect_passport_to_esr_xpath, "Click")
-            self.user_defined_wait(3)
+        self.click_element_with_wait(self.connect_passport_to_esr_xpath, "click connect to passport")
+        self.user_defined_wait(3)
 
     def hr_portal_pending_passport_connect_proceed(self):
         """ Click on Connect button"""
-        if self.verify_element_displayed(self.connect_button_xpath):
-            self.click_element_with_wait(self.connect_button_xpath, "Click")
-            self.user_defined_wait(10)
+        self.click_element_with_wait(self.connect_button_xpath, "click connect button")
+        self.user_defined_wait(10)
 
     def hr_portal_pending_connect_to_passport_confirm_yes(self):
         """ Select the Yes radio button"""
-        if self.verify_element_displayed(self.yes_radio_btn_xpath):
-            self.click_element_with_wait(self.yes_radio_btn_xpath, "Click")
-            self.user_defined_wait(3)
+        self.click_element_with_wait(self.yes_radio_btn_xpath, "click yes radio button")
+        self.user_defined_wait(3)
 
     def hr_portal_pending_connect_to_passport_confirm_no(self):
         """ Select the No radio button"""
-        if self.verify_element_displayed(self.no_radio_btn_xpath):
-            self.click_element_with_wait(self.no_radio_btn_xpath, "Click")
-            self.user_defined_wait(3)
+        self.click_element_with_wait(self.no_radio_btn_xpath, "click no radio button")
+        self.user_defined_wait(3)
 
     def hr_portal_pending_connect_to_passport_confirm_continue(self):
         """ Click on the confirm button w.r.t Connect to Passport """
-        if self.verify_element_displayed(self.continue_btn_xpath):
-            self.click_element_with_wait(self.continue_btn_xpath, "Click")
-            self.user_defined_wait(3)
+        self.click_element_with_wait(self.continue_btn_xpath, "click continue button")
+        self.user_defined_wait(3)
 
     def hr_portal_pending_provide_credentials_link(self):
         """ Click on Provide Credentials Link"""
-        if self.verify_element_displayed(self.provide_credentials_link_xpath):
-            self.click_element_with_wait(self.provide_credentials_link_xpath, "Click")
-            self.user_defined_wait(5)
+        self.click_element_with_wait(self.provide_credentials_link_xpath, "click provide credentials link")
+        self.user_defined_wait(5)
 
     def hr_portal_pending_back_link_passport_page(self):
         """ Click on the back link to navigate back to passport page """
-        if self.verify_element_displayed(self.back_link_pending_staff_xpath):
-            self.click_element_with_wait(self.back_link_pending_staff_xpath, "Click")
-            self.user_defined_wait(2)
+        self.click_element_with_wait(self.back_link_pending_staff_xpath, "click back link")
+        self.user_defined_wait(2)
 
     def hr_portal_pending_manage_passport_link(self):
         """ Click on Manage Passport Link"""
-        if self.verify_element_displayed(self.manage_passport_link_xpath):
-            self.click_element_with_wait(self.manage_passport_link_xpath, "Click")
+        self.click_element_with_wait(self.manage_passport_link_xpath, "click manage passport link")
 
     def hr_portal_pending_delete_passport_link(self):
         """ Click on Delete Passport Link"""
-        if self.verify_element_displayed(self.delete_passport_link_xpath):
-            self.click_element_with_wait(self.delete_passport_link_xpath, "Click")
+        self.click_element_with_wait(self.delete_passport_link_xpath, "click delete passport link")
 
     def hr_portal_pending_delete_passport_continue(self):
         """ Click on Continue button w.r.t delete passport"""
-        if self.verify_element_displayed(self.delete_passport_continue_btn_xpath):
-            self.click_element_with_wait(self.delete_passport_continue_btn_xpath, "Click")
+        self.click_element_with_wait(self.delete_passport_continue_btn_xpath, "click continue button")
 
     def hr_portal_pending_delete_passport_data(self):
         """ Click on delete passport data"""
-        if self.verify_element_displayed(self.delete_passport_data_xpath):
-            self.click_element_with_wait(self.delete_passport_data_xpath, "Click")
+        self.click_element_with_wait(self.delete_passport_data_xpath, "click delete passport data")
 
     def hr_portal_pending_delete_passport_message(self):
         """ Validate the message displayed in the screen"""
-        if self.verify_element_displayed(self.delete_passport_message_xpath):
-            message = self.read_value_from_element(self.delete_passport_message_xpath)
-            assert message in self.delete_passport_message_txt
-            self.take_screenshot("PASS")
-            self.close_safari()
+        self.verify_element_displayed(self.delete_passport_message_xpath)
+        message = self.read_value_from_element(self.delete_passport_message_xpath)
+        assert message in self.delete_passport_message_txt
+        self.take_screenshot("PASS")
+        self.close_safari()
 
     def hr_portal_pending_click_shared_review_credentials_request(self):
         """ Click on the Alert for reviewing the Shared Credentials"""
-        if self.verify_element_displayed(self.click_shared_review_cred_request_xpath):
-            self.click_element_with_wait(self.click_shared_review_cred_request_xpath, "Click")
-            self.user_defined_wait(3)
+        self.click_element_with_wait(self.click_shared_review_cred_request_xpath, "click review credential request")
+        self.user_defined_wait(3)
 
     def hr_portal_pending_click_shared_review_accept_radio_button(self):
         """ Click on the Accept radio button while reviewing Shared Credentials"""
         self.user_defined_wait(2)
-        if self.verify_element_displayed(self.click_shared_review_accept_radio_button_xpath):
-            self.click_element_with_wait(self.click_shared_review_accept_radio_button_xpath, "Click")
-            self.user_defined_wait(2)
+        self.click_element_with_wait(self.click_shared_review_accept_radio_button_xpath, "click accept radio button")
+        self.user_defined_wait(2)
 
     def hr_portal_pending_click_shared_provide_credentials_confirm_continue(self):
         """ Click on Continue button w.r.t shared credentials review request"""
-        if self.verify_element_displayed(self.click_shared_review_accept_continue_button_xpath):
-            self.click_element_with_wait(self.click_shared_review_accept_continue_button_xpath, "Click")
-            self.user_defined_wait(3)
+        self.click_element_with_wait(self.click_shared_review_accept_continue_button_xpath, "click shared credentials review request")
+        self.user_defined_wait(3)
 
     def hr_portal_pending_click_shared_provide_credentials_confirm_yes(self):
         """ Click on Yes radio button w.r.t to provide shared credential request"""
         self.user_defined_wait(2)
-        if self.verify_element_displayed(self.click_shared_review_accept_yes_confirm_radio_button_xpath):
-            self.click_element_with_wait(self.click_shared_review_accept_yes_confirm_radio_button_xpath, "Click")
+        self.click_element_with_wait(self.click_shared_review_accept_yes_confirm_radio_button_xpath, "click yes radio button")
 
     def hr_portal_pending_provide_shared_credentials_reviewed_success(self):
         """ Shared credentials request reviewed successfully and message is displayed """
-        if self.verify_element_displayed(self.click_shared_review_accept_success_header_xpath):
-            message = self.read_value_from_element(self.click_shared_review_accept_success_header_xpath)
-            assert self.click_shared_review_accept_success_header_txt in message
-            self.take_screenshot("PASS")
-            self.complete_close_browser()
+        self.verify_element_displayed(self.click_shared_review_accept_success_header_xpath)
+        message = self.read_value_from_element(self.click_shared_review_accept_success_header_xpath)
+        assert self.click_shared_review_accept_success_header_txt in message
+        self.take_screenshot("PASS")
+        self.complete_close_browser()
 
     def hr_portal_click_pending_view_credential(self):
         """Click on the View Credential button"""

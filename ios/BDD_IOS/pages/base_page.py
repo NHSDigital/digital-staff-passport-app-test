@@ -58,6 +58,7 @@ class BasePage:
             self.driver.set_page_load_timeout(100)
             logger.info("Chrome Browser is open")
             return self.driver
+        return
 
     def open_ios_app(self):
         """Open the ios app with below capabilities"""
@@ -391,4 +392,3 @@ class BasePage:
 
     def tap_on_coordinates(self, x, y):
         self.driver.execute_script("mobile: tap", {"x": x, "y": y})
-

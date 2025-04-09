@@ -50,6 +50,5 @@ class HRPortalLoginMob(BasePage):
     def hr_portal_login_homepage_share_journey(self, value):
         """Browser is open and user clicks on HR login link"""
         self.navigate_url(value)
-        if self.verify_element_displayed(self.login_page_xpath):
-            self.click_element_with_wait(self.login_page_xpath, "Click")
-            self.user_defined_wait(5)
+        self.click_element_with_wait(self.login_page_xpath, "Click")
+        self.user_defined_wait(5)

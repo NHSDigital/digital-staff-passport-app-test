@@ -13,9 +13,11 @@ class DspInitialAppSetup(BasePage):
     # DSP app first page elements
     first_page_NHS_logo_xpath = AppiumBy.XPATH, "//XCUIElementTypeOther[@name=\"NHS logo\"]"
     first_page_NHS_logo_text = 'NHS'  # Need to check if this can be readable
-    first_page_setup_dsp_text_xpath = AppiumBy.XPATH, '//XCUIElementTypeStaticText[@label="Set up your NHS Digital\nStaff Passport"]'
+    first_page_setup_dsp_text_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[@label="Set up your NHS Digital\nStaff Passport"]',
+    )
     first_page_setup_dsp_text = 'Set up your NHS Digital'
-
     # DSP app Create PIN page elements
     create_pin_page_header_xpath = AppiumBy.XPATH, "(//XCUIElementTypeOther[@name=\"Create a PIN\"])[2]"
     create_pin_page_header_text = 'Create a PIN'
@@ -51,11 +53,20 @@ class DspInitialAppSetup(BasePage):
     prove_who_you_are_page_text = 'You\'ll need to prove your identity before you can use NHS Digital Staff Passport'
 
     # DSP app Prove your identity page elements
-    prove_your_identity_page_header_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@value=\"Prove your Identity\"]"
+    prove_your_identity_page_header_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[@value="Prove your Identity"]',
+    )
     prove_your_identity_page_header_text = 'Prove your Identity'
-    prove_your_identity_page_sub_header1_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@label=\"What to expect\"]"
+    prove_your_identity_page_sub_header1_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[@label="What to expect"]',
+    )
     prove_your_identity_page_sub_header1_text = 'What to expect'
-    prove_your_identity_page_sub_header2_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@label=\"What happens then\"]"
+    prove_your_identity_page_sub_header2_xpath = (
+        AppiumBy.XPATH,
+        '//XCUIElementTypeStaticText[@label="What happens then"]',
+    )
     prove_your_identity_page_sub_header2_text = 'What happens then'
     prove_your_identity_page_in_person_link_xpath = AppiumBy.XPATH, ('//XCUIElementTypeStaticText[@label="I\'ll prove '
                                                                      'my identity in person instead"]')
