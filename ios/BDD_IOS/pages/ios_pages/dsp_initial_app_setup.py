@@ -18,6 +18,10 @@ class DspInitialAppSetup(BasePage):
         '//XCUIElementTypeStaticText[@label="Set up your NHS Digital\nStaff Passport"]',
     )
     first_page_setup_dsp_text = 'Set up your NHS Digital'
+    check_your_email_xpath = AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name=\"Check your email\"]"
+    check_your_email_xpath_text = "Check your email"
+    close_app_xpath = AppiumBy.XPATH, '//XCUIElementTypeButton[@name="Close app"]'
+
     # DSP app Create PIN page elements
     create_pin_page_header_xpath = AppiumBy.XPATH, "(//XCUIElementTypeOther[@name=\"Create a PIN\"])[2]"
     create_pin_page_header_text = 'Create a PIN'
@@ -193,3 +197,18 @@ class DspInitialAppSetup(BasePage):
         message = self.read_value_from_element(self.fingerprint_disable_xpath)
         assert message in self.fingerprint_disable_text
         self.take_screenshot("PASS")
+
+    def continue_button_on_first_page(self):
+        """Function to click continue button on first page to validate the check email popup"""
+        self.click_element_with_wait(self.create_a_pin_continue_button_xpath)
+
+    def verify_popup_no_invite(self):
+        """Function to verify popup no invite"""
+        self.verify_element_displayed(self.check_your_email_xpath)
+        message = self.read_value_from_element(self.check_your_email_xpath)
+        assert message in self.check_your_email_xpath_text
+        self.take_screenshot("PASS")
+
+    def click_close_app(self):
+        """Function to click close app"""
+        self.click_element_with_wait(self.close_app_xpath)

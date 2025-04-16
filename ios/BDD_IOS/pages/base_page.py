@@ -20,6 +20,12 @@ from selenium import webdriver as selenium_webdriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
+# For W3C actions
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.actions import interaction
+from selenium.webdriver.common.actions.action_builder import ActionBuilder
+from selenium.webdriver.common.actions.pointer_input import PointerInput
+
 from utilities import custom_logger
 from utilities.read_config import ReadProperty
 
@@ -66,7 +72,7 @@ class BasePage:
         options.load_capabilities(
             {
                 "platformName": "iOS",
-                "appium:platformVersion": "18.1.1",
+                "appium:platformVersion": "18.3.2",
                 "appium:deviceName": "iPhone SE",
                 "appium:automationName": "XCUITest",
                 "appium:udid": "00008110-00065C913402601E",
@@ -111,10 +117,10 @@ class BasePage:
             options.load_capabilities(
                 {
                     "platformName": "iOS",
-                    "appium:platformVersion": "18.1.1",
+                    "appium:platformVersion": "18.3.2",
                     "appium:deviceName": "iPhone SE",
                     "appium:automationName": "XCUITest",
-                    "appium:udid": "00008110-00090DAC210BA01E",
+                    "appium:udid": "00008110-00065C913402601E",
                     "appium:app": "com.apple.mobilesafari",
                 }
             )
@@ -392,3 +398,10 @@ class BasePage:
 
     def tap_on_coordinates(self, x, y):
         self.driver.execute_script("mobile: tap", {"x": x, "y": y})
+
+    def open_notification(self):
+        actions = ActionChains(self.driver)
+        actions.w3c_actions = ActionBuilder(self.driver, mouse=PointerInput(interaction.POINTER_TOUCH, "touch"))
+        actions.w3c_actions.pointer_action.move_to_location(193, 11)
+        actions.w3c_actions.pointer_action.move_to_location(187, 541)
+        actions.perform()
