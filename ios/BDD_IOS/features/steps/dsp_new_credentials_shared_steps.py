@@ -54,7 +54,7 @@ def user_verifies_splash_screen_content(context):
 @then("user verifies the NHS logo")
 def user_verifies_nhs_logo(context):
     """step to verify nhs logo"""
-    assert context.review_and_confirm_initial_creds_page.verify_nhs_logo()
+    assert context.review_and_confirm_initial_creds_page.verify_nhs_logo_first_page()
 
 
 @then("user verifies the version number")

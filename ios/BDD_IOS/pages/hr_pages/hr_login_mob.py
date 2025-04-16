@@ -1,14 +1,15 @@
 """Contains login functions for HR login for mobile"""
 
 from appium.webdriver.common.appiumby import AppiumBy
+from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 from utilities import custom_logger
+
 
 logger = custom_logger.get_logger()
 
 # user_name = ReadProperty.get_user_id()
 # pwd = ReadProperty.get_pwd()
-
 USER_NAME = "parth.prajapati1@nhs.net"
 PWD = "Password@123"
 
@@ -18,56 +19,36 @@ global sms_text_body, passcode_sms
 class HRPortalLoginMob(BasePage):
     """contains the page actions & objects related to the hr portal form"""
 
+    # appium version locators
     login_page_xpath = AppiumBy.XPATH, '//XCUIElementTypeStaticText[@name="Login"]'
-    login_id_xpath = AppiumBy.XPATH, '//XCUIElementTypeTextField[@name="Email address"]'
-    password_id_xpath = (
-        AppiumBy.XPATH,
-        '//XCUIElementTypeSecureTextField[@name="Password"]',
-    )
-    login_button_xpath = AppiumBy.XPATH, '//XCUIElementTypeButton[@name="Login"]'
-    digital_staff_passport_portal_text_xpath = AppiumBy.XPATH, (
-        '//XCUIElementTypeStaticText[@name="Digital Staff Passport Portal"]'
-    )
-    login_id = '//XCUIElementTypeButton[@name="Login"]'
-    digital_staff_passport_portal_text = "Digital Staff Passport Portal"
-
-    def hr_portal_login_homepage(self):
-        """Browser is open and user clicks on register link"""
-        self.open_dsp_hr_portal_application_url()
-        self.user_defined_wait(5)
-        if self.verify_element_displayed(self.login_page_xpath):
-            self.click_element(self.login_page_xpath, "Click")
-            self.user_defined_wait(5)
+    login_id = By.ID, 'signInName'
+    password_id = By.ID, 'password'
+    login_button = By.ID, 'next'
+    digital_staff_passport_portal_text_xpath = By.XPATH, "//h1[contains(text(),' Digital Staff Passport Portal ')]"
+    # selenium version locators
+    login_page_xpath_selenium = 'xpath://XCUIElementTypeStaticText[@name="Login"]'
 
     def hr_portal_login_credentials_username(self):
         """Enter the username"""
-        # self.scroll_to_element("xpath", self.login_id)
-        if self.verify_element_displayed(self.login_id_xpath):
-            self.type_element(self.login_id_xpath, USER_NAME)
+        self.user_defined_wait(5)
+        self.type_element(self.login_id, USER_NAME, "username field")
 
     def hr_portal_login_credentials_password(self):
         """Enter the password"""
-        if self.verify_element_displayed(self.password_id_xpath):
-            self.type_element(self.password_id_xpath, PWD)
+        self.type_element(self.password_id, PWD, "password field")
 
     def hr_portal_click_login_button(self):
         """Click on login button"""
-        if self.verify_element_displayed(self.login_button_xpath):
-            self.click_element(self.login_button_xpath, "Click")
+        self.click_element_with_wait(self.login_button, "login button")
 
     def hr_portal_homepage(self):
         """Validate that home page is displayed"""
-        if self.verify_element_displayed(self.digital_staff_passport_portal_text_xpath):
-            message = self.read_value_from_element(
-                self.digital_staff_passport_portal_text_xpath
-            )
-            assert message in self.digital_staff_passport_portal_text
-            print(message)
-            self.take_screenshot("PASS")
+        self.verify_element_displayed(self.digital_staff_passport_portal_text_xpath)
+        self.take_screenshot("PASS")
+        return self.read_value_from_element(self.digital_staff_passport_portal_text_xpath)
 
     def hr_portal_login_homepage_share_journey(self, value):
         """Browser is open and user clicks on HR login link"""
         self.navigate_url(value)
-        if self.verify_element_displayed(self.login_page_xpath):
-            self.click_element(self.login_page_xpath, "Click")
-            self.user_defined_wait(5)
+        self.click_element_with_wait(self.login_page_xpath, "Click")
+        self.user_defined_wait(5)

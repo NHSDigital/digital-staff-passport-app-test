@@ -1,33 +1,38 @@
 # Created by parthp at 27/02/25
-Feature: DSP APP End to End Flow
-  # Pre-requisites: User has performed the initial app setup
-  #                 User has performed the Digi Identity
+Feature: DSP End to End Flow
 
-  Scenario: Validate the waiting for org to review screen on appstart
-    Given the ios app is launched with the specified activity
-    When click on continue button on finger recognition page
-    Then user enters the pin and click on continue
-    And validate the trust name and waiting message
-    Then validate receive an email message on screen
-    And user validates if question icon is present
+  Scenario: Validate no invite present in - app
+    Given user clicks on continue button on first page no invite
+    When user validate check your email popup
+    Then user clicks on close app
 
-  Scenario: HR Portal approves the user Identity, Right to work, DBS Supporting information
-    # HR Portal scripts
+  Scenario: Invitation from HR User - Single Passport Invite - mobile
+    Given Browser is open and user clicks on HR login link
+    When Enter the credentials & click on login button
+    Then Verify the HR portal homepage is displayed
+    Then Click on the Identity & Access Tab with HR Portal
+    Then Click on invitation of Single Passport link
+    And Select the single passport form radio button
+    Then Click on Continue button w.r.t single passport form
+    And Enter First name w.r.t single passport form
+    Then Enter Last name w.r.t single passport form
+    And Enter Day - DOB w.r.t single passport form
+    Then Enter Month - DOB w.r.t single passport form
+    And Enter Year - DOB w.r.t single passport form
+    Then Enter Email address w.r.t single passport form
+    And Enter Phone number w.r.t single passport form
+    Then Select the Staff group dropdown w.r.t single passport form
+    And Select the Emp Type dropdown w.r.t single passport form
+    Then Select the Emp Status dropdown w.r.t single passport form
+    And Click on continue button w.r.t single passport forms
+    Then Select create passport radio button w.r.t single passport form
+    And Click continue button button w.r.t create passport
+    Then Verify the status of the request under Identity & access search form
 
-  Scenario: Validate the identity credentials accepted email
-    # open notification, click on it, validate the email, minimize the screen, open the app
-
-  Scenario: Launch the app and verify the home page of the app
-    Given the ios app is launched with the specified activity
-    When click on continue button on finger recognition page
-    Then user enters the pin and click on continue
-    Then user verify the welcome message on the homepage
-    And user validates if question icon is present
-    Then user validates if account icon is present
-    And user validates if homepage has action section present
-    Then user validate that new provided credentials are visible on homepage
-    And user validate the tag present on the new credentials
-    Then user validates if credentials tab is present
+  Scenario: Save the start now link provided in the email - notification
+    Given user opens the received email from iphone notification
+    When user scroll till start now and saves the start now link present
+#     Then user clicks on the start now link
 
   Scenario: Verify Credentials page with dates
     Then user verifies the page heading
@@ -70,7 +75,7 @@ Feature: DSP APP End to End Flow
     Then user verifies back link is present
     Then user verifies the right to work credential details - "<Fields>"
     Then user verifies link something went wrong
-    Then user click confirm credential button
+    Then use click confirm credential button
     Then user see a spinner page with confirming credential
     Then user lands on credentials confirmed page
     Then user verifies the text on the page

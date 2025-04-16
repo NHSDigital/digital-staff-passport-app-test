@@ -11,11 +11,20 @@ import yaml
 from appium.options.common.base import AppiumOptions
 from appium import webdriver as appium_webdriver
 from appium.webdriver.appium_service import AppiumService
+from appium.webdriver.common.appiumby import AppiumBy
+from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import InvalidSelectorException
 from selenium.common.exceptions import NoSuchElementException
+from selenium import webdriver as selenium_webdriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+
+# For W3C actions
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.actions import interaction
+from selenium.webdriver.common.actions.action_builder import ActionBuilder
+from selenium.webdriver.common.actions.pointer_input import PointerInput
 
 from utilities import custom_logger
 from utilities.read_config import ReadProperty
@@ -34,13 +43,36 @@ class BasePage:
     package_name = "com.instagram.android"
     activity = "com.instagram.android.activity.MainTabActivity"
 
+    def open_browser(self, headless_mode):
+        """Open browser based on the browser type and headless option"""
+        browser_test = 'chrome'
+        if browser_test == 'chrome':
+            options = selenium_webdriver.ChromeOptions()
+            options.use_chromium = True
+            options.add_argument("--no-sandbox")
+            options.add_argument("--window-size=1920,1080")
+            options.add_argument('--disable-dev-shm-usage')
+            options.add_argument('--disable-gpu')
+            options.add_argument('log-level=3')
+            options.add_experimental_option('excludeSwitches', ['enable-logging'])
+            options.add_argument("ignore-certificate-errors")
+            if headless_mode == 'True':
+                options.add_argument("--headless")
+            # To avoid undesired logging on console
+            options.add_experimental_option("excludeSwitches", ["enable-logging"])
+            self.driver = selenium_webdriver.Chrome(options=options)
+            self.driver.set_page_load_timeout(100)
+            logger.info("Chrome Browser is open")
+            return self.driver
+        return
+
     def open_ios_app(self):
         """Open the ios app with below capabilities"""
         options = AppiumOptions()
         options.load_capabilities(
             {
                 "platformName": "iOS",
-                "appium:platformVersion": "18.1.1",
+                "appium:platformVersion": "18.3.2",
                 "appium:deviceName": "iPhone SE",
                 "appium:automationName": "XCUITest",
                 "appium:udid": "00008110-00065C913402601E",
@@ -85,7 +117,7 @@ class BasePage:
             options.load_capabilities(
                 {
                     "platformName": "iOS",
-                    "appium:platformVersion": "18.1.1",
+                    "appium:platformVersion": "18.3.2",
                     "appium:deviceName": "iPhone SE",
                     "appium:automationName": "XCUITest",
                     "appium:udid": "00008110-00065C913402601E",
@@ -129,6 +161,16 @@ class BasePage:
         else:
             logger.info("DSP HR application URL is open.")
             return self.driver
+
+    def hr_portal_login_homepage(self):
+        """Browser is open and user clicks on register link"""
+        self.open_dsp_hr_portal_application_url()
+        # self.user_defined_wait(5)
+
+    def click_login_on_login_page(self):
+        """click login page"""
+        self.click_element_with_wait((By.XPATH, "//a[contains(text(),'Login')]"), "Login button")
+
 
     def is_app_installed(self):
         """Check if the app is installed on the device."""
@@ -187,8 +229,9 @@ class BasePage:
         else:
             logger.info("No Appium server is running.")
 
-    def click_element(self, by_locator, objname=None):
+    def click_element_with_wait(self, by_locator, objname=None):
         """Click the element if displayed."""
+        self.verify_element_displayed(by_locator, objname)
         element = self.find_element(by_locator)
         if element:
             element.click()
@@ -237,7 +280,7 @@ class BasePage:
         """types the passed text into the web element"""
         try:
             WebDriverWait(self.driver, 30).until(
-                EC.presence_of_element_located(by_locator)
+                EC.element_to_be_clickable(by_locator)
             ).send_keys(text)
         except InvalidSelectorException:
             logger.error("Exception! Can't type on the element")
@@ -345,3 +388,20 @@ class BasePage:
             self.driver.quit()
         except Exception as error:
             print("Error closing Safari:%s", error)
+
+    def close_app(self):
+        """Closes the Safari browser on iOS."""
+        try:
+            self.driver.quit()
+        except Exception as error:
+            print("Error closing Safari:%s", error)
+
+    def tap_on_coordinates(self, x, y):
+        self.driver.execute_script("mobile: tap", {"x": x, "y": y})
+
+    def open_notification(self):
+        actions = ActionChains(self.driver)
+        actions.w3c_actions = ActionBuilder(self.driver, mouse=PointerInput(interaction.POINTER_TOUCH, "touch"))
+        actions.w3c_actions.pointer_action.move_to_location(193, 11)
+        actions.w3c_actions.pointer_action.move_to_location(187, 541)
+        actions.perform()

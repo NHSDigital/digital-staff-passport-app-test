@@ -13,10 +13,7 @@ from pages.hr_pages.hr_login_mob import HRPortalLoginMob  # Import the NHSAppAut
 @given('Browser is open and user clicks on HR login link')
 def get_browser_register_link(context):
     """Step to hr login link after browser is open"""
-    context.driver = logging.FileHandler.selenium_driver = HRPortalLoginMob.open_browser_mobile(context)
-    # context.driver = logging.FileHandler.selenium_driver = HRPortalLoginMob.open_browser_mobile_simulator(context)
     context.hr_portal_login = HRPortalLoginMob(context.driver)
-    context.hr_portal_login.hr_portal_login_homepage()
 
 
 @when('Enter the credentials & click on login button')
@@ -30,7 +27,8 @@ def hr_portal_login_credentials(context):
 @then('Verify the HR portal homepage is displayed')
 def hr_portal_homepage_displayed(context):
     """Step to verify the HR portal homepage is displayed"""
-    context.hr_portal_login.hr_portal_homepage()
+    digital_staff_passport_portal_text = "Digital Staff Passport Portal"
+    assert digital_staff_passport_portal_text in context.hr_portal_login.hr_portal_homepage()
 
 
 @given('Browser is open and user clicks on STH HR login link - share journey')
